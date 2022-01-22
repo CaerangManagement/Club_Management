@@ -35,20 +35,25 @@ header>p{
 }
 #box1{
     width: 500px;
-    height: 370px;
+    height: 380px;
     margin: 20px 10px;
     background-color: white;
     color: black;
     opacity: 0.9;
     text-align: center;
+    border-radius: 20px;
 }
 #box1 p{
     line-height: 40px;
     font-size: 18px;
 }
 #login_form{
-    padding-top: 60px;
     padding-bottom: 25px;
+}
+#login_form p{
+    text-align: center;
+    font-weight: 700;
+    font-size: 29px;
 }
 .login_div:first-child{
     background-image: url("../img/id.png");

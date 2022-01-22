@@ -32,24 +32,39 @@ function page(event){
     event.preventDefault();
 }
 
-//signup form 비밀번호 확인 함수
-const pass1 = document.querySelector('#password_div');
-const pass2 = document.querySelector('#password_verify_div');
-const signUpForm = document.querySelector('#login_form');
+/*
+//signup form 이멜,패스워드 등 빼먹은거 있나 확인하는 함수
+
+const signUpEmail = document.getElementById('email_div');
+const signUpPass = document.getElementById('password_div');
+const signUpPassver = document.getElementById('password_verify_div');
+const signUpBtn = document.getElementById('login_bnt');
+function signUpNullChk(event){
+        event.preventDefault();
+        alert('이멜써');
+}
+*/
+
+//signup form 비밀번호 확인 함수(끝 건들 ㄴㄴ)
+const pass1 = document.getElementById('password_div');
+const pass2 = document.getElementById('password_verify_div');
+const signUpForm = document.getElementById('login_form');
 function passwordChk(event){
-    if(pass1.value != pass2.value){
         event.preventDefault();
         alert('비밀번호를 다시 확인해주세요.');
-    }
 }
 signUpForm.addEventListener('submit',passwordChk);
 
-//signup form Admin password 확인 함수
-const adminPasswordInput = document.querySelector('#admin_password');
-const input1 = document.querySelector('.hidden');
+//signup form Admin password 확인 함수(끝 건들 ㄴㄴ)
 function AdminPasswordChk(event){
-    event.preventDefault();
+    const adminPasswordInput = document.getElementById('admin_password');
+    const adminWrap = document.getElementById('hidden_admin');
+    const signUpBox = document.getElementById('box1');
     if(adminPasswordInput.value=='asdf'){
-        input1.classList.remove('.hidden');
+        adminWrap.classList.remove('hidden');
+        signUpBox.style.height='520px';
+        alert('관리자 계정으로 회원가입이 가능합니다.');
+    }else{
+        alert('Please only admin');
     }
 }

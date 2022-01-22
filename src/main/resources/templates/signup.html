@@ -25,13 +25,15 @@
                     <div><input id="password_verify_div" class="login_div" type="password" name="password" placeholder="Password verify"></div>
                     <div id="admin_password_wrap">
                         <input id="admin_password" class="login_div" type="password" name="password" placeholder="Only Admin">
-                        <span><button id="admin_chk">Check</button></span>
+                        <span><button id="admin_chk" type="button" onclick="AdminPasswordChk();">Check</button></span>
                     </div>
-                    <input class='hidden' id="admin" type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER">
-                    <label class='hidden' for='admin'> admin</label>
-                    <input class='hidden' id="user" type="radio" name="auth" value="ROLE_USER" checked="checked">
-                    <label class='hidden' for='user'> user</label><br>
-                    <button id="login_bnt" onclick="AdminPasswordChk();">Sign up</button>
+                    <div id="hidden_admin" class= "hidden">
+                        <input id="admin" type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER">
+                        <label for='admin'> admin</label>
+                        <input id="user" type="radio" name="auth" value="ROLE_USER" checked="checked">
+                        <label for='user'> user</label><br>
+                    </div>
+                    <button id="login_bnt" type="submit" onsubmit="signUpNullChk();">Sign up</button>
                 </form>
                 <a id="btn1" href="../templates/login.html">login</a>
             </div>

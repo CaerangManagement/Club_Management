@@ -18,8 +18,9 @@
         <section id="sec1">
             <div id="box1" class="box">
                 <form id="login_form" action="/login" method="POST">
+                    <p>로그인</p>
                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                    <div id="email_div"><input class="login_div" type="text" name="username" placeholder="Email"></div>
+                    <div id="email_div"><input class="login_div" type="email" name="username" placeholder="Email"></div>
                     <div id="password_div"><input class="login_div" type="password" name="password" placeholder="Password"></div>
                     <button id="login_bnt" type="submit">Login</button>
                 </form>
