@@ -21,7 +21,5 @@ public class IndexController {
     public String singup(){
         return "/signup";
     }
-    //하하하하하하핳하
-    //하하하하하하하하하
 
 }
