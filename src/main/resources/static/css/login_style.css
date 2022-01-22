@@ -1,0 +1,107 @@
+body{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("../img/hallym_back.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom:0%
+}
+header{
+    margin-top: 110px;
+    justify-content: center;
+    position: relative;
+}
+header>p{
+    margin-top: 26px;
+    color: white;
+    text-align: center;
+    font-size: 17.8px;
+    font-weight: bold;
+}
+
+
+#sec1{
+    flex-direction: row;
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#box1{
+    width: 40%;
+    height: 400px;
+    margin: 20px 10px;
+    background-color: white;
+    color: black;
+    opacity: 0.9;
+    text-align: center;
+}
+#box1 p{
+    line-height: 40px;
+    font-size: 18px;
+}
+#login_form{
+    padding-top: 60px;
+}
+.login_div{
+    width: 251px;
+    height: 40px;
+}
+#btn1{
+    height: 39px;
+    width: 110px;
+    color: white;
+    background-color:rgb(20, 20, 40);
+    opacity: 0.9;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+}
+#btn1:hover{
+    background-color: black;
+    opacity: 1.0;
+}
+#btn2{
+    height: 39px;
+    width: 110px;
+    color: white;
+    background-color: dimgray;
+    opacity: 0.9;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+}
+#btn2:hover{
+    background-color: black;
+    opacity: 1.0;
+}
+.box>button{
+    border-radius: 10px;
+    border: none;
+    background-color: grey;
+    height: 30px;
+}
+footer{
+    position: relative;
+    top: 58px;
+}
+footer>a{
+    margin: 0 4px;
+}
+address{
+    position: relative;
+    font-style: normal;
+    font-size: 13px;
+    color: white;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    top: 70px;
+    padding-bottom: 40px;
+}

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>한림대학교 씨애랑 부원 관리</title>
+    <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/form_style.css" th:href="@{/css/form_style.css}">
+</head>
+<body>
+    <header>
+        <div id="header">
+            <ul id="header_ul_left">
+                <a class="header_ul_left_a" href="https://www.hallym.ac.kr/hallym_univ/"><li class="header_ul_left_li">한림대학교</li></a>
+                <a class="header_ul_left_a" href="../index.html"><li class="header_ul_left_li">HOME</li></a>
+            </ul>
+            <ul id="header_ul_right">
+                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html"><li class="header_ul_right_li">캠퍼스 맵</li></a>
+                <li class="header_ul_right_li">누군가의 이름</li>
+                <a class="header_ul_right_a"  href="../user/info.html"><li class="header_ul_right_li">마이페이지</li></a>
+                <a class="header_ul_right_a"  href=""><li class="header_ul_right_li">로그아웃</li></a>
+            </ul>
+        </div>
+        <div id="header_box">
+            <ul>
+                <a href="../index.html" th:href="@{/index}"><img id="head_img"  src="../img/logo.jpg" alt=""></a>
+                <a href="./list.html"  th:href="@{/list}"><img id="head_img2"  src="../img/logo2.png" alt=""></a>
+            </ul>
+        </div>
+        <div id="head_gray_layer"></div>
+    </header>
+
+    <section id="section">
+        <header id="section_header">
+            <div id="section_header_div1">
+                <span id="section_header_mange_span1"><img id="section_header_mange_img" src="../img/mange_logo.png" alt=""></span>
+                <span id="section_header_mange_span2">회원관리</span>
+            </div>
+        </header>
+        <article>
+            <form id="member_form" action="#" th:action="@{'/member/update/' + ${member.code}}" method="post" th:object=${member}>
+                <div id="member_form_level">
+                    <span id="member_form_level_span">직위&nbsp; &nbsp;</span>
+                    <select id="member_form_level_select" th:field="*{position}">
+                        <option value="회장" name="position">&nbsp; 회장</option>
+                        <option value="부회장" name="position">&nbsp; 부회장</option>
+                        <option value="팀장" name="position">&nbsp; 팀장</option>
+                        <option value="회원" name="position">&nbsp; 회원</option>
+                    </select>
+                </div>
+                <div>
+                    <table id="member_form_table">
+                        <tr>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">학과 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 학과를 입력하세요." th:field="*{department}"></td>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">학년 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 학년을 입력하세요." th:field="*{grade}"></td>
+                        </tr>
+                        <tr>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">학번 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 학번을 입력하세요." th:field="*{studentId}"></td>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">성명 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 성명을 입력하세요." th:field="*{memberName}"></td>
+                        </tr>
+                        <tr>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">전화번호 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 전화번호를 입력하세요." th:field="*{contact}"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="form_btn_wrap">
+                    <input id="cancle_btn" class="form_btn" type="button" value="취소" onclick="can();">
+                    <input class="form_btn" type="submit" value="저장">
+                </div>
+            </form>
+        </article>
+
+    </section>
+    <footer id="footer">
+        <div id="footer_top">
+            <ul id="footer_top_ul">
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP2/tab2">개인정보처리방침</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://was1.hallym.ac.kr:8081/HLMS/main/LoginPage.do">통합정보시스템</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub02/cP1/sCP1">학사일정</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP1">주요민원 연락처</a>
+                </li>
+            </ul>
+        </div>
+        <div id="footer_bottom">
+            <div id="footer_bottom_content_box">
+                <img src="../img/img_foot_logo.png">
+                <div id="content_box_text">
+                    <p>한림대학교</p>
+                    <p>강원도 춘천시 한림대학길 1 한림대학교 공학관</p>
+                    <p>1, Hallymdaehak-gil, Chuncheon-si, Gangwon-do, Republic of Korea</p>
+                    <p>Front-End, Dohyun Kim / E-Mail : rlaehgusqp@naver.com</p>
+                    <p>Back-End, Juyung Par / E-mail : okmlnsunok@gmail.com</p>
+                    <p>GitHub URL : <a href="https://github.com/CaerangManagement/Club_Management">https://github.com/CaerangManagement/Club_Management</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+
+</html>
