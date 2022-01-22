@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -20,9 +23,10 @@
             </ul>
             <ul id="header_ul_right">
                 <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html"><li class="header_ul_right_li">캠퍼스 맵</li></a>
-                <li class="header_ul_right_li">누군가의 이름</li>
+                <li class="header_ul_right_li" sec:authentication="name">이메일</li>
+                <li class="header_ul_right_li" sec:authentication="authorities">권한</li>
                 <a class="header_ul_right_a"  href="../user/info.html"><li class="header_ul_right_li">마이페이지</li></a>
-                <a class="header_ul_right_a"  href=""><li class="header_ul_right_li">로그아웃</li></a>
+                <a class="header_ul_right_a"  href="" th:href="@{/logout}"><li class="header_ul_right_li">로그아웃</li></a>
             </ul>
         </div>
         <div id="header_box">
@@ -61,7 +65,7 @@
                     <th class="th">이름</th>
                     <th class="th">연락처</th>
                     <th class="th">임원</th>
-                    <th class="th">관리</th>
+                    <th class="th" sec:authorize="hasRole('ROLE_ADMIN')">관리</th>
                 </thead>
                 <tbody>
                     <tr id=td th:each="member : ${members}">
@@ -71,11 +75,11 @@
                         <td th:text="${member.memberName}">김도현</td>
                         <td th:text=${member.contact}>010-2001-6448</td>
                         <td th:text=${member.position}>회장</td>
-                        <td id="table_btn_wrap">
-                            <a id="table_plus_btn" class="table_btn" href="" th:href="@{/member/form(code=${member.code})}">수정</a>
+                        <td id="table_btn_wrap" >
+                            <a id="table_plus_btn" class="table_btn" href="" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/member/form(code=${member.code})}">수정</a>
                             <form th:action="@{'/member/' + ${member.code}}" method="post">
                                 <input type="hidden" value="delete">
-                                <button id="getout" class="table_btn" onclick="getOut();">제명</button>
+                                <button id="getout" sec:authorize="hasRole('ROLE_ADMIN')" class="table_btn" onclick="getOut();">제명</button>
                             </form>
                         </td>
                     </tr>
@@ -88,10 +92,10 @@
                 <p class="mobile_section_article_p"><span th:text="${member.department}">소프트웨어융합대학</span><span th:text="${member.grade}">4</span><span th:text="${member.studentId}">20195120</span><span th:text=${member.contact}>010-2001-6448</span></p>
                 <p class="mobile_section_article_p"><span th:text=${member.position}>회장</span></p>
                 <div id="mobile_form">
-                    <a id="mobile_plus_btn" class="mobile_btn" href="" th:href="@{/member/form(code=${member.code})}">수정</a>
+                    <a id="mobile_plus_btn" class="mobile_btn" href="" th:href="@{/member/form(code=${member.code})}" sec:authorize="hasRole('ROLE_ADMIN')">수정</a>
                     <form th:action="@{'/member/' + ${member.code}}" method="post">
                         <input  type="hidden" value="delete">
-                        <button class="mobile_btn">제명</button>
+                        <button class="mobile_btn" sec:authorize="hasRole('ROLE_ADMIN')">제명</button>
                     </form>
                     <!--
                     <form action="">
@@ -105,7 +109,7 @@
             </div>
         </article>
         <footer id="section_footer">
-            <a id="section_footer_plus_btn" href="../member/add.html" th:href="@{/member/add}">추가하기</a>
+            <a id="section_footer_plus_btn" href="../member/add.html" th:href="@{/member/add}" sec:authorize="hasRole('ROLE_ADMIN')">추가하기</a>
             <ul id="section_footer_move_btn">
                 <li class="section_footer_btn" th:classappend="${1 == members.pageable.pageNumber + 1} ? 'disabled'">
                     <a th:href="@{/member/list(page=${members.pageable.pageNumber - 1},keyword=${param.keyword}, searchType=${param.searchType})}">&lt;</a>

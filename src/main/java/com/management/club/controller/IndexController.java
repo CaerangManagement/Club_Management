@@ -18,7 +18,7 @@ public class IndexController {
     }
     
     @GetMapping("/signup") //회원가입 페이지
-    public String singup(){
+    public String signup(){
         return "/signup";
     }
 

@@ -7,7 +7,7 @@
     <title>한림대학교 회원가입</title>
     <link rel="shortcut icon" type="image/x-icon" href="../static/img/hallym_icon.png" th:href="@{/img/hallym_icon.jpg}">
     <link rel="stylesheet" href="../static/css/signup_style.css" th:href="@{/css/login_style.css}" >
-    <link rel="stylesheet" href="../static/css/hidden.css">
+    <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
 </head>
 <body>
         <header>
@@ -20,11 +20,11 @@
             <div id="box1" class="box">
                 <form id="login_form" th:action="@{/user}" method="POST">
                     <p>회원가입</p>
-                    <div><input id="email_div" class="login_div" type="email" name="email" placeholder="Email"></div>
+                    <div><input id="email_div" class="login_div" type="text" name="email" placeholder="Email"></div>
                     <div><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
-                    <div><input id="password_verify_div" class="login_div" type="password" name="password" placeholder="Password verify"></div>
+                    <div><input id="password_verify_div" class="login_div" type="password" placeholder="Password verify"></div>
                     <div id="admin_password_wrap">
-                        <input id="admin_password" class="login_div" type="password" name="password" placeholder="Only Admin">
+                        <input id="admin_password" class="login_div" type="password"  placeholder="Only Admin">
                         <span><button id="admin_chk" type="button" onclick="AdminPasswordChk();">Check</button></span>
                     </div>
                     <div id="hidden_admin" class= "hidden">
@@ -33,9 +33,9 @@
                         <input id="user" type="radio" name="auth" value="ROLE_USER" checked="checked">
                         <label for='user'> user</label><br>
                     </div>
-                    <button id="login_bnt" type="submit" onsubmit="signUpNullChk();">Sign up</button>
+                    <button id="login_bnt" type="submit" >Sign up</button>
                 </form>
-                <a id="btn1" href="../templates/login.html">login</a>
+                <a id="btn1" href="../templates/login.html" th:href="@{/login}">login</a>
             </div>
         </section>
         <footer>
@@ -48,5 +48,5 @@
             COPYRIGHT© 2016 HALLYM UNIVERSITY. ALL RIGHTS RESERVED.<br>
         </address>
 </body>
-<script src="../static/js/script.js"></script>
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 </html>
