@@ -26,7 +26,30 @@ function can(eve){
 }
 
 
+
 const page_btn = document.querySelector('.page_btn');
 function page(event){
     event.preventDefault();
+}
+
+//signup form 비밀번호 확인 함수
+const pass1 = document.querySelector('#password_div');
+const pass2 = document.querySelector('#password_verify_div');
+const signUpForm = document.querySelector('#login_form');
+function passwordChk(event){
+    if(pass1.value != pass2.value){
+        event.preventDefault();
+        alert('비밀번호를 다시 확인해주세요.');
+    }
+}
+signUpForm.addEventListener('submit',passwordChk);
+
+//signup form Admin password 확인 함수
+const adminPasswordInput = document.querySelector('#admin_password');
+const input1 = document.querySelector('.hidden');
+function AdminPasswordChk(event){
+    event.preventDefault();
+    if(adminPasswordInput.value=='asdf'){
+        input1.classList.remove('.hidden');
+    }
 }
