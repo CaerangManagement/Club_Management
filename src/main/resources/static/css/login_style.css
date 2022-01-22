@@ -48,7 +48,7 @@ header>p{
 }
 #login_form{
     padding-top: 60px;
-    padding-bottom: 35px;
+    padding-bottom: 25px;
 }
 .login_div:first-child{
     background-image: url("../img/id.png");
