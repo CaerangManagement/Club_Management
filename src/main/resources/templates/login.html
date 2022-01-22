@@ -17,15 +17,13 @@
         </header>
         <section id="sec1">
             <div id="box1" class="box">
-
                 <form id="login_form" action="/login" method="POST">
                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     <div id="email_div"><input class="login_div" type="text" name="username" placeholder="Email"></div>
                     <div id="password_div"><input class="login_div" type="password" name="password" placeholder="Password"></div>
-                    <button type="submit">Login</button>
-                </form> <br>
-                <a href="/signup">Sign up</a>
-                <input id="btn2" type="button" value="바로가기 > "onClick="window.open('https://www.hallym.ac.kr/hallym_univ/')">
+                    <button id="login_bnt" type="submit">Login</button>
+                </form>
+                <a id="btn1" href="../templates/signup.html">Sign up</a>
             </div>
         </section>
         <footer>

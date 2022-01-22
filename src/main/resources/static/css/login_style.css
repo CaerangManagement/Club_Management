@@ -21,8 +21,7 @@ header>p{
     margin-top: 26px;
     color: white;
     text-align: center;
-    font-size: 17.8px;
-    font-weight: bold;
+    font-size: 19px;
 }
 
 
@@ -35,8 +34,8 @@ header>p{
     justify-content: center;
 }
 #box1{
-    width: 40%;
-    height: 400px;
+    width: 500px;
+    height: 370px;
     margin: 20px 10px;
     background-color: white;
     color: black;
@@ -49,36 +48,55 @@ header>p{
 }
 #login_form{
     padding-top: 60px;
+    padding-bottom: 35px;
+}
+.login_div:first-child{
+    background-image: url("../img/id.png");
+    background-repeat: no-repeat;
+}
+.login_div:last-child{
+    background-image: url("../img/password.png");
+    background-repeat: no-repeat;
+}
+#login_form div{
+    padding: 3px 0px 3px 0px;
 }
 .login_div{
-    width: 251px;
-    height: 40px;
+    width: 300px;
+    height: 50px;
+    font-size: 15px;
+    background-position: 5px center;
+    padding-left: 50px;
+    border: 2px solid #2e3238;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 3px;
+}
+#login_bnt{
+    margin-top: 30px;
+    width: 140px;
+    height: 50px;
+    background-color: #0066b3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+}
+#login_bnt:hover{
+    background-color: #042946;
+    cursor: pointer;
 }
 #btn1{
-    height: 39px;
-    width: 110px;
+    text-decoration: none;
+    background-color: rgb(65, 65, 65);
     color: white;
-    background-color:rgb(20, 20, 40);
-    opacity: 0.9;
-    font-size: 16px;
-    border: none;
-    border-radius: 20px;
+    border-radius: 8px;
+    padding: 7px 20px 10px 20px;
+    font-size: 14px;
+    height: 80px;
+    margin-top: 40px;
 }
 #btn1:hover{
-    background-color: black;
-    opacity: 1.0;
-}
-#btn2{
-    height: 39px;
-    width: 110px;
-    color: white;
-    background-color: dimgray;
-    opacity: 0.9;
-    font-size: 16px;
-    border: none;
-    border-radius: 20px;
-}
-#btn2:hover{
     background-color: black;
     opacity: 1.0;
 }
