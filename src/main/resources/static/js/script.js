@@ -32,6 +32,10 @@ function page(event){
     event.preventDefault();
 }
 
+//login form 에밀,패스워드 빠진거 있으면 로그인 안되게 하는 함수
+
+
+
 /*
 //signup form 이멜,패스워드 등 빼먹은거 있나 확인하는 함수
 
@@ -45,28 +49,3 @@ function signUpNullChk(event){
 }
 */
 
-//signup form 비밀번호 확인 함수(끝 건들 ㄴㄴ)
-const pass1 = document.getElementById('password_div');
-const pass2 = document.getElementById('password_verify_div');
-const signUpForm = document.getElementById('login_form');
-function passwordChk(event){
-        if(pass1.value!=pass2.value){
-            event.preventDefault();
-            alert('비밀번호를 다시 확인해주세요.');
-        }
-}
-signUpForm.addEventListener('submit',passwordChk);
-
-//signup form Admin password 확인 함수(끝 건들 ㄴㄴ)
-function AdminPasswordChk(event){
-    const adminPasswordInput = document.getElementById('admin_password');
-    const adminWrap = document.getElementById('hidden_admin');
-    const signUpBox = document.getElementById('box1');
-    if(adminPasswordInput.value=='asdf'){
-        adminWrap.classList.remove('hidden');
-        signUpBox.style.height='520px';
-        alert('관리자 계정으로 회원가입이 가능합니다.');
-    }else{
-        alert('Please only admin');
-    }
-}
