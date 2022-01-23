@@ -32,7 +32,7 @@ public class Board {
 
     private char deleteYn; //삭제 여부
 
-    private LocalDateTime createdDat = LocalDateTime.now();
+    private LocalDateTime createdDate = LocalDateTime.now(); //생성일
 
     private LocalDateTime modifiedDate; // 수정일
 
@@ -43,6 +43,14 @@ public class Board {
         this.writer = writer;
         this.hits = hits;
         this.deleteYn = deleteYn;
+    }
+
+    //수정된 게시물을 담을 곳
+    public void update(String title, String content, String writer) {
+        this.title = title;
+        this.content = content;
+        this.writer = writer;
+        this.modifiedDate = LocalDateTime.now();
     }
 
 }
