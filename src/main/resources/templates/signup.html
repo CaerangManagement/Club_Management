@@ -21,15 +21,18 @@
             <div id="box1" class="box">
 
                 <form id="login_form" name="loginForm" th:action="@{/user}" method="POST">
-                    <p>회원가입</p>
-                    <div id="admin_email_wrap">
-                        <input id="email_div" class="login_div" type="text" name="email" placeholder="Email">
+                    <p id="form_title">회원가입</p>
+                    <div id="admin_email_wrap" class="input_div">
+                        <input id="email_div" class="login_div" type="email" name="email" placeholder="Email">
 <!--                        <span class="id_input_re_1">사용 가능한 이메일입니다.</span>-->
 <!--                        <span class="id_input_re_2">이메일이 이미 존재합니다.</span>-->
                     </div>
-                    <div><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
-                    <div><input id="password_verify_div" class="login_div" name="passver" type="password" placeholder="Password verify"></div>
-                    <div id="admin_password_wrap">
+                    <p id="login_id_null_notice" class="hidden">이메일을 입력해주세요.</p>
+                    <div class="input_div"><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
+                    <p id="login_pass_null_notice" class="hidden">비밀번호를 입력해주세요.</p>
+                    <div class="input_div"><input id="password_verify_div" class="login_div" name="passver" type="password" placeholder="Password verify"></div>
+                    <p id="login_passver_null_notice" class="hidden">비밀번호를 같게 입력해주세요.</p>
+                    <div id="admin_password_wrap" class="input_div">
                         <input id="admin_password" class="login_div" type="password" placeholder="Only Admin">
                         <span><button id="admin_chk" type="button" onclick="adminPasswordChk();">Check</button></span>
                     </div>
@@ -39,7 +42,7 @@
                         <input id="user" type="radio" name="auth" value="ROLE_USER" checked="checked">
                         <label for='user'> user</label><br>
                     </div>
-                    <button id="login_bnt" type="submit" >Sign up</button>
+                    <button id="login_bnt" type="submit">Sign up</button>
                 </form>
                 <a id="btn1" href="../templates/login.html" th:href="@{/login}">login</a>
             </div>

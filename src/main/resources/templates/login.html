@@ -7,6 +7,7 @@
     <title>한림대학교 로그인</title>
     <link rel="shortcut icon" type="image/x-icon" href="../static/img/hallym_icon.png" th:href="@{/img/hallym_icon.jpg}">
     <link rel="stylesheet" href="../static/css/login_style.css" th:href="@{/css/login_style.css}" >
+    <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
 </head>
 <body>
         <header>
@@ -18,10 +19,12 @@
         <section id="sec1">
             <div id="box1" class="box">
                 <form id="login_form" name="loginForm" action="/login" method="POST">
-                    <p>로그인</p>
+                    <p id="login_title">로그인</p>
                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     <div><input id="email_div" class="login_div" type="email" name="username" placeholder="Email"></div>
+                    <p id="login_id_null_notice" class="hidden">이메일을 입력해주세요.</p>
                     <div><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
+                    <p id="login_pass_null_notice" class="hidden">비밀번호를 입력해주세요.</p>
                     <button id="login_bnt" type="submit">Login</button>
                 </form>
                 <a id="btn1" href="../templates/signup.html" th:href="@{/signup}">Join with us!</a>

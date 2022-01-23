@@ -43,15 +43,11 @@ header>p{
     text-align: center;
     border-radius: 20px;
 }
-#box1 p{
-    line-height: 40px;
-    font-size: 18px;
-}
 #login_form{
     padding :5px;
     padding-bottom: 25px;
 }
-#login_form p{
+#form_title{
     text-align: center;
     font-weight: 700;
     font-size: 29px;
@@ -116,6 +112,27 @@ header>p{
 }
 #login_form div{
     padding: 3px 0px 3px 0px;
+}
+#login_id_null_notice{
+    font-size: 12px;
+    margin: 5px 0;
+    text-align: start;
+    padding-left: 100px;
+    color: red;
+}
+#login_pass_null_notice{
+    font-size: 12px;
+    margin: 5px 0;
+    text-align: start;
+    padding-left: 100px;
+    color: red;
+}
+#login_passver_null_notice{
+    font-size: 12px;
+    margin: 5px 0;
+    text-align: start;
+    padding-left: 100px;
+    color: red;
 }
 .login_div{
     width: 300px;

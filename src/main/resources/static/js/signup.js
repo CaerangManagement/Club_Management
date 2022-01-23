@@ -4,14 +4,28 @@ const signUpPass = document.getElementById('password_div');
 const signUpPassVer = document.getElementById('password_verify_div');
 const loginForm = document.getElementById('login_form');
 
-function loginNullChk(e){
+const idNullChkText = document.getElementById('login_id_null_notice');
+const passNullChkText = document.getElementById('login_pass_null_notice');
 
-    if(loginForm.email.value=="" || loginForm.password.value=="" || loginForm.passver.value==""){
+function loginNullChk(e){
+    if(loginForm.email.value=="" && loginForm.password.value=="" && loginForm.passver.value==""){
         e.preventDefault();
         document.loginForm.email.focus();
-        signUpEmail.style.border="2px solid blue";
-
-        alert("아이디와 비밀번호를 입력해주세요.");
+        idNullChkText.classList.remove('hidden');
+        passNullChkText.classList.remove('hidden');
+    }else if(loginForm.email.value==""){
+        e.preventDefault();
+        document.loginForm.email.focus();
+        idNullChkText.classList.remove('hidden');
+        passNullChkText.classList.add('hidden');
+    }else if(loginForm.password.value=="" && loginForm.passver.value==""){
+        e.preventDefault();
+        document.loginForm.password.focus();
+        passNullChkText.classList.remove('hidden');
+        idNullChkText.classList.add('hidden');
+    }else{
+        passNullChkText.classList.add('hidden');
+        idNullChkText.classList.add('hidden');
     }
 }
 loginForm.addEventListener('submit',loginNullChk);
@@ -20,10 +34,14 @@ loginForm.addEventListener('submit',loginNullChk);
 const pass1 = document.getElementById('password_div');
 const pass2 = document.getElementById('password_verify_div');
 const signUpForm = document.getElementById('login_form');
+const passverNullChkText = document.getElementById('login_passver_null_notice');
+
 function passwordChk(event){
         if(pass1.value!=pass2.value){
             event.preventDefault();
-            alert('비밀번호가 같게 다시 입력해주세요.');
+            passverNullChkText.classList.remove('hidden');
+        }else if(pass1.value==pass2.value){
+            passverNullChkText.classList.add('hidden');
         }
 }
 signUpForm.addEventListener('submit',passwordChk);
