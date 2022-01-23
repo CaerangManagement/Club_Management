@@ -37,6 +37,10 @@ public class UserService implements UserDetailsService {
                 .auth(infoDto.getAuth())
                 .password(infoDto.getPassword()).build()).getCode(); //고유값인 code를 리턴
     }
+
+    public boolean checkEmailDuplicate(String email){
+        return userRepository.existsByEmail(email);
+    }
 }
 
 

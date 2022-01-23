@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../static/img/hallym_icon.png" th:href="@{/img/hallym_icon.jpg}">
     <link rel="stylesheet" href="../static/css/signup_style.css" th:href="@{/css/login_style.css}" >
     <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
+
 </head>
 <body>
         <header>
@@ -18,11 +19,13 @@
         </header>
         <section id="sec1">
             <div id="box1" class="box">
+
                 <form id="login_form" name="loginForm" th:action="@{/user}" method="POST">
                     <p>회원가입</p>
                     <div id="admin_email_wrap">
                         <input id="email_div" class="login_div" type="text" name="email" placeholder="Email">
-                        <span><button id="email_chk" type="button">Check</button></span>
+<!--                        <span class="id_input_re_1">사용 가능한 이메일입니다.</span>-->
+<!--                        <span class="id_input_re_2">이메일이 이미 존재합니다.</span>-->
                     </div>
                     <div><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
                     <div><input id="password_verify_div" class="login_div" name="passver" type="password" placeholder="Password verify"></div>
@@ -50,6 +53,9 @@
             (24252)강원도 춘천시 한림대학길 1 대표 033-248-1000 입학안내 033-248-1302~4 팩스 033-248-3333<br>
             COPYRIGHT© 2016 HALLYM UNIVERSITY. ALL RIGHTS RESERVED.<br>
         </address>
+
 </body>
-<script src="../static/js/signup.js" th:src="@{/js/script.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
+<script src="../static/js/signup.js" th:src="@{/js/signup.js}"></script>
+<script src="../static/js/emailCheck.js" th:src="@{/js/emailCheck.js}"></script>
 </html>
