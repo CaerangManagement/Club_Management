@@ -50,8 +50,10 @@ const pass1 = document.getElementById('password_div');
 const pass2 = document.getElementById('password_verify_div');
 const signUpForm = document.getElementById('login_form');
 function passwordChk(event){
-        event.preventDefault();
-        alert('비밀번호를 다시 확인해주세요.');
+        if(pass1.value!=pass2.value){
+            event.preventDefault();
+            alert('비밀번호를 다시 확인해주세요.');
+        }
 }
 signUpForm.addEventListener('submit',passwordChk);
 
