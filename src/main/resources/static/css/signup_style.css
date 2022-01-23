@@ -1,0 +1,160 @@
+body{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("../img/hallym_back.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom:0%
+}
+header{
+    margin-top: 110px;
+    justify-content: center;
+    position: relative;
+}
+header>p{
+    margin-top: 26px;
+    color: white;
+    text-align: center;
+    font-size: 19px;
+}
+
+
+#sec1{
+    flex-direction: row;
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#box1{
+    width: 500px;
+    height: 500px;
+    margin: 20px 10px;
+    background-color: white;
+    color: black;
+    opacity: 0.9;
+    text-align: center;
+    border-radius: 20px;
+}
+#box1 p{
+    line-height: 40px;
+    font-size: 18px;
+}
+#login_form{
+    padding :5px;
+    padding-bottom: 25px;
+}
+#login_form p{
+    text-align: center;
+    font-weight: 700;
+    font-size: 29px;
+}
+#email_div{
+    background-image: url("../img/id.png");
+    background-repeat: no-repeat;
+}
+#password_div{
+    background-image: url("../img/password.png");
+    background-repeat: no-repeat;
+}
+#password_verify_div{
+    background-image: url("../img/password.png");
+    background-repeat: no-repeat;
+}
+#hidden_admin{
+    margin-top: 15px;
+}
+#admin_password_wrap{
+    margin-left: 80px;
+}
+#admin_chk{
+    border: none;
+    background-color: #5092c4;
+    color: white;
+    margin-top: -1px;
+    margin-left: 3px;
+    font-size: 15px;
+    width: 70px;
+    height: 50px;
+    border-radius: 3px;
+}
+#admin_chk:hover{
+    cursor: pointer;
+    background-color: #296c9f;
+}
+#admin_password{
+    background-image: url("../img/password.png");
+    background-repeat: no-repeat; 
+}
+#login_form div{
+    padding: 3px 0px 3px 0px;
+}
+.login_div{
+    width: 300px;
+    height: 50px;
+    font-size: 15px;
+    background-position: 5px center;
+    padding-left: 50px;
+    border: 2px solid #2e3238;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 3px;
+}
+#login_bnt{
+    margin-top: 30px;
+    width: 140px;
+    height: 50px;
+    background-color: #0066b3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+}
+#login_bnt:hover{
+    background-color: #042946;
+    cursor: pointer;
+}
+#btn1{
+    text-decoration: none;
+    background-color: rgb(65, 65, 65);
+    color: white;
+    border-radius: 8px;
+    padding: 7px 20px 10px 20px;
+    font-size: 14px;
+    height: 80px;
+    margin-top: 40px;
+}
+#btn1:hover{
+    background-color: black;
+    opacity: 1.0;
+}
+.box>button{
+    border-radius: 10px;
+    border: none;
+    background-color: grey;
+    height: 30px;
+}
+footer{
+    position: relative;
+    top: 58px;
+}
+footer>a{
+    margin: 0 4px;
+}
+address{
+    position: relative;
+    font-style: normal;
+    font-size: 13px;
+    color: rgb(8, 6, 6);
+    margin-top: 40px;
+    margin-bottom: 80px;
+    top: 70px;
+    padding-bottom: 40px;
+}

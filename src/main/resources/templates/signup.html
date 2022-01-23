@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한림대학교 회원가입</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/hallym_icon.png" th:href="@{/img/hallym_icon.jpg}">
+    <link rel="stylesheet" href="../static/css/signup_style.css" th:href="@{/css/login_style.css}" >
+    <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
+</head>
+<body>
+        <header>
+            <a href="https://www.hallym.ac.kr/hallym_univ/"><img src="../static/img/hallym_main.png" th:src="@{/img/hallym_main.png}" alt="한림대학교"></a>
+            <p>글로벌 선진 일류대학, 한림대학교<br>
+            융, 복합 교육을 통해 글로벌 인재를 양성합니다.
+            </p>
+        </header>
+        <section id="sec1">
+            <div id="box1" class="box">
+                <form id="login_form" th:action="@{/user}" method="POST">
+                    <p>회원가입</p>
+                    <div><input id="email_div" class="login_div" type="text" name="email" placeholder="Email"></div>
+                    <div><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
+                    <div><input id="password_verify_div" class="login_div" type="password" placeholder="Password verify"></div>
+                    <div id="admin_password_wrap">
+                        <input id="admin_password" class="login_div" type="password"  placeholder="Only Admin">
+                        <span><button id="admin_chk" type="button" onclick="AdminPasswordChk();">Check</button></span>
+                    </div>
+                    <div id="hidden_admin" class= "hidden">
+                        <input id="admin" type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER">
+                        <label for='admin'> admin</label>
+                        <input id="user" type="radio" name="auth" value="ROLE_USER" checked="checked">
+                        <label for='user'> user</label><br>
+                    </div>
+                    <button id="login_bnt" type="submit" >Sign up</button>
+                </form>
+                <a id="btn1" href="../templates/login.html" th:href="@{/login}">login</a>
+            </div>
+        </section>
+        <footer>
+            <a href="https://blog.naver.com/hallymde1330"><img src="../static/img/blog.png" th:src="@{/img/blog.png}" alt="Naver_blog"></a>
+            <a href="https://www.facebook.com/hallymuni"><img src="../static/img/facebook.png" th:src="@{/img/facebook.png}" alt="Facebook"></a>
+            <a href="https://www.instagram.com/hallym_university/"><img src="../static/img/instagram.png"  th:src="@{/img/instagram.png}" alt="Instagram"></a>
+        </footer>
+        <address>
+            (24252)강원도 춘천시 한림대학길 1 대표 033-248-1000 입학안내 033-248-1302~4 팩스 033-248-3333<br>
+            COPYRIGHT© 2016 HALLYM UNIVERSITY. ALL RIGHTS RESERVED.<br>
+        </address>
+</body>
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+</html>
