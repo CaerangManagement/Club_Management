@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>한림대학교 씨애랑 부원 관리</title>
+    <link rel="stylesheet" href="../../static/css/list_style.css" th:href="@{/css/list_style.css}">
+    <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/disabled.css" th:href="@{/css/disabled.css}">
+</head>
+<body>
+    <header>
+        <div id="header">
+            <ul id="header_ul_left">
+                <a class="header_ul_left_a" href="https://www.hallym.ac.kr/hallym_univ/"><li class="header_ul_left_li">한림대학교</li></a>
+                <a class="header_ul_left_a" href="../index.html"><li class="header_ul_left_li">HOME</li></a>
+            </ul>
+            <ul id="header_ul_right">
+                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html"><li class="header_ul_right_li">캠퍼스 맵</li></a>
+                <li class="header_ul_right_li" sec:authentication="name">이메일</li>
+                <li class="header_ul_right_li" sec:authentication="authorities">권한</li>
+                <a class="header_ul_right_a"  href="../user/info.html"><li class="header_ul_right_li">마이페이지</li></a>
+                <a class="header_ul_right_a"  href="" th:href="@{/logout}"><li class="header_ul_right_li">로그아웃</li></a>
+            </ul>
+        </div>
+        <div id="header_box">
+            <ul>
+                <a href="../index.html" th:href="@{/index}"><img id="head_img"  src="../img/logo.jpg" alt=""></a>
+                <a href="./list.html"  th:href="@{/list}"><img id="head_img2"  src="../img/logo2.png" alt=""></a>
+            </ul>
+        </div>
+        <div id="head_gray_layer"></div>
+    </header>
+
+    <section id="section">
+        <header id="section_header">
+            <div id="section_header_div1">
+                <span id="section_header_mange_span1"><img id="section_header_mange_img" src="../img/mange_logo.png" alt=""></span>
+                <span id="section_header_mange_span2">회원관리</span>
+            </div>
+                <div id="section_header_div2">
+                    <form id="section_header_form" th:action="@{/member/list}" method="GET">
+                        <select id="section_header_selectBox" name="searchType">
+                            <option value="1">&nbsp; 이름</option>
+                            <option value="2">&nbsp; 학번</option>
+                            <option value="3">&nbsp; 소속</option>
+                        </select>
+                        <input id="section_header_input" type="text" placeholder="   검색어를 입력해 주세요" name="keyword" th:value="${param.keyword}">
+                        <button type="submit" id="section_header_button">검색</button>
+                    </form>
+                </div>
+        </header>
+        <article id="section_article">
+            <table id="section_article_table">
+                <thead>
+                    <th class="th">소속</th>
+                    <th class="th">학년</th>
+                    <th class="th">학번</th>
+                    <th class="th">이름</th>
+                    <th class="th">연락처</th>
+                    <th class="th">임원</th>
+                    <th class="th" sec:authorize="hasRole('ROLE_ADMIN')">관리</th>
+                </thead>
+                <tbody>
+                    <tr id=td th:each="member : ${members}">
+                        <td th:text="${member.department}">소프트웨어융합대학</td>
+                        <td th:text="${member.grade}">3</td>
+                        <td th:text="${member.studentId}">20195120</td>
+                        <td th:text="${member.memberName}">김도현</td>
+                        <td th:text=${member.contact}>010-2001-6448</td>
+                        <td th:text=${member.position}>회장</td>
+                        <td id="table_btn_wrap" >
+                            <a id="table_plus_btn" class="table_btn" href="" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/member/form(code=${member.code})}">수정</a>
+                            <form th:action="@{'/member/' + ${member.code}}" method="post">
+                                <input type="hidden" value="delete">
+                                <button id="getout" sec:authorize="hasRole('ROLE_ADMIN')" class="table_btn" onclick="getOut();">제명</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <article id="mobile_section_article" th:each="member : ${members}">
+            <div class="mobile_section_article_div">
+                <p class="mobile_section_article_p_name">이름 : <span th:text="${member.memberName}">김도현</span></p>
+                <p class="mobile_section_article_p"><span th:text="${member.department}">소프트웨어융합대학</span><span th:text="${member.grade}">4</span><span th:text="${member.studentId}">20195120</span><span th:text=${member.contact}>010-2001-6448</span></p>
+                <p class="mobile_section_article_p"><span th:text=${member.position}>회장</span></p>
+                <div id="mobile_form">
+                    <a id="mobile_plus_btn" class="mobile_btn" href="" th:href="@{/member/form(code=${member.code})}" sec:authorize="hasRole('ROLE_ADMIN')">수정</a>
+                    <form th:action="@{'/member/' + ${member.code}}" method="post">
+                        <input  type="hidden" value="delete">
+                        <button class="mobile_btn" sec:authorize="hasRole('ROLE_ADMIN')">제명</button>
+                    </form>
+                    <!--
+                    <form action="">
+                        <input id="mobile_plus_btn" class="mobile_btn" type="button" value="수정">
+                    </form>
+                    <form action="">
+                        <input class="mobile_btn" type="button" value="제명">
+                    </form>
+                    -->
+                </div>
+            </div>
+        </article>
+        <footer id="section_footer">
+            <a id="section_footer_plus_btn" href="../member/add.html" th:href="@{/member/add}" sec:authorize="hasRole('ROLE_ADMIN')">추가하기</a>
+            <ul id="section_footer_move_btn">
+                <li class="section_footer_btn" th:classappend="${1 == members.pageable.pageNumber + 1} ? 'disabled'">
+                    <a th:href="@{/member/list(page=${members.pageable.pageNumber - 1},keyword=${param.keyword}, searchType=${param.searchType})}">&lt;</a>
+                </li>
+                <li class="section_footer_btn_num" th:classappend="${i == members.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}">
+                    <a th:href="@{/member/list(page=${i-1}, keyword=${param.keyword}, searchType=${param.searchType})}" th:text="${i}">1</a>
+                </li>
+                <li class="section_footer_btn" th:classappend="${members.totalPages == members.pageable.pageNumber + 1} ? 'disabled'">
+                    <a th:href="@{/member/list(page=${members.pageable.pageNumber + 1},keyword=${param.keyword}, searchType=${param.searchType})}">&gt;</a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+    <footer id="footer">
+        <div id="footer_top">
+            <ul id="footer_top_ul">
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP2/tab2">개인정보처리방침</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://was1.hallym.ac.kr:8081/HLMS/main/LoginPage.do">통합정보시스템</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub02/cP1/sCP1">학사일정</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP1">주요민원 연락처</a>
+                </li>
+            </ul>
+        </div>
+        <div id="footer_bottom">
+            <div id="footer_bottom_content_box">
+                <img src="../img/img_foot_logo.png">
+                <div id="content_box_text">
+                    <p>한림대학교</p>
+                    <p>강원도 춘천시 한림대학길 1 한림대학교 공학관</p>
+                    <p>1, Hallymdaehak-gil, Chuncheon-si, Gangwon-do, Republic of Korea</p>
+                    <p>Front-End, Dohyun Kim / E-Mail : rlaehgusqp@naver.com</p>
+                    <p>Back-End, Juyung Par / E-mail : okmlnsunok@gmail.com</p>
+                    <p>GitHub URL : <a href="https://github.com/CaerangManagement/Club_Management">https://github.com/CaerangManagement/Club_Management</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+</html>
