@@ -23,8 +23,6 @@ header>p{
     text-align: center;
     font-size: 19px;
 }
-
-
 #sec1{
     flex-direction: row;
     margin-top: 30px;
@@ -32,6 +30,7 @@ header>p{
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-bottom: 30px;
 }
 #box1{
     width: 500px;
@@ -181,20 +180,5 @@ header>p{
     background-color: grey;
     height: 30px;
 }
-footer{
-    position: relative;
-    top: 58px;
-}
-footer>a{
-    margin: 0 4px;
-}
-address{
-    position: relative;
-    font-style: normal;
-    font-size: 13px;
-    color: rgb(8, 6, 6);
-    margin-top: 40px;
-    margin-bottom: 80px;
-    top: 70px;
-    padding-bottom: 40px;
-}
+
+/*----------1024~1165 reaction 반응형-------------*/
