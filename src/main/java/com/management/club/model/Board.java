@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) //동일한 패키지 내의 클래스에서만 객체를 생성할 수 있도록 제어한다.
 @Entity
-public class Board {
+public class Board{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

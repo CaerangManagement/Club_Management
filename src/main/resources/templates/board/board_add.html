@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../static/css/board_add_style.css" th:href="@{/css/list_style.css}">
     <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
-    <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/disabled.css}">
+    <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/hidden.css}">
 </head>
 
 <body>
@@ -59,19 +59,23 @@
             </div>
         </header>
         <article id="section_article">
-            <form id="section_article_form" action="">
+            <form id="section_article_form" th:action="@{/api/boards}" method="post">
                 <table id="section_article_table" border="1">
                     <tr>
-                        <td id="section_article_table_title_wrap"><input id="section_article_table_title" type="text" placeholder="제목을 입력해주세요."></td>
+                        <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
                     </tr>
                     <tr>
-                        <td class="hidden"><input type="text">작성자</td>
+                        <td><input name="writer" type="text" placeholder="작성자를 입력해주세요."></td>
+                        <td><input name="deleteYn" type="hidden" placeholder="작성자를 입력해주세요." value="n"></td>
+<!--                        <td class="hidden"><div name="writer" sec:authentication="name"></div>-->
+<!--&lt;!&ndash;                            <input type="text" name="writer" sec:authentication="name">작성자</td>&ndash;&gt;-->
                     </tr>
                     <tr>
-                        <td id="section_article_table_main_wrap"><input id="section_article_table_main" type="textarea" placeholder="내용을 입력해주세요."></td>
+                        <td id="section_article_table_main_wrap"><input id="section_article_table_main" name="content" type="textarea" placeholder="내용을 입력해주세요."></td>
                     </tr>
                 </table>
-                <button type="button">제출하기</button>
+                <a th:href="@{/board/list}">뒤로가기</a>
+                <input type="submit"  value="추가하기" />
             </form>
         </article>
     </section>
@@ -110,5 +114,6 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+<script src="../../static/js/boardAdd.js" th:src="@{/js/boardAdd.js}"></script>
 
 </html>

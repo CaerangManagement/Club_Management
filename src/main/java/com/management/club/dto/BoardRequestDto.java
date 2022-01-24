@@ -1,11 +1,10 @@
 package com.management.club.dto;
 
 import com.management.club.model.Board;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BoardRequestDto {
 
@@ -23,5 +22,6 @@ public class BoardRequestDto {
                 .deleteYn(deleteYn)
                 .build();
     }
+
 
 }

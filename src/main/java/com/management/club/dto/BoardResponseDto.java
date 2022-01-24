@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import com.management.club.model.Board;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class BoardResponseDto {
 
     private Long id; // PK
