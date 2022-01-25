@@ -101,9 +101,9 @@ public class BoardController {
 
     //상세정보 조회
     @GetMapping("/api/boards/{id}")
-    String findById(@PathVariable final Long id) {
-        boardService.findById(id);
-        return "redirect:/board/list"; //나중에 상세정보 페이지로 이동하는거로 수정
+    String findById(@PathVariable final Long id, Model model) {
+        model.addAttribute("board", boardService.findById(id));
+        return "/board/board_view"; //나중에 상세정보 페이지로 이동하는거로 수정
     }
 
 }

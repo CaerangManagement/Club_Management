@@ -66,8 +66,8 @@
                     <th class="th">조회수</th>
                 </thead>
                 <tbody>
-                    <tr id=td th:each="board : ${boards}">
-                        <td th:text="${board.id}">1</td>
+                    <tr id=td th:each="board : ${boards}" th:onclick="'javascript:userDetail('+ ${board.id} + ');'">
+                        <td th:text="${board.id}" >1</td>
                         <td th:text="${board.title}">1번 게시글</td>
                         <td th:text="${board.writer}">김도현</td>
                         <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
@@ -130,5 +130,10 @@
         </div>
     </footer>
 </body>
+<script type="text/javascript" th:inline="javascript">
+			var userDetail = function(seq) {
+				window.open("/api/boards/"+ seq);
+			}
+</script>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 </html>

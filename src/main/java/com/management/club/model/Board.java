@@ -36,7 +36,7 @@ public class Board{
 
 
     @Builder
-    public Board(String title, String content, String writer, int hits, char deleteYn, String fileName, MultipartFile uploadFile) {
+    public Board(String title, String content, String writer, int hits, char deleteYn) {
         this.title = title;
         this.content = content;
         this.writer = writer;
