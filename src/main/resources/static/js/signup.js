@@ -15,6 +15,7 @@ function loginNullChk(e){
         document.loginForm.email.focus();
         idNullChkText.classList.remove('hidden');
         passNullChkText.classList.remove('hidden');
+        console.log (signUpBox.style.height);
         signUpBox.style.height='580px';
     }else if(loginForm.email.value==""){
         e.preventDefault();

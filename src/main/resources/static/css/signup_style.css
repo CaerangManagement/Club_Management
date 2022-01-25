@@ -198,7 +198,7 @@ header{
         bottom:0%
     }
 }
-@media (max-width: 1165px){
+@media (max-width: 1024px){
     body{
         position: absolute;
         display: flex;
@@ -236,6 +236,7 @@ header{
         position: relative;
         padding: 25px 0px 20px 0px;
         box-shadow: 0.5px 0.5px 10px black;
+        background-color: white;
     }
     #main_img_wrap{
         display: flex;
@@ -251,9 +252,13 @@ header{
     #sec1{
         
     }
+    #box1{
+        height: 400px;
+    }
     #form_title{
         font-size: 22px;
-        text-align: start;
+        text-align: center;
+        padding: 20px 0;
     }
     .login_div{
         width: 230px;
