@@ -1,12 +1,10 @@
 package com.management.club.controller;
 
 import com.management.club.dto.BoardRequestDto;
-import com.management.club.dto.BoardResponseDto;
 import com.management.club.model.Board;
 import com.management.club.repository.BoardRepository;
 import com.management.club.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -14,6 +12,8 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.io.IOException;
+
 
 
 @RequiredArgsConstructor
@@ -30,7 +30,7 @@ public class BoardController {
      * 게시글 리스트 조회
      */
     @GetMapping("/board/list")
-    public String board_list(Model model , @PageableDefault(size = 4 , direction = Sort.Direction.DESC) Pageable pageable,
+    public String board_list(Model model , @PageableDefault(size = 6 , sort="createdDate", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
                              @RequestParam(value ="searchType", required = false, defaultValue = "1") String searchType){
 
@@ -75,21 +75,35 @@ public class BoardController {
         return "/board/board_add";
     }
 
+    /*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡapiㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
     
     //게시글 생성
     @PostMapping("/api/boards")
-    String save(@ModelAttribute BoardRequestDto params) {
+    String save(@ModelAttribute BoardRequestDto params) throws IOException {
+
         boardService.save(params);
         return "redirect:/board/list";
     }
-
-    /**
-     * 게시글 수정
-     */
-    @PatchMapping("api/boards/{id}")
+    
+    //게시글 수정
+    @PatchMapping("/api/boards/{id}")
     String save(@PathVariable final Long id, @RequestBody final BoardRequestDto params) {
         boardService.update(id, params);
         return "redirect:/board/list";
+    }
+
+    //게시글 삭제
+    @DeleteMapping("/api/boards/{id}")
+    String delete(@PathVariable final Long id) {
+        boardService.delete(id);
+        return "redirect:/board/list"; 
+    }
+
+    //상세정보 조회
+    @GetMapping("/api/boards/{id}")
+    String findById(@PathVariable final Long id) {
+        boardService.findById(id);
+        return "redirect:/board/list"; //나중에 상세정보 페이지로 이동하는거로 수정
     }
 
 }

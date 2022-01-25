@@ -9,6 +9,8 @@ import com.management.club.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +24,7 @@ public class BoardService {
     private final BoardRepository boardRepository;
 
 
+    //글 작성
     @Transactional
     public Long save(final BoardRequestDto params) {
 
@@ -29,19 +32,35 @@ public class BoardService {
         return entity.getId();
     }
 
-    public List<BoardResponseDto> findAll() {
-
-        Sort sort = Sort.by(Sort.Direction.DESC, "id", "createdDate");
-        List<Board> list = boardRepository.findAll(sort);
-        return list.stream().map(BoardResponseDto::new).collect(Collectors.toList()); //response 객체를 생성해서 리턴해줌.
-    }
-
+    //글 수정
     @Transactional
     public Long update(final Long id, final BoardRequestDto params) {
         //영속성 컨텍스트에 있는 (id)값으로 조회 후 값을 변경시키면 Transaction이 종료(commit)되는 시점에 update쿼리를 자동으로 실행함. (더티체킹)
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
         Board entity = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
-        entity.update(params.getTitle(), params.getContent(), params.getWriter());
+        entity.update(params.getTitle(), params.getContent(), authentication.getName());
         return id;
     }
+
+    //게시글 삭제
+    @Transactional
+    public Long delete(final Long id) {
+
+        Board entity = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
+        entity.delete();
+        return id;
+    }
+
+    //상세정보 조회, 조회수 증가
+    @Transactional
+    public BoardResponseDto findById(final Long id) {
+
+        Board entity = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
+        entity.increaseHits();
+        return new BoardResponseDto(entity);
+    }
+
 
 }
