@@ -59,16 +59,13 @@
             </div>
         </header>
         <article id="section_article">
-            <form id="section_article_form" th:action="@{/api/boards}" method="post">
+            <form id="section_article_form" th:action="@{/api/boards}" method="post" enctype="multipart/form-data">
                 <table id="section_article_table" border="1">
                     <tr>
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
                     </tr>
                     <tr>
-                        <td><input name="writer" type="text" placeholder="작성자를 입력해주세요."></td>
-                        <td><input name="deleteYn" type="hidden" placeholder="작성자를 입력해주세요." value="n"></td>
-<!--                        <td class="hidden"><div name="writer" sec:authentication="name"></div>-->
-<!--&lt;!&ndash;                            <input type="text" name="writer" sec:authentication="name">작성자</td>&ndash;&gt;-->
+                        <td><input name="deleteYn" type="hidden" value="N"></td>
                     </tr>
                     <tr>
                         <td id="section_article_table_main_wrap"><input id="section_article_table_main" name="content" type="textarea" placeholder="내용을 입력해주세요."></td>

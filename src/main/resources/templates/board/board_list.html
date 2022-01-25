@@ -70,7 +70,7 @@
                         <td th:text="${board.id}">1</td>
                         <td th:text="${board.title}">1번 게시글</td>
                         <td th:text="${board.writer}">김도현</td>
-                        <td th:text="${board.createdDate}">2022-01-23 18:05:23</td>
+                        <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
                         <td th:text="${board.hits}">0</td>
                     </tr>
                 </tbody>

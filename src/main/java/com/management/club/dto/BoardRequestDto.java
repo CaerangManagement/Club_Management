@@ -2,6 +2,9 @@ package com.management.club.dto;
 
 import com.management.club.model.Board;
 import lombok.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -10,17 +13,22 @@ public class BoardRequestDto {
 
     private String title; // 제목
     private String content; // 내용
-    private String writer; // 작성자
     private char deleteYn; // 삭제 여부
 
     public Board toEntity() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        //작성자는 spring security에서 email을 가져옴.
+
         return Board.builder()
                 .title(title)
                 .content(content)
-                .writer(writer)
+                .writer(username)
                 .hits(0)
                 .deleteYn(deleteYn)
                 .build();
+
     }
 
 
