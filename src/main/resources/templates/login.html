@@ -11,8 +11,8 @@
 </head>
 <body>
         <header>
-            <a href="https://www.hallym.ac.kr/hallym_univ/"><img src="../static/img/hallym_main.png" th:src="@{/img/hallym_main.png}" alt="한림대학교"></a>
-            <p>글로벌 선진 일류대학, 한림대학교<br>
+            <a id="main_img_wrap" href="https://www.hallym.ac.kr/hallym_univ/"><img id="main_img" src="../static/img/hallym_main.png" th:src="@{/img/hallym_main.png}" alt="한림대학교"></a>
+            <p id="main_text">글로벌 선진 일류대학, 한림대학교<br>
             융, 복합 교육을 통해 글로벌 인재를 양성합니다.
             </p>
         </header>
@@ -30,15 +30,6 @@
                 <a id="btn1" href="../templates/signup.html" th:href="@{/signup}">Join with us!</a>
             </div>
         </section>
-        <footer>
-            <a href="https://blog.naver.com/hallymde1330"><img src="../static/img/blog.png" th:src="@{/img/blog.png}" alt="Naver_blog"></a>
-            <a href="https://www.facebook.com/hallymuni"><img src="../static/img/facebook.png" th:src="@{/img/facebook.png}" alt="Facebook"></a>
-            <a href="https://www.instagram.com/hallym_university/"><img src="../static/img/instagram.png"  th:src="@{/img/instagram.png}" alt="Instagram"></a>
-        </footer>
-        <address>
-            (24252)강원도 춘천시 한림대학길 1 대표 033-248-1000 입학안내 033-248-1302~4 팩스 033-248-3333<br>
-            COPYRIGHT© 2016 HALLYM UNIVERSITY. ALL RIGHTS RESERVED.<br>
-        </address>
 </body>
 <script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
 </html>

@@ -4,9 +4,10 @@ body{
     flex-direction: column;
     align-items: center;
     background: url("../img/hallym_back.jpg");
-    background-size:100%;
+    background-size : cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    height: 100vh;
     top: 0%;
     right: 0%;
     left: 0%;
@@ -124,20 +125,18 @@ header>p{
     background-color: grey;
     height: 30px;
 }
-footer{
-    position: relative;
-    top: 58px;
-}
-footer>a{
-    margin: 0 4px;
-}
-address{
-    position: relative;
-    font-style: normal;
-    font-size: 13px;
-    color: white;
-    margin-top: 40px;
-    margin-bottom: 80px;
-    top: 70px;
-    padding-bottom: 40px;
+
+/* -------------------반응형---------------------- */
+@media (max-width: 768px){
+    #main_img_wrap{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    #main_img{
+        width: 300px;
+    }
+    #main_text{
+        font-size: 16px;
+    }
 }
