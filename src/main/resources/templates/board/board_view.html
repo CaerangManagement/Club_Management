@@ -10,7 +10,7 @@
     <title>한림대학교 씨애랑 부원 관리</title>
     <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
-    <link rel="stylesheet" href="../../static/css/board_view_style.css" th:href="@{/css/board_view_style.css}">
+    <link rel="stylesheet" href="../../static/css/board_view_style.css" th:href="@{/css/list_style.css}">
     <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/hidden.css}">
 </head>
 
@@ -42,9 +42,9 @@
         <div id="header_box">
             <ul>
                 <a href="../index.html" th:href="@{/index}"><img id="head_img" src="../../static/img/logo.jpg"
-                        alt="" th:src="@{/img/logo.jpg}"></a>
+                        alt=""></a>
                 <a href="../member/list.html" th:href="@{/list}"><img id="head_img2" src="../../static/img/logo2.png"
-                        alt="" th:src="@{/img/logo2.png}"></a>
+                        alt=""></a>
             </ul>
         </div>
         <div id="head_gray_layer"></div>
@@ -54,68 +54,36 @@
         <header id="section_header">
             <div id="section_header_div1">
                 <span id="section_header_mange_span1"><img id="section_header_mange_img"
-                        src="../../static/img/mange_logo.png" th:src="@{/img/mange_logo.png}" alt=""></span>
+                        src="../../static/img/mange_logo.png" alt=""></span>
                 <span id="section_header_mange_span2">게시판 글쓰기</span>
             </div>
         </header>
         <article id="section_article">
-            <div id="section_article_plus_minus" th:if="${board.writer} == ${#authentication.principal.email}">
-                <a id="section_article_modify" href="../board/board_modify.html" th:href="@{/board/modify(id=${board.id})}">수정</a>
-                <form  th:action="@{'/api/board/delete/' + ${board.id}}" method="post">
-                    <button id="section_article_delete">삭제</button>
-                </form>
-            </div>
-            <form id="section_article_wrap">
-                <div id="section_article_table">
+            <div id="section_article_wrap">
+                <div id="section_article_plus_minus">
+                    <a id="section_article_modify" href="../board/board_modify.html">수정</a>
+                    <form id="delete_wrap" action="">
+                        <button id="section_article_delete" type="button">삭제</button>
+                    </form>    
+                </div>
+                <form id="section_article_table">
                     <div id="section_article_table_title_wrap">
-                        <div id="section_article_table_title" name="title" th:text="${board.title}"></div>
+                        <div id="section_article_table_title" name="title"><!--제목--></div>
                     </div>
                     <div id="section_article_table_writer_wrap" name="writer">
                         <span>
-                            <img id="section_article_table_writer_img" src="../../static/img/board_user_img.png" th:src="@{/img/board_user_img.png}" alt="">
+                            <img id="section_article_table_writer_img" src="../../static/img/board_user_img.png" alt="">
                         </span>
                         <div id="section_article_table_who_wrap">
-                            <div id="section_article_table_writer_name" th:text="${board.writer}"></div>
+                            <div id="section_article_table_writer_name"><!--글쓴이--></div>
                             <div id="section_article_table_time_wrap">
-                                <span id="section_article_table_time" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span><span id="section_article_table_view_text">조회</span><span id="section_article_table_view" th:text="${board.hits}">243</span>
+                                <span id="section_article_table_time"><!--연도,날짜--></span><span id="section_article_table_view_text">조회</span><span id="section_article_table_view"><!--조회수--></span>
                             </div>
                         </div>
                     </div>
-                        <div id="section_article_table_main" name="content" th:text="${board.content}"></div>
-                    <div id="section_article_comment">
-                        <div id=section_article_comment_title>댓글</div>
-
-                        <!-- 댓글 달기 -->
-                        <div class="comment_wrap" name="writer">
-                            <span>
-                                <img class="comment_writer_img" src="../../static/img/board_user_img.png" th:src="@{/img/board_user_img.png}" alt="">
-                            </span>
-                            <div class="comment_writer">
-                                <form th:action="@{/reply/write}" method="post">
-                                    <input type="hidden" id="boardId" name="boardId" th:value="${board.id}">
-                                    <input type="text" name="content">
-                                    <button type="submit">댓글쓰기</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-<!--
-                                </form>
-
-                                <form th:action="@{/reply/delete}" action="post">
-                                    <button class="comment_delete" type="button">삭제</button>
-                                </form>
-
-                                    <div class="comment_delete_div">-->
-                                        <!--                                        <span class="comment_write_time">2022-01-25 13:27</span>-->
-                                        <!--                                    </div>-->
-
-
-
-                        
-
-
-            </form>
+                        <div id="section_article_table_main" name="content"><!--내용--></div>
+                </form>
+            </div>
         </article>
     </section>
     <footer id="footer">
@@ -137,7 +105,7 @@
         </div>
         <div id="footer_bottom">
             <div id="footer_bottom_content_box">
-                <img src="../../static/img/img_foot_logo.png" th:src="@{/img/img_foot_logo.png}">
+                <img src="../../static/img/img_foot_logo.png">
                 <div id="content_box_text">
                     <p>한림대학교</p>
                     <p>강원도 춘천시 한림대학길 1 한림대학교 공학관</p>
@@ -153,6 +121,6 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
-<script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
+<script src="../../static/js/boardAdd.js" th:src="@{/js/boardAdd.js}"></script>
 
-</html>
+</html> 
