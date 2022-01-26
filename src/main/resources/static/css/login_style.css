@@ -139,4 +139,10 @@ header>p{
     #main_text{
         font-size: 16px;
     }
+    #login_id_null_notice{
+        padding-left: 40px;
+    }
+    #login_pass_null_notice{
+        padding-left: 40px;
+    }
 }
