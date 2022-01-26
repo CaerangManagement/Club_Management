@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/hidden.css}">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 
 <body>
@@ -51,21 +54,19 @@
             </div>
         </header>
         <article id="section_article">
-            <form id="section_article_form" method="post" th:action="@{/api/board/add}">
+            <form id="section_article_form">
                 <table id="section_article_table" border="1">
                     <tr>
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
                     </tr>
                     <tr>
-                        <td><input name="deleteYn" type="hidden" value="N"></td>
-                    </tr>
-                    <tr>
                         <td id="section_article_table_main_wrap"><input id="section_article_table_main" name="content" type="textarea" placeholder="내용을 입력해주세요."></td>
                     </tr>
                 </table>
-                <a th:href="@{/board/list}">뒤로가기</a>
-                <button value="글쓰기">글쓰기 완료</button>
             </form>
+            <a th:href="@{/board/list}">뒤로가기</a>
+            <button id="save" value="글쓰기">글쓰기 완료</button>
+
         </article>
     </section>
     <footer id="footer">

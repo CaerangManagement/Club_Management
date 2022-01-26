@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../../static/css/board_view_style.css" th:href="@{/css/board_view_style.css}">
     <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/hidden.css}">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 
 <body>
@@ -53,10 +56,9 @@
         <article id="section_article">
             <div id="section_article_wrap">
                 <div id="section_article_plus_minus" th:if="${board.writer} == ${#authentication.principal.email}">
-                    <form id="delete_wrap" action="#" th:action="@{'/api/board/delete/' + ${board.id}}" method="post">
                         <a id="section_article_modify" href="../board/board_modify.html" th:href="@{/board/modify(id=${board.id})}">수정</a>
                         <button id="section_article_delete">삭제</button>
-                    </form>    
+                        <input type="hidden" id="board_id" th:value="${board.id}">
                 </div>
                 <form id="section_article_table">
                     <div id="section_article_table_title_wrap">

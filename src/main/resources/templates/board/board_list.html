@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../../static/css/disabled.css" th:href="@{/css/disabled.css}">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
     <header>
@@ -132,7 +135,7 @@
 </body>
 <script type="text/javascript" th:inline="javascript">
 			var userDetail = function(seq) {
-				window.open("/api/board/"+ seq);
+				window.open("/board/"+ seq);
 			}
 </script>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>

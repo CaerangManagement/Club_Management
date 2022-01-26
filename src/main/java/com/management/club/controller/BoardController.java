@@ -1,6 +1,5 @@
 package com.management.club.controller;
 
-import com.management.club.dto.BoardRequestDto;
 import com.management.club.model.Board;
 import com.management.club.repository.BoardRepository;
 import com.management.club.service.BoardService;
@@ -11,9 +10,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -70,7 +69,6 @@ public class BoardController {
 
     }
 
-
     @GetMapping("/board/add") //글 작성 페이지로 이동
     public String board_add(){
         return "/board/board_add";
@@ -89,32 +87,8 @@ public class BoardController {
         return "/board/board_modify";
     }
 
-    /*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡapiㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
-    
-    //게시글 생성
-    @PostMapping("/api/board/add")
-    String save(@ModelAttribute BoardRequestDto params) throws IOException {
-
-        boardService.save(params);
-        return "redirect:/board/list";
-    }
-    
-    //게시글 수정
-    @PostMapping("/api/board/update/{id}")
-    String save(@PathVariable final Long id, @ModelAttribute final BoardRequestDto params) {
-        boardService.update(id, params);
-        return "redirect:/board/list";
-    }
-
-    //게시글 삭제
-    @PostMapping("/api/board/delete/{id}")
-    String delete(@PathVariable final Long id) {
-        boardRepository.deleteById(id);
-        return "redirect:/board/list";
-    }
-
     //상세정보 조회
-    @GetMapping("/api/board/{id}")
+    @GetMapping("/board/{id}")
     String findById(@PathVariable final Long id, Model model) {
         model.addAttribute("board", boardService.findById(id));
         return "/board/board_view";
