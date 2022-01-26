@@ -64,3 +64,26 @@ function adminPasswordChk(event){
         alert('관리자만 입력해주세요.');
     }
 }
+
+//singup email 중복 체크 <박주영>
+$("#email_div").blur(function() {
+		var user_id = $('#email_div').val();
+		$.ajax({
+			url : 'user/idCheck?userId='+ user_id,
+			type : 'get',
+			success : function(data) {
+                        if (data == true) {
+                                    $("#id_check").text("사용중인 이메일입니다");
+                                    $("#id_check").css("color", "red");
+                                    $("#login_bnt").attr("disabled", true);
+                                }
+                        else{
+                        $("#id_check").text("사용가능한 이메일입니다.");
+                        $("#id_check").css("color", "blue");
+                        $("#login_bnt").attr("disabled", false);
+                        }
+                            }, error : function() {
+                                    console.log("실패");
+                            }
+                        });
+                    });

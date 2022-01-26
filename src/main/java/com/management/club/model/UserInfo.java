@@ -10,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,6 +26,7 @@ public class UserInfo implements UserDetails {
     private Long code;
 
     @Column(name = "email", unique = true)
+    @Email
     private String email;
 
     @Column(name = "password")

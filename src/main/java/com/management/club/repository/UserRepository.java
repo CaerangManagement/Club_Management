@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<UserInfo, Long> {
 
-    UserInfo findByCode(Long code);
 
     UserInfo findByEmail(String email); //고유값인 email을통해 UserInfo객체 가져오기
 

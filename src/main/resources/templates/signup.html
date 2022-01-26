@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../static/img/hallym_icon.png" th:href="@{/img/hallym_icon.jpg}">
     <link rel="stylesheet" href="../static/css/signup_style.css?after" th:href="@{/css/signup_style.css?after}" >
     <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
-
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
         <header>
@@ -24,9 +24,10 @@
                     <p id="form_title">회원가입</p>
                     <div id="admin_email_wrap" class="input_div">
                         <input id="email_div" class="login_div" type="email" name="email" placeholder="Email">
-<!--                        <span class="id_input_re_1">사용 가능한 이메일입니다.</span>-->
-<!--                        <span class="id_input_re_2">이메일이 이미 존재합니다.</span>-->
+<!--                        <span><button id="id_check_button" type="button">Check</button></span>-->
                     </div>
+                    <span id="id_check">.</span>
+
                     <p id="login_id_null_notice" class="hidden">이메일을 입력해주세요.</p>
                     <div class="input_div"><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
                     <p id="login_pass_null_notice" class="hidden">비밀번호를 입력해주세요.</p>
