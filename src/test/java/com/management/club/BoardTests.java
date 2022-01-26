@@ -24,7 +24,6 @@ public class BoardTests {
                 .content("1번 게시글 내용")
                 .writer("도뎡이")
                 .hits(0)
-                .deleteYn('N')
                 .build();
 
         // 2. 게시글 저장

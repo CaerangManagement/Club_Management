@@ -1,11 +1,10 @@
 package com.management.club.dto;
 
-import java.time.LocalDateTime;
-
 import com.management.club.model.Board;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -26,7 +25,6 @@ public class BoardResponseDto {
         this.writer = entity.getWriter();
         this.hits = entity.getHits();
         this.createdDate = entity.getCreatedDate();
-        this.modifiedDate = entity.getModifiedDate();
     }
 
 }

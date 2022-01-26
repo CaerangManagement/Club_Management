@@ -1,14 +1,14 @@
 package com.management.club.model;
 
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
-
-import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Getter
@@ -18,6 +18,7 @@ public class Board{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="boardId")
     private Long id; //
 
     private String title;
@@ -30,11 +31,11 @@ public class Board{
 
     private LocalDateTime createdDate = LocalDateTime.now(); //생성일
 
-    private LocalDateTime modifiedDate; // 수정일
-
+    @OneToMany(mappedBy = "board")
+    private List<Reply> reply;
 
     @Builder
-    public Board(String title, String content, String writer, int hits, char deleteYn) {
+    public Board(String title, String content, String writer, int hits) {
         this.title = title;
         this.content = content;
         this.writer = writer;
@@ -46,7 +47,7 @@ public class Board{
         this.title = title;
         this.content = content;
         this.writer = writer;
-        this.modifiedDate = LocalDateTime.now();
+        this.createdDate = LocalDateTime.now();
     }
     /**
      * 조회 수 증가
@@ -54,6 +55,7 @@ public class Board{
     public void increaseHits() {
         this.hits++;
     }
+
 
 
 

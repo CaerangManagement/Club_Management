@@ -68,42 +68,53 @@
             <form id="section_article_wrap">
                 <div id="section_article_table">
                     <div id="section_article_table_title_wrap">
-                        <div id="section_article_table_title" name="title" th:text="${board.title}">오늘부로 씨애랑은 내가 접수한다.</div>
+                        <div id="section_article_table_title" name="title" th:text="${board.title}"></div>
                     </div>
                     <div id="section_article_table_writer_wrap" name="writer">
                         <span>
                             <img id="section_article_table_writer_img" src="../../static/img/board_user_img.png" th:src="@{/img/board_user_img.png}" alt="">
                         </span>
                         <div id="section_article_table_who_wrap">
-                            <div id="section_article_table_writer_name" th:text="${board.writer}">김도현</div>
+                            <div id="section_article_table_writer_name" th:text="${board.writer}"></div>
                             <div id="section_article_table_time_wrap">
-                                <span id="section_article_table_time" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}">2022-01-25 13:27</span><span id="section_article_table_view_text">조회</span><span id="section_article_table_view" th:text="${board.hits}">243</span>
+                                <span id="section_article_table_time" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span><span id="section_article_table_view_text">조회</span><span id="section_article_table_view" th:text="${board.hits}">243</span>
                             </div>
                         </div>
                     </div>
-                        <div id="section_article_table_main" name="content" th:text="${board.content}">ㅋㅋㅋㅋ ~ 씨애랑 내가 먹음 ㅅㄱ!</div>
+                        <div id="section_article_table_main" name="content" th:text="${board.content}"></div>
                     <div id="section_article_comment">
                         <div id=section_article_comment_title>댓글</div>
-                        <div class="comment_wrap" name="writer"> <!-- 이거 댓글 복붙하면됨-->
+
+                        <!-- 댓글 달기 -->
+                        <div class="comment_wrap" name="writer">
                             <span>
                                 <img class="comment_writer_img" src="../../static/img/board_user_img.png" th:src="@{/img/board_user_img.png}" alt="">
                             </span>
                             <div class="comment_writer">
-                                <div class="comment_writer_name">김도현</div>
-                                <div class="comment_content">네 이름이 뭐니? 내 자산 맡길 수 있겠니? 니들이 게맛을 알어 !? 응애 나 아가주영. 점심 나가서 머글거가태!!</div>
-                                <div class="comment_delete_div">
-                                    <span class="comment_write_time">2022-01-25 13:27</span>
-                                    <button class="comment_delete" type="button">삭제</button>
-                                </div>
+                                <form th:action="@{/reply/write}" method="post">
+                                    <input type="hidden" id="boardId" name="boardId" th:value="${board.id}">
+                                    <input type="text" name="content">
+                                    <button type="submit">댓글쓰기</button>
+                                </form>
                             </div>
                         </div>
-                        
-                        <div>
-                            <input type="textarea">
-                            <button type="submit">댓글쓰기</button>
-                        </div>
                     </div>
-                </div>
+<!--
+                                </form>
+
+                                <form th:action="@{/reply/delete}" action="post">
+                                    <button class="comment_delete" type="button">삭제</button>
+                                </form>
+
+                                    <div class="comment_delete_div">-->
+                                        <!--                                        <span class="comment_write_time">2022-01-25 13:27</span>-->
+                                        <!--                                    </div>-->
+
+
+
+                        
+
+
             </form>
         </article>
     </section>
