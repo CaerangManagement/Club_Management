@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -33,9 +32,6 @@ public class UserInfo implements UserDetails {
 
     @Column(name = "auth")
     private String auth;
-
-    @OneToMany(mappedBy = "userInfo")
-    private List<Reply> replyList;
 
     @Builder
     public UserInfo(String email, String password, String auth) {

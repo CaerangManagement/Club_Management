@@ -26,25 +26,17 @@
                 </a>
             </ul>
             <ul id="header_ul_right">
-                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
-                    <li class="header_ul_right_li">캠퍼스 맵</li>
-                </a>
+                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html"><li class="header_ul_right_li">캠퍼스 맵</li></a>
                 <li class="header_ul_right_li" sec:authentication="name">이메일</li>
-                <li class="header_ul_right_li" sec:authentication="authorities">권한</li>
-                <a class="header_ul_right_a" href="../user/info.html">
-                    <li class="header_ul_right_li">마이페이지</li>
-                </a>
-                <a class="header_ul_right_a" href="" th:href="@{/logout}">
-                    <li class="header_ul_right_li">로그아웃</li>
-                </a>
+                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin</li>
+                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
+                <a class="header_ul_right_a"  href="" th:href="@{/logout}"><li class="header_ul_right_li">로그아웃</li></a>
             </ul>
         </div>
         <div id="header_box">
             <ul>
-                <a href="../index.html" th:href="@{/index}"><img id="head_img" src="../../static/img/logo.jpg"
-                        alt="" th:src="@{/img/logo.jpg}"></a>
-                <a href="../member/list.html" th:href="@{/list}"><img id="head_img2" src="../../static/img/logo2.png"
-                        alt="" th:src="@{/img/logo2.png}"></a>
+                <a href="../index.html" th:href="@{/index}"><img id="head_img"  src="../../static/img/logo.jpg" th:src="@{/img/logo.jpg}" alt=""></a>
+                <a href="../member/list.html"  th:href="@{/list}"><img id="head_img2"  src="../../static/img/logo2.png" th:src="@{/img/logo2.png}" alt=""></a>
             </ul>
         </div>
         <div id="head_gray_layer"></div>
@@ -82,40 +74,26 @@
                         </div>
                     </div>
                         <div id="section_article_table_main" name="content" th:text="${board.content}"></div>
-                    <div id="section_article_comment">
-                        <div id=section_article_comment_title>댓글</div>
-
-                        <!-- 댓글 달기 -->
-                        <div class="comment_wrap" name="writer">
+            </form>
+            <div id="section_article_comment">
+                <div id=section_article_comment_title>댓글</div>
+                <form th:action="@{/reply/write}" method="post">
+                    <input type="hidden" id="boardId" name="boardId" th:value="${board.id}">
+                    <input type="text" name="content">
+                    <button type="submit">댓글쓰기</button>
+                </form>
+                <!-- 댓글 달기 -->
+                <div class="comment_wrap" name="writer">
                             <span>
                                 <img class="comment_writer_img" src="../../static/img/board_user_img.png" th:src="@{/img/board_user_img.png}" alt="">
                             </span>
-                            <div class="comment_writer">
-                                <form th:action="@{/reply/write}" method="post">
-                                    <input type="hidden" id="boardId" name="boardId" th:value="${board.id}">
-                                    <input type="text" name="content">
-                                    <button type="submit">댓글쓰기</button>
-                                </form>
-                            </div>
-                        </div>
+                    <div class="comment_writer">
+
                     </div>
-<!--
-                                </form>
-
-                                <form th:action="@{/reply/delete}" action="post">
-                                    <button class="comment_delete" type="button">삭제</button>
-                                </form>
-
-                                    <div class="comment_delete_div">-->
-                                        <!--                                        <span class="comment_write_time">2022-01-25 13:27</span>-->
-                                        <!--                                    </div>-->
+                </div>
+            </div>
 
 
-
-                        
-
-
-            </form>
         </article>
     </section>
     <footer id="footer">

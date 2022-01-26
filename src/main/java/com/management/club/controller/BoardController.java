@@ -1,9 +1,7 @@
 package com.management.club.controller;
 
 import com.management.club.dto.BoardRequestDto;
-import com.management.club.dto.BoardResponseDto;
 import com.management.club.model.Board;
-import com.management.club.model.MemberInfo;
 import com.management.club.repository.BoardRepository;
 import com.management.club.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +12,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.io.IOException;
 
 
@@ -32,7 +31,7 @@ public class BoardController {
      * 게시글 리스트 조회
      */
     @GetMapping("/board/list")
-    public String board_list(Model model , @PageableDefault(size = 6 , sort="createdDate", direction = Sort.Direction.DESC) Pageable pageable,
+    public String board_list(Model model , @PageableDefault(size = 10 , sort="createdDate", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
                              @RequestParam(value ="searchType", required = false, defaultValue = "1") String searchType){
 

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Getter
@@ -30,9 +29,6 @@ public class Board{
     private int hits;
 
     private LocalDateTime createdDate = LocalDateTime.now(); //생성일
-
-    @OneToMany(mappedBy = "board")
-    private List<Reply> reply;
 
     @Builder
     public Board(String title, String content, String writer, int hits) {
