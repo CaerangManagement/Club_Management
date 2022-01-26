@@ -53,8 +53,8 @@
         <article id="section_article">
             <div id="section_article_wrap">
                 <div id="section_article_plus_minus" th:if="${board.writer} == ${#authentication.principal.email}">
-                    <a id="section_article_modify" href="../board/board_modify.html" th:href="@{/board/modify(id=${board.id})}">수정</a>
                     <form id="delete_wrap" action="#" th:action="@{'/api/board/delete/' + ${board.id}}" method="post">
+                        <a id="section_article_modify" href="../board/board_modify.html" th:href="@{/board/modify(id=${board.id})}">수정</a>
                         <button id="section_article_delete">삭제</button>
                     </form>    
                 </div>

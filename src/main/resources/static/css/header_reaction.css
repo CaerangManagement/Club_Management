@@ -47,6 +47,7 @@
 }
 .header_ul_right_a{
     text-decoration: none;
+    border-left: 1px #b8dbda solid;
     border-right: 1px #b8dbda solid;
     color: white;
 }
@@ -58,9 +59,9 @@
 }
 .header_ul_right_li{
     padding : 0px 17px 0px 17px;
+    border-right: 1px #b8dbda solid;
 }
-.header_ul_right_li:nth-child(1){
-    border-left: 1px #b8dbda solid;
+.header_ul_right_li:last-child{
 }
 #head_img{
     position: absolute;
