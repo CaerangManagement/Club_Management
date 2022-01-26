@@ -59,12 +59,13 @@
             </div>
         </header>
         <article id="section_article">
+            <div id="section_article_plus_minus" th:if="${board.writer} == ${#authentication.principal.email}">
+                <a id="section_article_modify" href="../board/board_modify.html" th:href="@{/board/modify(id=${board.id})}">수정</a>
+                <form  th:action="@{'/api/board/delete/' + ${board.id}}" method="post">
+                    <button id="section_article_delete">삭제</button>
+                </form>
+            </div>
             <form id="section_article_wrap">
-                <div id="section_article_plus_minus" th:if="${board.writer} == ${#authentication.principal.email}">
-                    <a id="section_article_modify" href="../board/board_modify.html">수정</a>
-                    <button id="section_article_delete" type="button">삭제</button>
-                </div>
-
                 <div id="section_article_table">
                     <div id="section_article_table_title_wrap">
                         <div id="section_article_table_title" name="title" th:text="${board.title}">오늘부로 씨애랑은 내가 접수한다.</div>
@@ -141,6 +142,6 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
-<script src="../../static/js/boardAdd.js" th:src="@{/js/boardAdd.js}"></script>
+<script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
 
 </html>

@@ -13,7 +13,6 @@ public class BoardRequestDto {
 
     private String title; // 제목
     private String content; // 내용
-    private char deleteYn; // 삭제 여부
 
     public Board toEntity() {
 
@@ -26,7 +25,6 @@ public class BoardRequestDto {
                 .content(content)
                 .writer(username)
                 .hits(0)
-                .deleteYn(deleteYn)
                 .build();
 
     }

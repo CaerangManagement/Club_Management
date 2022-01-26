@@ -59,7 +59,7 @@
             </div>
         </header>
         <article id="section_article">
-            <form id="section_article_form" th:action="@{/api/boards}" method="post" enctype="multipart/form-data">
+            <form id="section_article_form" method="post" th:action="@{/api/board/add}">
                 <table id="section_article_table" border="1">
                     <tr>
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
@@ -72,7 +72,7 @@
                     </tr>
                 </table>
                 <a th:href="@{/board/list}">뒤로가기</a>
-                <input type="submit"  value="추가하기" />
+                <button value="글쓰기">글쓰기 완료</button>
             </form>
         </article>
     </section>
@@ -111,6 +111,6 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
-<script src="../../static/js/boardAdd.js" th:src="@{/js/boardAdd.js}"></script>
+<script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
 
 </html>

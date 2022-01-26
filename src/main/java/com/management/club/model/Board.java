@@ -28,8 +28,6 @@ public class Board{
 
     private int hits;
 
-    private char deleteYn; //삭제 여부
-
     private LocalDateTime createdDate = LocalDateTime.now(); //생성일
 
     private LocalDateTime modifiedDate; // 수정일
@@ -41,7 +39,6 @@ public class Board{
         this.content = content;
         this.writer = writer;
         this.hits = hits;
-        this.deleteYn = deleteYn;
     }
 
     //수정된 게시물을 담을 곳
@@ -58,12 +55,7 @@ public class Board{
         this.hits++;
     }
 
-    /**
-     * 게시글 삭제
-     */
-    public void delete() {
-        this.deleteYn = 'Y';
-    }
+
 
 
 }

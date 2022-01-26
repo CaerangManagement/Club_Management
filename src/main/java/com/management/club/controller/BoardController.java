@@ -1,7 +1,9 @@
 package com.management.club.controller;
 
 import com.management.club.dto.BoardRequestDto;
+import com.management.club.dto.BoardResponseDto;
 import com.management.club.model.Board;
+import com.management.club.model.MemberInfo;
 import com.management.club.repository.BoardRepository;
 import com.management.club.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -70,15 +72,28 @@ public class BoardController {
     }
 
 
-    @GetMapping("/board/add")
+    @GetMapping("/board/add") //글 작성 페이지로 이동
     public String board_add(){
         return "/board/board_add";
+    }
+    
+    @GetMapping("/board/modify") //글 수정 페이지로 이동
+    public String board_modify(Model model, @RequestParam(required = false) Long id){
+        if(id == null){
+            return "redirect:/board/list";
+        }
+        else{
+            Board board = boardRepository.findById(id).orElse(null);
+            model.addAttribute("board", board);
+        }
+
+        return "/board/board_modify";
     }
 
     /*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡapiㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
     
     //게시글 생성
-    @PostMapping("/api/boards")
+    @PostMapping("/api/board/add")
     String save(@ModelAttribute BoardRequestDto params) throws IOException {
 
         boardService.save(params);
@@ -86,24 +101,24 @@ public class BoardController {
     }
     
     //게시글 수정
-    @PatchMapping("/api/boards/{id}")
-    String save(@PathVariable final Long id, @RequestBody final BoardRequestDto params) {
+    @PostMapping("/api/board/update/{id}")
+    String save(@PathVariable final Long id, @ModelAttribute final BoardRequestDto params) {
         boardService.update(id, params);
         return "redirect:/board/list";
     }
 
     //게시글 삭제
-    @DeleteMapping("/api/boards/{id}")
+    @PostMapping("/api/board/delete/{id}")
     String delete(@PathVariable final Long id) {
-        boardService.delete(id);
-        return "redirect:/board/list"; 
+        boardRepository.deleteById(id);
+        return "redirect:/board/list";
     }
 
     //상세정보 조회
-    @GetMapping("/api/boards/{id}")
+    @GetMapping("/api/board/{id}")
     String findById(@PathVariable final Long id, Model model) {
         model.addAttribute("board", boardService.findById(id));
-        return "/board/board_view"; //나중에 상세정보 페이지로 이동하는거로 수정
+        return "/board/board_view";
     }
 
 }

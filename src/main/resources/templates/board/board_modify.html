@@ -59,24 +59,22 @@
             </div>
         </header>
         <article id="section_article">
-            <form id="section_article_form" th:action="@{/api/boards}" method="post">
+            <form id="section_article_form" th:action="@{'/api/board/update/' + ${board.id}}" method="post" th:object="${board}" th:if="${board.writer} == ${#authentication.principal.email}">
                 <table id="section_article_table" border="1">
                     <tr>
-                        <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
+                        <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요." th:field="*{title}"></td>
                     </tr>
                     <tr>
-                        <td><input name="writer" type="text" placeholder="작성자를 입력해주세요."></td>
-                        <td><input name="deleteYn" type="hidden" placeholder="작성자를 입력해주세요." value="n"></td>
-<!--                        <td class="hidden"><div name="writer" sec:authentication="name"></div>-->
-<!--&lt;!&ndash;                            <input type="text" name="writer" sec:authentication="name">작성자</td>&ndash;&gt;-->
+                        <td id="section_article_table_main_wrap"><input id="section_article_table_main" name="content" type="text" placeholder="내용을 입력해주세요." th:field="*{content}"></td>
                     </tr>
                     <tr>
-                        <td id="section_article_table_main_wrap"><input id="section_article_table_main" name="content" type="textarea" placeholder="내용을 입력해주세요."></td>
+                        <td><input name="deleteYn" type="hidden" value="N"></td>
                     </tr>
                 </table>
                 <a th:href="@{/board/list}">뒤로가기</a>
                 <input type="submit"  value="변경하기" />
             </form>
+            <div th:unless="${board.writer} == ${#authentication.principal.email}"> 해당 게시글을 수정할 권한이 없습니다.</div>
         </article>
     </section>
     <footer id="footer">
@@ -114,6 +112,6 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
-<script src="../../static/js/boardAdd.js" th:src="@{/js/boardAdd.js}"></script>
+<script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
 
 </html>
