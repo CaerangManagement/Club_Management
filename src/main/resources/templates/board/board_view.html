@@ -79,6 +79,20 @@
                 </form>
             </div>
         </article>
+        <!--댓글 시작 -->
+        <div>댓글 리스트</div>
+        <br>
+        <ul>
+            <li th:each="replie : ${board.replies}">
+                <div th:text="${replie.userInfo.email}">작성자</div>
+                <div>
+                    <div th:text="${replie.content}">댓글 내용</div>
+                    <button>삭제</button>
+                </div>
+            </li>
+        </ul>
+        <!--댓글 끝 -->
+
     </section>
     <footer id="footer">
         <div id="footer_top">

@@ -1,7 +1,6 @@
 package com.management.club.service;
 
 import com.management.club.dto.BoardRequestDto;
-import com.management.club.dto.BoardResponseDto;
 import com.management.club.exception.CustomException;
 import com.management.club.exception.ErrorCode;
 import com.management.club.model.Board;
@@ -43,11 +42,11 @@ public class BoardService {
 
     //상세정보 조회, 조회수 증가
     @Transactional
-    public BoardResponseDto findById(final Long id) {
+    public Board findById(final Long id) {
 
-        Board entity = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
-        entity.increaseHits();
-        return new BoardResponseDto(entity);
+        Board board = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
+        board.increaseHits();
+        return board;
     }
 
 

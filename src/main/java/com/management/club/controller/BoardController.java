@@ -89,7 +89,7 @@ public class BoardController {
 
     //상세정보 조회
     @GetMapping("/board/{id}")
-    String findById(@PathVariable final Long id, Model model) {
+    public String findById(@PathVariable final Long id, Model model) {
         model.addAttribute("board", boardService.findById(id));
         return "/board/board_view";
     }

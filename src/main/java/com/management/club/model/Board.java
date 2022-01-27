@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Getter
@@ -27,6 +28,13 @@ public class Board{
     private String writer;
 
     private int hits;
+
+    @ManyToOne(fetch = FetchType.EAGER) //유저는 하나밖에없으니 기본전략은 EAGER(가져온다)
+    @JoinColumn(name="userId") //UserInfo객체의 Fk가 userId라는 필드명으로 들어감.
+    private UserInfo userInfo;
+
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) //mappedBy가 있으면 연관관계의 주인이 아니다. (Fk가 아니다) reply 테이블에 board가 Fk임.
+    private List<Reply> replies; //board를 select할때 join해서 reply를 얻기위한 변수
 
     private LocalDateTime createdDate = LocalDateTime.now(); //생성일
 
