@@ -19,11 +19,11 @@ $('#save').click(function () {
                 xhr.setRequestHeader(header, token);
             },
         success: function(){
-            alert('글쓰기 성공!');
+            alert('글쓰기 성공:)');
             location.href = '/board/list';
         },
         error: function(){
-            alert('저장 실패!');
+            alert('저장 실패:(');
         }
     });
 });
@@ -45,11 +45,11 @@ $('#update').click(function () {
                     xhr.setRequestHeader(header, token);
                 },
             success: function(){
-                alert('수정 성공!');
+                alert('수정 성공:)');
                 location.href = '/board/list';
             },
             error: function(){
-                alert('수정 실패!');
+                alert('수정 실패:(');
             }
     });
 });
@@ -63,12 +63,37 @@ $('#section_article_delete').click(function() {
                 xhr.setRequestHeader(header, token);
             },
             success: function(){
-                alert('삭제 성공!');
+                alert('삭제 성공:)');
                 location.href = '/board/list';
             },
             error: function(){
-                alert('삭제 실패!');
+                alert('삭제 실패:(');
             }
         });
 })
+
+//댓글 추가
+$('#btn_reply_save').click(function() {
+        var jsonData = JSON.stringify({
+                    title: $('#reply_content').val()
+                });
+         $.ajax({
+            url: "/api/board/" + $('#board_id').val() +"/reply",
+            method: "POST",
+            data: jsonData,
+            contentType: 'application/json;charset=utf-8',
+            dataType: "json",
+            beforeSend: function(xhr){
+                xhr.setRequestHeader(header, token);
+            },
+            success: function(){
+                alert('댓글작성이 완료되었습니다. :)');
+                location.href = '/board/' + $('#board_id').val();
+            },
+            error: function(){
+                alert('댓글작성을 실패했습니다. :(');
+            }
+        });
+})
+
 

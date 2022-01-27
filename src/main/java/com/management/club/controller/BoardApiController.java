@@ -1,11 +1,14 @@
 package com.management.club.controller;
 
 import com.management.club.dto.BoardRequestDto;
+import com.management.club.model.Reply;
+import com.management.club.model.UserInfo;
 import com.management.club.repository.BoardRepository;
 import com.management.club.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -43,6 +46,14 @@ public class BoardApiController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    //게시글 생성
+    @RequestMapping(value="/board/{boardId}/reply", method=RequestMethod.POST)
+    ResponseEntity<?> saveReply(@PathVariable Long boardId, @RequestBody final Reply reply, @AuthenticationPrincipal UserInfo userInfo
+    ) throws IOException {
+
+        boardService.댓글쓰기(userInfo, boardId, reply);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 
 
 

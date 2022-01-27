@@ -85,6 +85,7 @@
         <ul>
             <li th:each="replie : ${board.replies}">
                 <div th:text="${replie.userInfo.email}">작성자</div>
+                <div th:text="${#temporals.format(replie.createdDate, 'yyyy-MM-dd HH:mm')}">작성시간</div>
                 <div>
                     <div th:text="${replie.content}">댓글 내용</div>
                     <button>삭제</button>
@@ -92,6 +93,17 @@
             </li>
         </ul>
         <!--댓글 끝 -->
+
+        <!--댓글 등록-->
+        <div>
+            <div>
+                <textarea id="reply_content" rows="1"></textarea>
+            </div>
+            <div>
+                <button id="btn_reply_save">등록</button>
+            </div>
+        </div>
+        <!--댓글 등록 끝-->
 
     </section>
     <footer id="footer">

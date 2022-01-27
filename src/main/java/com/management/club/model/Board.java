@@ -1,6 +1,7 @@
 package com.management.club.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,6 +35,8 @@ public class Board{
     private UserInfo userInfo;
 
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) //mappedBy가 있으면 연관관계의 주인이 아니다. (Fk가 아니다) reply 테이블에 board가 Fk임.
+    @JsonIgnoreProperties({"board"}) //reply Entity에서 다시 board를 참조하는 것을 막아 무한참조를 방지함.
+    @OrderBy("id desc")
     private List<Reply> replies; //board를 select할때 join해서 reply를 얻기위한 변수
 
     private LocalDateTime createdDate = LocalDateTime.now(); //생성일

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Builder
 @AllArgsConstructor
@@ -32,6 +32,6 @@ public class Reply {
     private UserInfo userInfo;
 
     @CreationTimestamp
-    private Timestamp createDate;
+    private LocalDateTime createdDate = LocalDateTime.now(); //생성일
 
 }

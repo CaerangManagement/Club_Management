@@ -4,7 +4,10 @@ import com.management.club.dto.BoardRequestDto;
 import com.management.club.exception.CustomException;
 import com.management.club.exception.ErrorCode;
 import com.management.club.model.Board;
+import com.management.club.model.Reply;
+import com.management.club.model.UserInfo;
 import com.management.club.repository.BoardRepository;
+import com.management.club.repository.ReplyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor //final로 선언된 모든 멤버변수에 대한 생성자를 만들어줌
 public class BoardService {
+
+    private final ReplyRepository replyRepository;
 
     private final BoardRepository boardRepository;
 
@@ -47,6 +52,18 @@ public class BoardService {
         Board board = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
         board.increaseHits();
         return board;
+    }
+
+    @Transactional
+    public void 댓글쓰기(UserInfo userInfo, Long board_id, Reply requestReply){
+        Board board = boardRepository.findById(board_id).orElseThrow(()->{
+            return new IllegalArgumentException("댓글쓰기 실패 : 게시글 id를 찾을 수 없습니다.");
+        });
+        //오브젝트를 넣어주면 알아서 조인되어 코드갑이 들어감
+        requestReply.setUserInfo(userInfo);
+        requestReply.setBoard(board);
+
+        replyRepository.save(requestReply);
     }
 
 
