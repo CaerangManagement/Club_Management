@@ -46,7 +46,7 @@
             </div>
         </header>
         <article>
-            <form id="member_form" action="#" th:action="@{'/member/update/' + ${member.code}}" method="post" th:object=${member}>
+            <form id="member_form" action="#" th:object=${member}>
                 <div id="member_form_level">
                     <span id="member_form_level_span">직위&nbsp; &nbsp;</span>
                     <select id="member_form_level_select" th:field="*{position}">
@@ -60,27 +60,28 @@
                     <table id="member_form_table">
                         <tr>
                             <td class="member_form_table_title"><span class="member_form_table_title_text">학과 <span class="star">*</span></span></td>
-                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 학과를 입력하세요." th:field="*{department}"></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" id="department" placeholder=" 학과를 입력하세요." th:field="*{department}"></td>
                             <td class="member_form_table_title"><span class="member_form_table_title_text">학년 <span class="star">*</span></span></td>
-                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 학년을 입력하세요." th:field="*{grade}"></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" id="grade" type="text" placeholder=" 학년을 입력하세요." th:field="*{grade}"></td>
                         </tr>
                         <tr>
                             <td class="member_form_table_title"><span class="member_form_table_title_text">학번 <span class="star">*</span></span></td>
-                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 학번을 입력하세요." th:field="*{studentId}"></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" id="studentId" type="text" placeholder=" 학번을 입력하세요." th:field="*{studentId}"></td>
                             <td class="member_form_table_title"><span class="member_form_table_title_text">성명 <span class="star">*</span></span></td>
-                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 성명을 입력하세요." th:field="*{memberName}"></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" id="memberName" type="text" placeholder=" 성명을 입력하세요." th:field="*{memberName}"></td>
                         </tr>
                         <tr>
                             <td class="member_form_table_title"><span id="member_form_table_title_text_id" class="member_form_table_title_text">전화번호 <span class="star">*</span></span></td>
-                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 전화번호를 입력하세요." th:field="*{contact}"></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" id="contact" type="text" placeholder=" 전화번호를 입력하세요." th:field="*{contact}"></td>
                         </tr>
                     </table>
                 </div>
-                <div id="form_btn_wrap">
-                    <input id="cancle_btn" class="form_btn" type="button" value="취소" onclick="can();">
-                    <input class="form_btn" type="submit" value="저장">
-                </div>
             </form>
+            <div id="form_btn_wrap">
+                <input id="cancle_btn" class="form_btn" type="button" value="취소" onclick="can();">
+                <input id="member_code" type="hidden" th:value="${member.code}">
+                <button class="form_btn" id="update">수정완료</button>
+            </div>
             
         </article>
 
@@ -118,4 +119,5 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+<script src="../../static/js/member.js" th:src="@{/js/member.js}"></script>
 </html>

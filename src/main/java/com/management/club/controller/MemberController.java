@@ -74,40 +74,7 @@ public class MemberController {
         return "member/form";
     }
 
-    //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
-    //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ API ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
-    //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
 
-    @PostMapping("/member/add")
-    String newMember(@ModelAttribute MemberInfo memberInfo){
-        memberRepository.save(memberInfo);
-        return "redirect:/member/list";
-    }
-
-    @PostMapping("/member/update/{code}") //폼태그로 데이터를 받아서 POST매핑으로 받아줌.
-    String replaceMember(@ModelAttribute MemberInfo newMember, @PathVariable Long code){
-                 memberRepository.findById(code)
-                .map(memberInfo -> {
-                    memberInfo.setMemberName(newMember.getMemberName());
-                    memberInfo.setPosition(newMember.getPosition());
-                    memberInfo.setGrade(newMember.getGrade());
-                    memberInfo.setContact(newMember.getContact());
-                    memberInfo.setDepartment(newMember.getDepartment());
-                    memberInfo.setStudentId(newMember.getStudentId());
-                    return memberRepository.save(memberInfo);
-                })
-                .orElseGet(()->{
-                    newMember.setCode(code);
-                    return memberRepository.save(newMember);
-                });
-                 return "redirect:/member/list";
-    }
-
-    @PostMapping("/member/{code}") //폼태그로 데이터를 받아서 POST매핑으로 받아줌.
-    public String delete(@PathVariable("code") Long code){
-        memberRepository.deleteById(code);
-        return "redirect:/member/list";
-    }
 
 
 

@@ -46,10 +46,10 @@
             </div>
         </header>
         <article>
-            <form action="#" th:action="@{/member/add}" method="post">
+            <form>
                 <div>
                     <span>직위</span>
-                    <select name="position">
+                    <select id="position" name="position">
                         <option value="회장" name="position">&nbsp; 회장</option>
                         <option value="부회장" name="position">&nbsp; 부회장</option>
                         <option value="팀장" name="position">&nbsp; 팀장</option>
@@ -60,26 +60,26 @@
                     <table border="1">
                         <tr>
                             <td>학과</td>
-                            <td><input type="text" name="department" placeholder=" 학과를 입력하세요."></td>
+                            <td><input type="text" id="department" name="department" placeholder=" 학과를 입력하세요."></td>
                             <td>학년</td>
-                            <td><input type="text" name="grade" placeholder=" 학년을 입력하세요."></td>
+                            <td><input type="text" id="grade" name="grade" placeholder=" 학년을 입력하세요."></td>
                         </tr>
                         <tr>
                             <td>학번</td>
-                            <td><input type="text" name="studentId" placeholder=" 학번을 입력하세요."></td>
+                            <td><input type="text" id="studentId" name="studentId" placeholder=" 학번을 입력하세요."></td>
                             <td>성명</td>
-                            <td><input type="text" name="memberName" placeholder=" 성명을 입력하세요."></td>
+                            <td><input type="text" id="memberName" name="memberName" placeholder=" 성명을 입력하세요."></td>
                         </tr>
                         <tr>
                             <td>전화번호</td>
-                            <td><input type="text" name="contact" placeholder=" 전화번호를 입력하세요."></td>
+                            <td><input type="text" id="contact" name="contact" placeholder=" 전화번호를 입력하세요."></td>
                         </tr>
                     </table>
-                    <input type="submit" value="추가하기" />
                 </div>
             </form>
+            <a th:href="@{/member/list}">뒤로가기</a>
+            <button id="save">회원추가</button>
         </article>
-    
     </section>
     <footer id="footer">
         <div id="footer_top">
@@ -112,6 +112,8 @@
             </div>
         </div>
     </footer>
-    <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+
 </body>
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+<script src="../../static/js/member.js" th:src="@{/js/member.js}"></script>
 </html>

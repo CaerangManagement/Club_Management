@@ -1,6 +1,5 @@
 package com.management.club.model;
 
-import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -39,6 +38,17 @@ public class MemberInfo {
     @Builder
     public MemberInfo(String department, String memberName,String contact,
                       String position, String grade, String studentId){
+        this.department = department;
+        this.memberName = memberName;
+        this.contact = contact;
+        this.position = position;
+        this.grade = grade;
+        this.studentId = studentId;
+    }
+    
+    //수정된 회원정보 담을 곳
+    public void update(String department, String memberName,String contact,
+                       String position, String grade, String studentId){
         this.department = department;
         this.memberName = memberName;
         this.contact = contact;
