@@ -2,7 +2,13 @@
 margin:0;
 padding:0;
 }
-#section article{
+#mobile_member_form_table_wrap{
+    display: none;
+}
+#section{
+    height: 690px;
+}
+#section_article{
     display: flex;
     justify-content: center;
 }
@@ -112,5 +118,76 @@ padding:0;
 }
 
 @media (max-width: 768px){
-    
+    #member_form{
+        width: 100%;
+    }
+    #mobile_member_form_table_wrap{
+        display: block;
+    }
+    #member_form_table_wrap{
+        display: none;
+    }
+    #member_form_level{
+        height: 40px;
+    }
+    #member_form_level_span{
+        font-size: 15px;
+        line-height: 45px;
+    }
+    #member_form_level_select{
+        height: 30px;
+        width: 80px;
+    }
+    #mobile_member_form_table_wrap{
+        display: flex;
+        justify-content: center;
+    }
+    #mobile_member_info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+        border-top: 2px solid black;
+    }
+    .mobile_member_form_table_title{
+        height: 35px;
+        width: 100%;
+        text-align: center;
+        background-color: #fafad2;
+        border-bottom: 0.5px solid #66c4bf;
+        border-top: 0.5px solid #66c4bf;
+        border-collapse: collapse;
+    }
+    .mobile_member_form_table_title:first-child{
+        border-top: none;
+    }
+    .mobile_member_form_table_title_text{
+        height: 100%;
+        line-height: 35px;
+        font-size: 15px;
+    }
+    #mobile_member_form_table_title_text_id{
+        font-size: 15px;
+        left: 0;
+        line-height: 32px;
+        text-align: center;
+    }
+    .mobile_member_form_table_in{
+        text-align: center;
+        width: 90%;
+        padding: 10px 0;
+    }
+    .mobile_member_form_table_input{
+        border: none;
+        width: 100%;
+        height: 35px;
+        background-color: #fffbfb;
+        border: 1px solid #66c4bf;
+    }
+    #form_btn_wrap{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+    }
 }

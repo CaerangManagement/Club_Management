@@ -175,6 +175,21 @@ body{
     cursor: pointer;
 }
 /*-------------article_reaction---------------*/
+@media (max-width:1024px){
+    #section_article_table{
+        font-size: 14px;
+    }
+    .table_btn{
+        font-size: 15px;
+        border: none;
+        border-radius: 7px;
+        width: 55px;
+        height: 40px;
+        background-color: #37b1ab;
+        color: white;
+        margin: 0px 3px 0px 3px;
+    }
+}
 @media (max-width: 768px){
     #section_article{
         display: none;
@@ -233,6 +248,7 @@ body{
         color: white;
         font-size: 12px;
         cursor: pointer;
+        margin-right: 5px;
     }
     .mobile_btn:hover{
         background-color: #1c8883;

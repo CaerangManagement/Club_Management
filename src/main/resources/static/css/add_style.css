@@ -1,0 +1,193 @@
+*{
+    margin:0;
+    padding:0;
+    }
+    #mobile_member_form_table_wrap{
+        display: none;
+    }
+    #section{
+        height: 690px;
+    }
+    #section_article{
+        display: flex;
+        justify-content: center;
+    }
+    #member_form{
+        width: 84%;
+    }
+    #member_form_level{
+        height: 50px;
+        display: flex;
+        justify-content: end;
+    }
+    #member_form_level_span{
+        line-height: 50px;
+    }
+    #member_form_level_select{
+        height: 35px;
+        width: 15%;
+        border: 1px solid #66c4bf;
+        font-size: 15px;
+        color: rgb(134, 134, 134);
+        margin-top: 7px;
+    }
+    #member_form_table{
+        width: 100%;
+        height: 200px;
+        text-align: center;
+        border-top: 2px solid black;
+        border-collapse: collapse;
+    }
+    #member_form_table tr{
+        border-bottom: 0.5px solid #66c4bf;
+    }
+    .member_form_table_title{
+        background-color: #fafad2;
+        width: 170px;
+        height: 80px;
+        font-size: 15px;
+        text-align: start;
+    }
+    .member_form_table_in{
+        padding: 20px 20px;
+    }
+    .member_form_table_title_text{
+        position: relative;
+        left: 25px;
+    }
+    .star{
+        color: red;
+        font-weight: 700;
+    }
+    .member_form_table_input{
+        width: 100%;
+        height: 100%;
+        font-size: 14px;
+        border: 1px solid #66c4bf;
+        background-color: rgb(248, 248, 248);
+    }
+    #form_btn_wrap{
+        width: 100%;
+        height: 60px;
+        padding-top: 60px;
+        display: flex;
+        justify-content: end;
+    }
+    .form_btn{
+        text-decoration: none;
+        text-align: center;
+        line-height: 40px;
+        border: none;
+        border-radius: 7px;
+        width: 80px;
+        height: 40px;
+        background-color: #66c4bf;
+        color: white;
+        font-size: 15px;
+        margin: 0px 10px;
+    }
+    .form_btn:hover{
+        cursor: pointer;
+        background-color: #379994;
+    }
+    
+    @media (max-width: 1024px){
+        .member_form_table_title{
+            background-color: #fafad2;
+            width: 80px;
+            height: 50px;
+            font-size: 15px;
+            text-align: start;
+        }
+        .member_form_table_title_text{
+            position: relative;
+            font-size: 13px;
+            text-align: center;
+        }
+        #member_form_table_title_text_id{
+            position: relative;
+            left: 11px;
+        }
+        .member_form_table_input{
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            border: 1px solid #66c4bf;
+            background-color: rgb(248, 248, 248);
+        }
+    }
+    
+    @media (max-width: 768px){
+        #member_form{
+            width: 100%;
+        }
+        #mobile_member_form_table_wrap{
+            display: block;
+        }
+        #member_form_table_wrap{
+            display: none;
+        }
+        #member_form_level{
+            height: 40px;
+        }
+        #member_form_level_span{
+            font-size: 15px;
+            line-height: 45px;
+        }
+        #member_form_level_select{
+            height: 30px;
+            width: 80px;
+        }
+        #mobile_member_form_table_wrap{
+            display: flex;
+            justify-content: center;
+        }
+        #mobile_member_info{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+            border-top: 2px solid black;
+        }
+        .mobile_member_form_table_title{
+            height: 35px;
+            width: 100%;
+            text-align: center;
+            background-color: #fafad2;
+            border-bottom: 0.5px solid #66c4bf;
+            border-top: 0.5px solid #66c4bf;
+            border-collapse: collapse;
+        }
+        .mobile_member_form_table_title:first-child{
+            border-top: none;
+        }
+        .mobile_member_form_table_title_text{
+            height: 100%;
+            line-height: 35px;
+            font-size: 15px;
+        }
+        #mobile_member_form_table_title_text_id{
+            font-size: 15px;
+            left: 0;
+            line-height: 32px;
+            text-align: center;
+        }
+        .mobile_member_form_table_in{
+            text-align: center;
+            width: 90%;
+            padding: 10px 0;
+        }
+        .mobile_member_form_table_input{
+            border: none;
+            width: 100%;
+            height: 35px;
+            background-color: #fffbfb;
+            border: 1px solid #66c4bf;
+        }
+        #form_btn_wrap{
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+        }
+    }

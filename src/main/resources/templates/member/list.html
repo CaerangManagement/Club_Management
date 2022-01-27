@@ -81,7 +81,7 @@
                         <td id="table_btn_wrap" >
                             <a id="table_plus_btn" class="table_btn" href="" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/member/form(code=${member.code})}">수정</a>
                             <input type="hidden" id="member_code" th:value="${member.code}">
-                            <button class="mobile_btn" id="delete" sec:authorize="hasRole('ROLE_ADMIN')">제명</button>
+                            <button id="delete" class="table_btn" sec:authorize="hasRole('ROLE_ADMIN')">제명</button>
                         </td>
                     </tr>
                 </tbody>

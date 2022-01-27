@@ -7,9 +7,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>한림대학교 씨애랑 부원 관리</title>
-    <link   th:href="@{/css/list_style.css}" href="../../static/css/list_style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/add_style.css" th:href="@{/css/add_style.css}">
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -32,7 +32,7 @@
         <div id="header_box">
             <ul>
                 <a href="../index.html" th:href="@{/index}"><img id="head_img"  src="../../static/img/logo.jpg" th:src="@{/img/logo.jpg}" alt=""></a>
-                <a href="../member/list.html"  th:href="@{/list}"><img id="head_img2"  src="../../static/img/logo2.png" th:src="@{/img/logo2.png}" alt="" ></a>
+                <a href="../member/list.html"  th:href="@{/list}"><img id="head_img2"  src="../../static/img/logo2.png" th:src="@{/img/logo2.png}" alt=""></a>
             </ul>
         </div>
         <div id="head_gray_layer"></div>
@@ -45,40 +45,88 @@
                 <span id="section_header_mange_span2">회원관리</span>
             </div>
         </header>
-        <article>
-            <form>
-                <div>
-                    <span>직위</span>
-                    <select id="position" name="position">
+        <article id="section_article">
+            <div id="member_form" action="#" th:object=${member}>
+                <div id="member_form_level">
+                    <span id="member_form_level_span">직위&nbsp; &nbsp;</span>
+                    <select id="member_form_level_select" th:field="*{position}">
                         <option value="회장" name="position">&nbsp; 회장</option>
                         <option value="부회장" name="position">&nbsp; 부회장</option>
                         <option value="팀장" name="position">&nbsp; 팀장</option>
                         <option value="회원" name="position">&nbsp; 회원</option>
                     </select>
                 </div>
-                <div>
-                    <table border="1">
+                <div id="member_form_table_wrap">
+                    <table id="member_form_table">
                         <tr>
-                            <td>학과</td>
-                            <td><input type="text" id="department" name="department" placeholder=" 학과를 입력하세요."></td>
-                            <td>학년</td>
-                            <td><input type="text" id="grade" name="grade" placeholder=" 학년을 입력하세요."></td>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">학과 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" type="text" id="department" placeholder=" 학과를 입력하세요." th:field="*{department}"></td>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">학년 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" id="grade" type="text" placeholder=" 학년을 입력하세요." th:field="*{grade}"></td>
                         </tr>
                         <tr>
-                            <td>학번</td>
-                            <td><input type="text" id="studentId" name="studentId" placeholder=" 학번을 입력하세요."></td>
-                            <td>성명</td>
-                            <td><input type="text" id="memberName" name="memberName" placeholder=" 성명을 입력하세요."></td>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">학번 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" id="studentId" type="text" placeholder=" 학번을 입력하세요." th:field="*{studentId}"></td>
+                            <td class="member_form_table_title"><span class="member_form_table_title_text">성명 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" id="memberName" type="text" placeholder=" 성명을 입력하세요." th:field="*{memberName}"></td>
                         </tr>
                         <tr>
-                            <td>전화번호</td>
-                            <td><input type="text" id="contact" name="contact" placeholder=" 전화번호를 입력하세요."></td>
+                            <td class="member_form_table_title"><span id="member_form_table_title_text_id" class="member_form_table_title_text">전화번호 <span class="star">*</span></span></td>
+                            <td class="member_form_table_in"><input class="member_form_table_input" id="contact" type="text" placeholder=" 전화번호를 입력하세요." th:field="*{contact}"></td>
                         </tr>
                     </table>
                 </div>
-            </form>
-            <a th:href="@{/member/list}">뒤로가기</a>
-            <button id="save">회원추가</button>
+                <div id="mobile_member_form_table_wrap">
+                    <div id="mobile_member_info">
+                         <div class="mobile_member_form_table_title">
+                            <span class="mobile_member_form_table_title_text">학과 
+                                <span class="star">*</span>
+                            </span>
+                        </div>
+                        <div class="mobile_member_form_table_in">
+                            <input class="mobile_member_form_table_input" type="text" id="department" placeholder=" 학과를 입력하세요." th:field="*{department}">
+                        </div>
+                        <div class="mobile_member_form_table_title">
+                            <span class="mobile_member_form_table_title_text">학년 
+                                <span class="star">*</span>
+                            </span>
+                        </div>
+                        <div class="mobile_member_form_table_in">
+                            <input class="mobile_member_form_table_input" id="grade" type="text" placeholder=" 학년을 입력하세요." th:field="*{grade}">
+                        </div>
+                        <div class="mobile_member_form_table_title">
+                            <span class="mobile_member_form_table_title_text">학번 
+                                <span class="star">*</span>
+                            </span>
+                        </div>
+                        <div class="mobile_member_form_table_in">
+                            <input class="mobile_member_form_table_input" id="studentId" type="text" placeholder=" 학번을 입력하세요." th:field="*{studentId}">
+                        </div>
+                        <div class="mobile_member_form_table_title">
+                            <span class="mobile_member_form_table_title_text">성명 
+                                <span class="star">*</span>
+                            </span>
+                        </div>
+                        <div class="mobile_member_form_table_in">
+                            <input class="mobile_member_form_table_input" id="memberName" type="text" placeholder=" 성명을 입력하세요." th:field="*{memberName}">
+                        </div>
+                        <div class="mobile_member_form_table_title">
+                            <span id="mobile_member_form_table_title_text_id" class="member_form_table_title_text">전화번호 
+                                <span class="star">*
+                                </span>
+                            </span>
+                        </div>
+                        <div class="mobile_member_form_table_in">
+                            <input class="mobile_member_form_table_input" id="contact" type="text" placeholder=" 전화번호를 입력하세요." th:field="*{contact}">
+                        </div>
+                    </div>
+                </div>
+                <div id="form_btn_wrap">
+                    <input id="cancle_btn" class="form_btn" type="button" value="취소" onclick="can();">
+                    <input id="member_code" type="hidden" th:value="${member.code}">
+                    <button class="form_btn" id="update">추가하기</button>
+                </div>
+            </div>
         </article>
     </section>
     <footer id="footer">
@@ -112,7 +160,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="../../static/js/member.js" th:src="@{/js/member.js}"></script>
