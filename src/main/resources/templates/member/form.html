@@ -71,7 +71,7 @@
                             <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 성명을 입력하세요." th:field="*{memberName}"></td>
                         </tr>
                         <tr>
-                            <td class="member_form_table_title"><span class="member_form_table_title_text">전화번호 <span class="star">*</span></span></td>
+                            <td class="member_form_table_title"><span id="member_form_table_title_text_id" class="member_form_table_title_text">전화번호 <span class="star">*</span></span></td>
                             <td class="member_form_table_in"><input class="member_form_table_input" type="text" placeholder=" 전화번호를 입력하세요." th:field="*{contact}"></td>
                         </tr>
                     </table>
@@ -81,6 +81,7 @@
                     <input class="form_btn" type="submit" value="저장">
                 </div>
             </form>
+            
         </article>
 
     </section>
@@ -117,5 +118,4 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
-
 </html>

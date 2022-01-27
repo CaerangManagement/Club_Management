@@ -3,7 +3,7 @@ function stopEvent(event){
     event.preventDefault();
 }
 //list.html에서 삭제버튼 눌렀을때 JS임.
-const getout_btn = document.querySelector('#getout');
+const getout_btn = document.getElementById('getout');
 function getOut(){
     stopEvent();
     const a=confirm('제명하시겠습니까?');
