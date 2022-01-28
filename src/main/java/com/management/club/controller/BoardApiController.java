@@ -46,7 +46,7 @@ public class BoardApiController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    //게시글 생성
+    //댓글 생성
     @RequestMapping(value="/board/{boardId}/reply", method=RequestMethod.POST)
     ResponseEntity<?> saveReply(@PathVariable Long boardId, @RequestBody final Reply reply, @AuthenticationPrincipal UserInfo userInfo
     ) throws IOException {
@@ -55,6 +55,14 @@ public class BoardApiController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    //댓글 삭제
+    @RequestMapping(value="/board/{boardId}/reply/{replyId}", method=RequestMethod.DELETE)
+    ResponseEntity<?> deleteReply(@PathVariable Long replyId
+    ) throws IOException {
+        boardService.댓글삭제(replyId);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 
 
 }

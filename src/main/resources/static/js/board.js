@@ -19,11 +19,11 @@ $('#save').click(function () {
                 xhr.setRequestHeader(header, token);
             },
         success: function(){
-            alert('글쓰기 성공:)');
+            alert('글쓰기 성공 :)');
             location.href = '/board/list';
         },
         error: function(){
-            alert('저장 실패:(');
+            alert('저장 실패 :(');
         }
     });
 });
@@ -45,11 +45,11 @@ $('#update').click(function () {
                     xhr.setRequestHeader(header, token);
                 },
             success: function(){
-                alert('수정 성공:)');
+                alert('수정 성공 :)');
                 location.href = '/board/list';
             },
             error: function(){
-                alert('수정 실패:(');
+                alert('수정 실패 :(');
             }
     });
 });
@@ -63,11 +63,11 @@ $('#section_article_delete').click(function() {
                 xhr.setRequestHeader(header, token);
             },
             success: function(){
-                alert('삭제 성공:)');
+                alert('삭제 성공 :)');
                 location.href = '/board/list';
             },
             error: function(){
-                alert('삭제 실패:(');
+                alert('삭제 실패 :(');
             }
         });
 })
@@ -75,23 +75,42 @@ $('#section_article_delete').click(function() {
 //댓글 추가
 $('#btn_reply_save').click(function() {
         var jsonData = JSON.stringify({
-                    title: $('#reply_content').val()
+                    content: $('#reply_content').val()
                 });
          $.ajax({
-            url: "/api/board/" + $('#board_id').val() +"/reply",
+            url: "/api/board/" + $('#reply_boardId').val() +"/reply",
             method: "POST",
             data: jsonData,
-            contentType: 'application/json;charset=utf-8',
-            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
             beforeSend: function(xhr){
                 xhr.setRequestHeader(header, token);
             },
             success: function(){
-                alert('댓글작성이 완료되었습니다. :)');
-                location.href = '/board/' + $('#board_id').val();
+                alert('댓글작성이 완료되었습니다 :)');
+                location.href = '/board/' + $('#reply_boardId').val();
             },
             error: function(){
-                alert('댓글작성을 실패했습니다. :(');
+                alert('댓글작성을 실패했습니다 :(');
+                location.href = '/board/' + $('#reply_boardId').val();
+            }
+        });
+})
+
+//댓글 삭제
+$('#btn_reply_delete').click(function() {
+         $.ajax({
+            url: "/api/board/" + $('#reply_boardId').val() +"/reply/" +$('#replie_id').val(),
+            method: "DELETE",
+            beforeSend: function(xhr){
+                xhr.setRequestHeader(header, token);
+            },
+            success: function(){
+                alert('댓글삭제 성공 :)');
+                location.href = '/board/' + $('#reply_boardId').val();
+            },
+            error: function(){
+                alert('댓글삭제 실패 :(');
+                location.href = '/board/' + $('#reply_boardId').val();
             }
         });
 })
