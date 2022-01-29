@@ -13,11 +13,14 @@ body{
     min-height: 100vh;
     flex-direction: column;
 }
-
-/*------------section--------------*/
 #section{
     padding: 40px 200px 60px 200px;
 }
+#section_header_div1{
+    left: 3%;
+}
+/*------------section--------------*/
+
 #section_article{
     display: flex;
     justify-content: center;
@@ -29,7 +32,8 @@ body{
     display: flex;
     justify-content: end;
     position: relative;
-    left: 60px;
+    left: 30px;
+    margin-bottom: 10px;
 }
 #section_article_modify{
     text-decoration: none;
@@ -37,17 +41,12 @@ body{
     font-size: 13px;
     margin-right: 5px;
     font-family: Arial;
-    line-height: 25px;
-}
-#delete_wrap{
-
 }
 #section_article_delete{
     border: none;
     background-color: white;
     color: rgb(83, 83, 83);
     font-size: 13px;
-    height: 20px;
 }
 #section_article_delete:hover{
     cursor: pointer;
@@ -57,18 +56,18 @@ body{
     border-radius: 5px;
     padding: 30px 30px;
     width: 100%;
+    margin-left: -30px;
 }
 #section_article_table_title_wrap{
     width: 100%;
-    height: 40px;
     display: flex;
     justify-content: center;
 }
 #section_article_table_title{
     width: 100%;
-    height: 40px;
     line-height: 40px;
     font-size: 26px;
+    white-space:normal;
 }
 #section_article_table_writer_wrap{
     width: 100%;
@@ -133,6 +132,9 @@ margin-left: 4px;
     padding: 15px 0;
     border-bottom: 1px solid rgb(211, 211, 211);
 }
+.comment_wrap:last-child{
+    border-bottom: none;
+}
 .comment_writer_img{
     width: 38px;
 }
@@ -176,6 +178,47 @@ margin-left: 4px;
 }
 .comment_delete:hover{
     cursor: pointer;
+}
+#comment_input_wrap{
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid rgb(211, 211, 211);
+    display: block;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+#comment_wrap_content{
+    padding: 16px 0px;
+    width: 95%;
+}
+#comment_name{
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0;
+}
+#reply_content{
+    margin-top: 8px;
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+    border: none;
+    min-height: 30px;
+    font-family: 'Noto Sans KR',sans-serif;
+}
+#reply_content:focus{
+    outline: none;
+}
+#btn_reply_save{
+    border: none;
+    background-color: white;
+    position: relative; 
+    left: 92%;
+}
+#btn_reply_save:hover{
+    cursor: pointer;
+    background-color: rgb(252, 252, 252);
+    border-radius: 5px;
 }
 /*------------section reaction-------------*/
 @media (max-width: 768px){

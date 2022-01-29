@@ -29,17 +29,24 @@
                 </a>
             </ul>
             <ul id="header_ul_right">
-                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html"><li class="header_ul_right_li">캠퍼스 맵</li></a>
+                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
+                    <li class="header_ul_right_li">캠퍼스 맵</li>
+                </a>
                 <li class="header_ul_right_li" sec:authentication="name">이메일</li>
-                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin</li>
+                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
+                </li>
                 <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
-                <a class="header_ul_right_a"  href="" th:href="@{/logout}"><li class="header_ul_right_li">로그아웃</li></a>
+                <a class="header_ul_right_a" href="" th:href="@{/logout}">
+                    <li class="header_ul_right_li">로그아웃</li>
+                </a>
             </ul>
         </div>
         <div id="header_box">
             <ul>
-                <a href="../index.html" th:href="@{/index}"><img id="head_img"  src="../../static/img/logo.jpg" th:src="@{/img/logo.jpg}" alt=""></a>
-                <a href="../member/list.html"  th:href="@{/list}"><img id="head_img2"  src="../../static/img/logo2.png" th:src="@{/img/logo2.png}" alt=""></a>
+                <a href="../index.html" th:href="@{/index}"><img id="head_img" src="../../static/img/logo.jpg"
+                        th:src="@{/img/logo.jpg}" alt=""></a>
+                <a href="../member/list.html" th:href="@{/list}"><img id="head_img2" src="../../static/img/logo2.png"
+                        th:src="@{/img/logo2.png}" alt=""></a>
             </ul>
         </div>
         <div id="head_gray_layer"></div>
@@ -56,57 +63,93 @@
         <article id="section_article">
             <div id="section_article_wrap">
                 <div id="section_article_plus_minus" th:if="${board.writer} == ${#authentication.principal.email}">
-                        <a id="section_article_modify" href="../board/board_modify.html" th:href="@{/board/modify(id=${board.id})}">수정</a>
-                        <button id="section_article_delete">삭제</button>
-                        <input type="hidden" id="board_id" th:value="${board.id}">
+                    <a id="section_article_modify" href="../board/board_modify.html"
+                        th:href="@{/board/modify(id=${board.id})}">수정</a>
+                    <button id="section_article_delete">삭제</button>
+                    <input type="hidden" id="board_id" th:value="${board.id}">
                 </div>
                 <form id="section_article_table">
                     <div id="section_article_table_title_wrap">
-                        <div id="section_article_table_title" name="title" th:text="${board.title}"><!--제목--></div>
+                        <div id="section_article_table_title" name="title" th:text="${board.title}">
+                            <!--제목-->
+                            응애!! 나의 Today Lunch is 개나리비빔밥이올시다..!
+                        </div>
                     </div>
                     <div id="section_article_table_writer_wrap" name="writer">
                         <span>
-                            <img id="section_article_table_writer_img" src="../../static/img/board_user_img.png" alt="" th:src="@{/img/board_user_img.png}">
+                            <img id="section_article_table_writer_img" src="../../static/img/board_user_img.png" alt=""
+                                th:src="@{/img/board_user_img.png}">
                         </span>
                         <div id="section_article_table_who_wrap">
-                            <div id="section_article_table_writer_name" th:text="${board.writer}"><!--글쓴이--></div>
+                            <div id="section_article_table_writer_name" th:text="${board.writer}">
+                                <!--글쓴이-->
+                            </div>
                             <div id="section_article_table_time_wrap">
-                                <span id="section_article_table_time" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"><!--연도,날짜--></span><span id="section_article_table_view_text">조회</span><span id="section_article_table_view" th:text="${board.hits}"><!--조회수--></span>
+                                <span id="section_article_table_time"
+                                    th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}">
+                                    <!--연도,날짜-->
+                                </span><span id="section_article_table_view_text">조회</span><span
+                                    id="section_article_table_view" th:text="${board.hits}">
+                                    <!--조회수-->
+                                </span>
                             </div>
                         </div>
                     </div>
-                        <div id="section_article_table_main" name="content" th:text="${board.content}"><!--내용--></div>
+                    <div id="section_article_table_main" name="content" th:text="${board.content}">
+                        <!--내용-->
+                        응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 
+                    </div>
+                    <div id="section_article_comment">
+                        <div id=section_article_comment_title>댓글</div>
+                        <!-- 이 아래 댓글 복붙하면됨-->
+                        <div class="comment_wrap" name="writer" th:each="replie : ${board.replies}">
+                            <span>
+                                <img class="comment_writer_img" src="../../static/img/board_user_img.png" alt="">
+                            </span>
+                            <div class="comment_writer">
+                                <div class="comment_writer_name" th:text="${replie.userInfo.email}">김도현</div>
+                                <div class="comment_content" th:text="${replie.content}">네 이름이 뭐니? 내 자산 맡길 수 있겠니? 니들이 게맛을 알어 !? 응애 나 아가주영. 점심 나가서 머글거가태!!</div>
+                                <input type="hidden" id="replie_id" th:value="${replie.id}">
+                                <div class="comment_delete_div">
+                                    <div class="comment_write_time"
+                                        th:text="${#temporals.format(replie.createdDate, 'yyyy-MM-dd HH:mm')}">2022-01-25 13:27</div>
+                                    <button id="btn_reply_delete" class="comment_delete"
+                                        th:if="${replie.userInfo.email} == ${#authentication.principal.email}">삭제</button>
+                                </div>
+                            </div>
+                        </div><!--여기까지 ㅎ 댓글~!-->
+                        <div class="comment_wrap" name="writer" th:each="replie : ${board.replies}">
+                            <span>
+                                <img class="comment_writer_img" src="../../static/img/board_user_img.png" alt="">
+                            </span>
+                            <div class="comment_writer">
+                                <div class="comment_writer_name" th:text="${replie.userInfo.email}">김도현</div>
+                                <div class="comment_content" th:text="${replie.content}">네 이름이 뭐니? 내 자산 맡길 수 있겠니? 니들이 게맛을 알어 !? 응애 나 아가주영. 점심 나가서 머글거가태!!</div>
+                                <input type="hidden" id="replie_id" th:value="${replie.id}">
+                                <div class="comment_delete_div">
+                                    <div class="comment_write_time"
+                                        th:text="${#temporals.format(replie.createdDate, 'yyyy-MM-dd HH:mm')}">2022-01-25 13:27</div>
+                                    <button id="btn_reply_delete" class="comment_delete"
+                                        th:if="${replie.userInfo.email} == ${#authentication.principal.email}">삭제</button>
+                                </div>
+                            </div>
+                        </div><!--여기까지 ㅎ 댓글~!-->
+                    </div><!--댓글 끝 -->
+                        <div id="comment_input_wrap">
+                            <div id="comment_wrap_content">
+                                <div id="comment_name" th:text="${replie.userInfo.email}">본인 이름</div>
+                                <input type="hidden" id="reply_boardId" th:value="${board.id}">
+                                <textarea id="reply_content" rows="1" placeholder="댓글을 입력하세요." onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+                                <button id="btn_reply_save">등록</button>
+                            </div>
+                        </div>
                 </form>
             </div>
         </article>
         <!--댓글 등록-->
-        <div>
-            <div>
-                <input type="hidden" id="reply_boardId" th:value="${board.id}">
-                <textarea id="reply_content" rows="1"></textarea>
-            </div>
-            <div>
-                <button id="btn_reply_save">등록</button>
-            </div>
-        </div>
-        <!--댓글 등록 끝-->
-        </br>
-        </br>
-        </br>
+        
         <!--댓글 시작 -->
-        <ul>
-            <li th:each="replie : ${board.replies}">
-                <div th:text="${replie.userInfo.email}">작성자</div>
-                <div th:text="${#temporals.format(replie.createdDate, 'yyyy-MM-dd HH:mm')}">작성시간</div>
-                <div>
-                    <div th:text="${replie.content}">댓글 내용</div>
-                    <input type="hidden" id="replie_id" th:value="${replie.id}">
-                    <button id="btn_reply_delete" th:if="${replie.userInfo.email} == ${#authentication.principal.email}">삭제</button>
-                </div>
-            </li>
-        </ul>
-        <!--댓글 끝 -->
-
+        
 
 
     </section>
@@ -147,4 +190,4 @@
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
 
-</html> 
+</html>

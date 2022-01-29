@@ -116,3 +116,8 @@ $('#btn_reply_delete').click(function() {
 })
 
 
+//댓글 입력값 많아지면 자동으로 height 늘어나는 함수
+function resize(obj) {
+    obj.style.height = '1px';
+    obj.style.height = (17 + obj.scrollHeight) + 'px';
+}
