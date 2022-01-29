@@ -90,6 +90,9 @@ padding:0;
     cursor: pointer;
     background-color: #379994;
 }
+#update_mobile{
+    display: none;
+}
 
 @media (max-width: 1024px){
     .member_form_table_title{
@@ -189,5 +192,11 @@ padding:0;
         display: flex;
         justify-content: center;
         padding-top: 30px;
+    }
+    #update{
+        display: none;
+    }
+    #update_mobile{
+        display: block;
     }
 }
