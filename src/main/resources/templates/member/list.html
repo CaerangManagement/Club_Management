@@ -81,7 +81,7 @@
                         <td id="table_btn_wrap" >
                             <a id="table_plus_btn" class="table_btn" href="" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/member/form(code=${member.code})}">수정</a>
                             <input type="hidden" id="member_code" th:value="${member.code}">
-                            <button id="delete" class="table_btn" sec:authorize="hasRole('ROLE_ADMIN')">제명</button>
+                            <button id="delete" class="table_btn" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|javascript:deletemember('${member.code}')|">제명</button>
                         </td>
                     </tr>
                 </tbody>
@@ -95,7 +95,7 @@
                 <div id="mobile_form">
                     <a id="mobile_plus_btn" class="mobile_btn" href="" th:href="@{/member/form(code=${member.code})}" sec:authorize="hasRole('ROLE_ADMIN')">수정</a>
                     <input type="hidden" id="member_code_mobile" th:value="${member.code}">
-                    <button class="mobile_btn" id="delete_mobile" sec:authorize="hasRole('ROLE_ADMIN')">제명</button>
+                    <button class="mobile_btn" id="delete_mobile" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|javascript:deletemember('${member.code}')|">제명</button>
                 </div>
             </div>
         </article>

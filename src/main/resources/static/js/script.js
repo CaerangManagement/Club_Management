@@ -1,20 +1,3 @@
-//preventDaefault();
-//function stopEvent(event){
-//    event.preventDefault();
-//}
-//list.html에서 삭제버튼 눌렀을때 JS임. -> member.js로 이동
-
-//const getout_btn = document.getElementById('getout');
-//function getOut(){
-//
-//    const a=confirm('제명하시겠습니까?');
-//    if(a===false){
-//        stopEvent();
-//    }
-//    console.log(a);
-//}
-
-
 const cancle_btn = document.querySelector('#cancle_btn');
 function can(eve){
     const b=confirm('취소하시겠습니까?');

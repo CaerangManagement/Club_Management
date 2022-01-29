@@ -37,7 +37,7 @@ $('#save').click(function () {
 });
 
 
-//글 수정
+//회원 수정
 $('#update').click(function () {
     var jsonData = JSON.stringify({
             position: $('#member_form_level_select').val(),
@@ -66,49 +66,103 @@ $('#update').click(function () {
     });
 });
 
-//글 삭제
-$('#delete').click(function() {
-         $.ajax({
-            url: "/api/member/delete/" + $('#member_code').val(),
-            method: "DELETE",
-            beforeSend: function(xhr){
-                xhr.setRequestHeader(header, token);
-                const a=confirm('제명하시겠습니까?');
-                    if(a===false){
-                        stopEvent(this);
-                    }
-            },
-            success: function(){
-                alert('제명 성공!');
-                location.href = '/member/list';
-            },
-            error: function(){
-                alert('제명 실패!');
-            }
-        });
-})
+/*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+/*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ모바일ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+/*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 
-//모바일버전 제명
-$('#delete_mobile').click(function() {
-         $.ajax({
-            url: "/api/member/delete/" + $('#member_code_mobile').val(),
-            method: "DELETE",
-            beforeSend: function(xhr){
+//회원 추가
+$('#save').click(function () {
+    var jsonData = JSON.stringify({
+        position: $('#member_form_level_select').val(),
+        department: $('#mobile_department').val(),
+        grade: $('#mobile_grade').val(),
+        studentId: $('#mobile_studentId').val(),
+        memberName: $('#mobile_memberName').val(),
+        contact: $('#mobiel_contact').val()
+    });
+    $.ajax({
+        url: "/api/member/add",
+        method: "POST",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        beforeSend: function(xhr){
                 xhr.setRequestHeader(header, token);
-                const a=confirm('제명하시겠습니까?');
-                        if(a===false){
-                            stopEvent(this);
-                        }
-             },
+            },
+        success: function(){
+            alert('회원추가 성공!');
+            location.href = '/member/list';
+        },
+        error: function(){
+            alert('회원추가 실패!');
+        }
+    });
+});
+
+
+//글 수정
+$('#update').click(function () {
+    var jsonData = JSON.stringify({
+            position: $('#member_form_level_select').val(),
+            department: $('#mobile_department').val(),
+            grade: $('#mobile_grade').val(),
+            studentId: $('#mobile_studentId').val(),
+            memberName: $('#mobile_memberName').val(),
+            contact: $('#mobiel_contact').val()
+        });
+        $.ajax({
+            url: "/api/member/update/" + $('#member_code').val(),
+            method: "PUT",
+            data: jsonData,
+            contentType: 'application/json;charset=utf-8',
+            dataType: "json",
+            beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                },
             success: function(){
-                alert('제명 성공!');
+                alert('수정 성공!');
                 location.href = '/member/list';
             },
             error: function(){
-                alert('제명 실패!');
+                alert('수정 실패!');
             }
-        });
-})
+    });
+});
+
+
+
+
+/*제명은 모바일, pc 공통*/
+
+function deletemember(idx) {
+
+	if (!confirm('회원을 제명하시겠어요?')) {
+		return false;
+	}
+
+	var uri = "/api/member/delete/" + idx;
+
+	var headers = {"Content-Type": "application/json", "X-HTTP-Method-Override": "DELETE"};
+
+	$.ajax({
+		url: uri,
+		type: "DELETE",
+		headers: headers,
+		dataType: "json",
+		beforeSend: function(xhr){
+                        xhr.setRequestHeader(header, token);
+                    },
+		success: function(response) {
+		        alert('제명 성공!');
+                location.href = '/member/list';
+
+		},
+		error: function(xhr, status, error) {
+			alert("에러가 발생하였습니다.");
+			return false;
+		}
+	});
+}
 
 
 
