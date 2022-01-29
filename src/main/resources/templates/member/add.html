@@ -35,7 +35,13 @@
                 <a href="../member/list.html"  th:href="@{/list}"><img id="head_img2"  src="../../static/img/logo2.png" th:src="@{/img/logo2.png}" alt=""></a>
             </ul>
         </div>
-        <div id="head_gray_layer"></div>
+        <div id="head_gray_layer">
+            <ul id="now_place">
+                <li class="place_text_li"><a href="../index.html"><img id="gray_home" src="../../static/img/home.png" alt=""></a></li>
+                <li class="place_text_li">회원관리</li>
+                <li class="place_text_li"><a id="no_place_a" href="./add.html">추가</a></li>
+            </ul>
+        </div>
     </header>
 
     <section id="section">
@@ -166,4 +172,5 @@
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="../../static/js/member.js" th:src="@{/js/member.js}"></script>
+<script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 </html>

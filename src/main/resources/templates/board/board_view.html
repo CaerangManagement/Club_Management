@@ -49,7 +49,13 @@
                         th:src="@{/img/logo2.png}" alt=""></a>
             </ul>
         </div>
-        <div id="head_gray_layer"></div>
+        <div id="head_gray_layer">
+            <ul id="now_place">
+                <li class="place_text_li"><a href="../index.html"><img id="gray_home" src="../../static/img/home.png" alt=""></a></li>
+                <li class="place_text_li">게시글</li>
+                <li class="place_text_li"><a id="no_place_a" href="./board_view.html">게시글 정보</a></li>
+            </ul>
+        </div>       
     </header>
 
     <section id="section">
@@ -178,5 +184,5 @@
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
-
+<script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 </html>
