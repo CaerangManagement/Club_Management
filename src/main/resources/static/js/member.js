@@ -10,7 +10,7 @@ function stopEvent(event){
 //회원 추가
 $('#save').click(function () {
     var jsonData = JSON.stringify({
-        position: $('#position').val(),
+        position: $('#member_form_level_select').val(),
         department: $('#department').val(),
         grade: $('#grade').val(),
         studentId: $('#studentId').val(),
@@ -71,14 +71,14 @@ $('#update').click(function () {
 /*ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 
 //회원 추가
-$('#save').click(function () {
+$('#mobile_save').click(function () {
     var jsonData = JSON.stringify({
-        position: $('#member_form_level_select').val(),
+        position: $('#member_form_level_span').val(),
         department: $('#mobile_department').val(),
         grade: $('#mobile_grade').val(),
         studentId: $('#mobile_studentId').val(),
         memberName: $('#mobile_memberName').val(),
-        contact: $('#mobiel_contact').val()
+        contact: $('#mobile_contact').val()
     });
     $.ajax({
         url: "/api/member/add",
@@ -101,7 +101,7 @@ $('#save').click(function () {
 
 
 //글 수정
-$('#update').click(function () {
+$('#update_mobile').click(function () {
     var jsonData = JSON.stringify({
             position: $('#member_form_level_select').val(),
             department: $('#mobile_department').val(),
