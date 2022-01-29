@@ -127,6 +127,7 @@ margin-left: 4px;
 }
 .comment_wrap{
     height: 100%;
+    width: 100%;
     background-color: white;
     display: flex;
     padding: 15px 0;
@@ -191,6 +192,7 @@ margin-left: 4px;
 #comment_wrap_content{
     padding: 16px 0px;
     width: 95%;
+    position: relative;
 }
 #comment_name{
     font-size: 13px;
@@ -203,17 +205,17 @@ margin-left: 4px;
     resize: none;
     overflow: hidden;
     border: none;
-    min-height: 30px;
+    min-height: 20px;
     font-family: 'Noto Sans KR',sans-serif;
 }
 #reply_content:focus{
     outline: none;
 }
 #btn_reply_save{
+    position: relative;
     border: none;
     background-color: white;
-    position: relative; 
-    left: 92%;
+    right: 0%;
 }
 #btn_reply_save:hover{
     cursor: pointer;
