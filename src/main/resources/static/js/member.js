@@ -88,7 +88,7 @@ $('#delete').click(function() {
         });
 })
 
-//모바일버전 글삭제
+//모바일버전 제명
 $('#delete_mobile').click(function() {
          $.ajax({
             url: "/api/member/delete/" + $('#member_code_mobile').val(),

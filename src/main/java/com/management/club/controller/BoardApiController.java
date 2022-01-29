@@ -56,10 +56,10 @@ public class BoardApiController {
     }
 
     //댓글 삭제
-    @RequestMapping(value="/board/{boardId}/reply/{replyId}", method=RequestMethod.DELETE)
-    ResponseEntity<?> deleteReply(@PathVariable Long replyId
+    @RequestMapping(value="/deleteComment/{id}", method=RequestMethod.DELETE)
+    ResponseEntity<?> deleteReply(@PathVariable("id") Long id
     ) throws IOException {
-        boardService.댓글삭제(replyId);
+        boardService.댓글삭제(id);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

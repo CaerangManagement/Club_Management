@@ -96,24 +96,38 @@ $('#btn_reply_save').click(function() {
         });
 })
 
-//댓글 삭제
-$('#btn_reply_delete').click(function() {
-         $.ajax({
-            url: "/api/board/" + $('#reply_boardId').val() +"/reply/" +$('#replie_id').val(),
-            method: "DELETE",
-            beforeSend: function(xhr){
-                xhr.setRequestHeader(header, token);
-            },
-            success: function(){
-                alert('댓글삭제 성공 :)');
-                location.href = '/board/' + $('#reply_boardId').val();
-            },
-            error: function(){
-                alert('댓글삭제 실패 :(');
-                location.href = '/board/' + $('#reply_boardId').val();
-            }
-        });
-})
+//댓글삭제
+function deleteComment(idx) {
+
+	if (!confirm('댓글을 삭제하시겠어요?')) {
+		return false;
+	}
+
+	var uri = "/api/deleteComment/" + idx;
+
+	var headers = {"Content-Type": "application/json", "X-HTTP-Method-Override": "DELETE"};
+
+	$.ajax({
+		url: uri,
+		type: "DELETE",
+		headers: headers,
+		dataType: "json",
+		beforeSend: function(xhr){
+                        xhr.setRequestHeader(header, token);
+                    },
+		success: function(response) {
+			if (response.result == false) {
+				alert("댓글 삭제에 실패하였습니다.");
+				return false;
+			}
+        location.href = '/board/' + $('#reply_boardId').val();
+		},
+		error: function(xhr, status, error) {
+			alert("에러가 발생하였습니다.");
+			return false;
+		}
+	});
+}
 
 
 //댓글 입력값 많아지면 자동으로 height 늘어나는 함수
