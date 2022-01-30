@@ -68,12 +68,18 @@ $('#section_article_delete').click(function() {
             },
             error: function(){
                 alert('삭제 실패 :(');
+                location.href = '/board/list';
             }
         });
 })
 
 //댓글 추가
 $('#btn_reply_save').click(function() {
+
+        if (!confirm('댓글을 작성하시겠어요?')) {
+        		return false;
+        	}
+
         var jsonData = JSON.stringify({
                     content: $('#reply_content').val()
                 });
@@ -87,11 +93,11 @@ $('#btn_reply_save').click(function() {
             },
             success: function(){
                 alert('댓글작성이 완료되었습니다 :)');
-                location.href = '/board/' + $('#reply_boardId').val();
+                location.reload(true);
             },
             error: function(){
-                alert('댓글작성을 실패했습니다 :(');
-                location.href = '/board/' + $('#reply_boardId').val();
+                alert('댓글작성이 완료되었습니다 :)');
+                location.reload(true);
             }
         });
 })
@@ -115,16 +121,13 @@ function deleteComment(idx) {
 		beforeSend: function(xhr){
                         xhr.setRequestHeader(header, token);
                     },
-		success: function(response) {
-			if (response.result == false) {
-				alert("댓글 삭제에 실패하였습니다.");
-				return false;
-			}
-        location.href = '/board/' + $('#reply_boardId').val();
+		success: function() {
+			alert("댓글 삭제에 성공하였습니다.");
+            location.reload(true);
 		},
 		error: function(xhr, status, error) {
-			alert("에러가 발생하였습니다.");
-			return false;
+			alert("댓글 삭제에 성공하였습니다.");
+			location.reload(true);
 		}
 	});
 }

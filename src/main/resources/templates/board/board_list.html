@@ -85,10 +85,9 @@
             </table>
         </article>
         <article id="mobile_section_article">
-            <div class="mobile_section_article_div">
-                <p class="mobile_section_article_p_name" >이름 : <span>김도현</span></p>
-                <p class="mobile_section_article_p"><span>소프트웨어융합대학</span><span>4</span><span>20195120</span><span>010-2001-6448</span></p>
-                <p class="mobile_section_article_p"><span>회장</span></p>
+            <div class="mobile_section_article_div" th:each="board : ${boards}" th:onclick="'javascript:userDetail('+ ${board.id} + ');'">
+                <p class="mobile_section_article_p_name" th:text="${board.title}">게시글 제목</p>
+                <p class="mobile_section_article_p" th:text="${board.writer}">작성자</p>
             </div>
         </article>
         <footer id="section_footer">
