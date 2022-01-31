@@ -30,17 +30,21 @@ public class BoardController {
      * 게시글 리스트 조회
      */
     @GetMapping("/board/list")
-    public String board_list(Model model , @PageableDefault(size = 10 , sort="createdDate", direction = Sort.Direction.DESC) Pageable pageable,
+    public String board_list(Model model , @PageableDefault(size = 1 , sort="createdDate", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
                              @RequestParam(value ="searchType", required = false, defaultValue = "1") String searchType){
 
         //전체 게시글 조회
         if(Integer.parseInt(searchType)==1){
             Page<Board> boards = boardRepository.findAll(pageable);
-            int startPage = 1;
-            int endPage = boards.getTotalPages();
-            model.addAttribute("startPage", startPage);
-            model.addAttribute("endPage", endPage);
+
+            int current = boards.getNumber()+1;
+            int begin = Math.max(1, current - 3);
+            int end = Math.min(begin + 4, boards.getTotalPages());
+
+            model.addAttribute("current", current);
+            model.addAttribute("begin", begin);
+            model.addAttribute("end", end);
             model.addAttribute("boards", boards);
             return "/board/board_list";
         }
@@ -48,10 +52,14 @@ public class BoardController {
         //제목으로 조회
         else if(Integer.parseInt(searchType)==2){
             Page<Board> boards = boardRepository.findByTitleContaining(keyword ,pageable);
-            int startPage = 1;
-            int endPage = boards.getTotalPages();
-            model.addAttribute("startPage", startPage);
-            model.addAttribute("endPage", endPage);
+
+            int current = boards.getNumber()+1;
+            int begin = Math.max(1, current - 3);
+            int end = Math.min(begin + 4, boards.getTotalPages());
+
+            model.addAttribute("current", current);
+            model.addAttribute("begin", begin);
+            model.addAttribute("end", end);
             model.addAttribute("boards", boards);
             return "/board/board_list";
         }
@@ -59,10 +67,14 @@ public class BoardController {
         //작성자로 조회
         else{
             Page<Board> boards = boardRepository.findByWriterContaining(keyword, pageable);
-            int startPage = 1;
-            int endPage = boards.getTotalPages();
-            model.addAttribute("startPage", startPage);
-            model.addAttribute("endPage", endPage);
+
+            int current = boards.getNumber()+1;
+            int begin = Math.max(1, current - 3);
+            int end = Math.min(begin + 4, boards.getTotalPages());
+
+            model.addAttribute("current", current);
+            model.addAttribute("begin", begin);
+            model.addAttribute("end", end);
             model.addAttribute("boards", boards);
             return "/board/board_list";
         }

@@ -41,7 +41,7 @@
         <div id="head_gray_layer">
             <ul id="now_place">
                 <li class="place_text_li"><a href="../index.html"><img id="gray_home" src="../../static/img/home.png" alt=""></a></li>
-                <li class="place_text_li"><a id="no_place_a" href="./board_list.html">게시글 목록</a></li>
+                <li class="place_text_li"><a id="no_place_a" href="" >게시글 목록</a></li>
             </ul>
         </div>
     </header>
@@ -85,24 +85,32 @@
             </table>
         </article>
         <article id="mobile_section_article">
-            <div class="mobile_section_article_div" th:each="board : ${boards}" th:onclick="'javascript:userDetail('+ ${board.id} + ');'">
+            <div class="mobile_section_article_div" th:each="board : ${boardList}" th:onclick="'javascript:userDetail('+ ${board.id} + ');'">
                 <p class="mobile_section_article_p_name" th:text="${board.title}">응애! 나는 하타케 카카시.</p>
                 <p class="mobile_section_article_p"><span class="mobile_section_article_span" th:text="${board.writer}">61기 김도현</span><span class="mobile_section_article_span" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}">2022.02.14</span><span class="mobile_section_article_span">조회 <span th:text="${board.hits}">6192</span></span></p>
             </div>
         </article>
         <footer id="section_footer">
             <a id="section_footer_plus_btn" href="../board/board_add.html" th:href="@{/board/add}" >글쓰기</a>
+
+            <<!-----------------------------------------------페이징 구간----------------------------------------------->
             <ul id="section_footer_move_btn">
-                <li class="section_footer_btn" th:classappend="${1 == boards.pageable.pageNumber + 1} ? 'disabled'">
-                    <a th:href="@{/board/list(page=${boards.pageable.pageNumber - 1},keyword=${param.keyword}, searchType=${param.searchType})}">&lt;</a>
+
+                <li class="section_footer_btn" aria-label="First">
+                    <a th:href="@{/board/list(page=${0},keyword=${param.keyword}, searchType=${param.searchType})}">First</a>
                 </li>
-                <li class="section_footer_btn_num" th:classappend="${i == boards.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}">
+
+                <li class="section_footer_btn_num" th:classappend="${i == boards.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(begin, end)}">
                     <a th:href="@{/board/list(page=${i-1}, keyword=${param.keyword}, searchType=${param.searchType})}" th:text="${i}">1</a>
                 </li>
-                <li class="section_footer_btn" th:classappend="${boards.totalPages == boards.pageable.pageNumber + 1} ? 'disabled'">
-                    <a th:href="@{/board/list(page=${boards.pageable.pageNumber + 1},keyword=${param.keyword}, searchType=${param.searchType})}">&gt;</a>
+
+                <li class="section_footer_btn" aria-label="Last">
+                    <a th:href="@{/board/list(page=${boards.totalPages - 1},keyword=${param.keyword}, searchType=${param.searchType})}">Last</a>
                 </li>
+
             </ul>
+            <<!-----------------------------------------------페이징 구간----------------------------------------------->
+
         </footer>
     </section>
     <footer id="footer">

@@ -106,17 +106,27 @@
         </article>
         <footer id="section_footer">
             <a id="section_footer_plus_btn" href="../member/add.html" th:href="@{/member/add}" sec:authorize="hasRole('ROLE_ADMIN')">추가하기</a>
+
+            <<!-----------------------------------------------페이징 구간----------------------------------------------->
+
             <ul id="section_footer_move_btn">
-                <li class="section_footer_btn" th:classappend="${1 == members.pageable.pageNumber + 1} ? 'disabled'">
-                    <a th:href="@{/member/list(page=${members.pageable.pageNumber - 1},keyword=${param.keyword}, searchType=${param.searchType})}">&lt;</a>
+
+                <li class="section_footer_btn" aria-label="First">
+                    <a th:href="@{/member/list(page=${0},keyword=${param.keyword}, searchType=${param.searchType})}">First</a>
                 </li>
-                <li class="section_footer_btn_num" th:classappend="${i == members.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}">
+
+                <li class="section_footer_btn_num" th:classappend="${i == members.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(begin, end)}">
+
                     <a th:href="@{/member/list(page=${i-1}, keyword=${param.keyword}, searchType=${param.searchType})}" th:text="${i}">1</a>
                 </li>
-                <li class="section_footer_btn" th:classappend="${members.totalPages == members.pageable.pageNumber + 1} ? 'disabled'">
-                    <a th:href="@{/member/list(page=${members.pageable.pageNumber + 1},keyword=${param.keyword}, searchType=${param.searchType})}">&gt;</a>
+
+                <li class="section_footer_btn" aria-label="Last">
+                    <a th:href="@{/member/list(page=${members.totalPages - 1},keyword=${param.keyword}, searchType=${param.searchType})}">Last</a>
                 </li>
+
             </ul>
+
+            <<!-----------------------------------------------페이징 구간----------------------------------------------->
         </footer>
     </section>
     <footer id="footer">
