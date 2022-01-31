@@ -109,7 +109,7 @@ body{
 #back:hover{
     cursor: pointer;
 }
-#save{
+#update{
     border: none;
     width: 70px;
     height: 31.6px;
@@ -117,7 +117,7 @@ body{
     color: #009f47;
     border-radius: 5px;
 }
-#save:hover{
+#update:hover{
     cursor: pointer;
 }
 /*------------section reaction-------------*/
