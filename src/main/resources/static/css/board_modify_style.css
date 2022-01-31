@@ -105,6 +105,8 @@ body{
     border-radius: 5px;
     font-size: 13px;
     text-align: center;
+    text-decoration: none;
+    color: black;
 }
 #back:hover{
     cursor: pointer;
