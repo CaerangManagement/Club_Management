@@ -337,7 +337,7 @@ body{
     width: 100%;
     height: 100%;
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: black;
     font-size: 13px;
 }
 .page_num{
@@ -383,25 +383,20 @@ body{
     border-right: none;
     display: block;
 }
-.section_footer_btn:last-child{
-    border: rgb(204, 204, 204) 1px solid;
-    display: block;
-}
 .section_footer_btn_num:hover{
     background: rgb(250, 250, 250);
 }
 .section_footer_btn:hover{
-    background: rgb(250, 250, 250);
+    background: #e9f5f4;
 }
 /*-----------section_footer_reaction----------*/
 @media (max-width: 768px){
-    .section_footer_btn{
-        width: 25px;
-        height: 25px;  
-        line-height: 22px;
-    }
-    
     .section_footer_btn_num{
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    }
+    .section_footer_btn{
         width: 25px;
         height: 25px;
         line-height: 25px;
