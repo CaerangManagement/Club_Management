@@ -158,7 +158,6 @@ margin-left: 4px;
 }
 .comment_wrap{
     height: 100%;
-    width: 100%;
     background-color: white;
     display: flex;
     padding: 15px 0;
@@ -254,11 +253,22 @@ margin-left: 4px;
     border-radius: 5px;
 }
 /*------------section reaction-------------*/
+@media (max-width: 1024px){
+    .place_text_li{
+        height: 30px;
+        line-height: 20px;
+        font-size: 13.5px;
+    }
+    #gray_home{
+        width: 14px;
+        margin-top: 3px;
+    }
+}
 @media (max-width: 768px){
     #section{
         position: relative;
         top: -20px;
-        padding: 40px 0px 0px 0px;
+        padding: 40px 20px 0px 20px;
         flex: 1;
     }
     #section_header_mange_img{

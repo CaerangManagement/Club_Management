@@ -221,6 +221,15 @@ body{
         color: white;
         margin: 0px 3px 0px 3px;
     }
+    .place_text_li{
+        height: 30px;
+        line-height: 20px;
+        font-size: 13.5px;
+    }
+    #gray_home{
+        width: 14px;
+        margin-top: 3px;
+    }
 }
 @media (max-width: 768px){
     #section_article{

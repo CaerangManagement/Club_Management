@@ -210,6 +210,17 @@ body{
     cursor: pointer;
 }
 /*-------------article_reaction---------------*/
+@media (max-width: 1024px){
+    .place_text_li{
+        height: 30px;
+        line-height: 20px;
+        font-size: 13.5px;
+    }
+    #gray_home{
+        width: 14px;
+        margin-top: 3px;
+    }
+}
 @media (max-width: 768px){
     #section_article{
         display: none;
@@ -238,16 +249,15 @@ body{
         font-size: 12px;
         color: rgb(114, 114, 114);
         padding: 2px 0;
+        margin-top: 5px;
     }
-    .mobile_section_article_p span{
+    .mobile_section_article_span{
         border-left: solid 1px rgb(204, 204, 204);
         padding: 0 7px;
     }
-    .mobile_section_article_p span:nth-child(4){
-        border-left: solid 1px rgb(204, 204, 204);
-    }
-    .mobile_section_article_p span:last-child{
-        border-right: solid 1px rgb(204, 204, 204);
+    .mobile_section_article_span:first-child{
+        border: none;
+        padding-left: 0;
     }
     #mobile_form{
         display: flex;

@@ -45,23 +45,28 @@ body{
     color: #379994;
 }
 /*------------section--------------*/
+#section{
+    padding: 40px 200px 60px 200px;
+    margin-bottom: 80px;
+}
 #section_article{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -40px;
 }
 #section_article_form{
-    border: 1px solid black;
     width: 84.5%;
 }
 #section_article_table{
-    border: 1px solid black;
-
-    padding: 10px 30px;
+    border-top: 1px solid black;
+    margin: 10px 30px 0 0;
     width: 100%;
 }
 #section_article_table_title_wrap{
+    margin-top: -10px;
+    margin-bottom: 15px;
     width: 100%;
-    height: 70px;
     display: flex;
     justify-content: center;
 }
@@ -72,15 +77,61 @@ body{
     justify-content: center;
 }
 #section_article_table_title{
-    width: 65%;
-    height: 50%;
-    margin-top: 25px;
+    width: 100%;
+    height: 20px;
+    margin-top: 40px;
+    border: 1px solid rgb(211, 211, 211);
+    padding: 10px;
 }
 #section_article_table_main{
+    padding: 10px;
     width: 100%;
-    height: 50%;
+    height: calc(100%-20px);
+    resize: none;
+    font-family: 'Noto Sans KR',sans-serif;
+    border: 1px solid rgb(211, 211, 211);
+    font-size: 14px;
+}
+#section_back_plus_wrap{
+    width: 84.5%;
+    height: 50px;
+    margin-top: 30px;
+    text-align: end;
+}
+#back{
+    padding: 6px 9px;
+    background-color: #ffffff;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
+    font-size: 13px;
+    text-align: center;
+}
+#back:hover{
+    cursor: pointer;
+}
+#save{
+    border: none;
+    width: 70px;
+    height: 31.6px;
+    background-color: #03c75a1f;
+    color: #009f47;
+    border-radius: 5px;
+}
+#save:hover{
+    cursor: pointer;
 }
 /*------------section reaction-------------*/
+@media (max-width: 1024px){
+    .place_text_li{
+        height: 30px;
+        line-height: 20px;
+        font-size: 13.5px;
+    }
+    #gray_home{
+        width: 14px;
+        margin-top: 3px;
+    }
+}
 @media (max-width: 768px){
     #section{
         position: relative;
