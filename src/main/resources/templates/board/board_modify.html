@@ -59,8 +59,9 @@
                 <span id="section_header_mange_span2">게시글 수정</span>
             </div>
         </header>
-        <article id="section_article">
-            <form id="section_article_form">
+
+        <article id="section_article" th:if="${board.writer} == ${#authentication.principal.email}">
+            <form id="section_article_form" >
                 <table id="section_article_table" th:object="${board}">
                     <tr>
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요." th:field="*{title}"></td>
@@ -75,8 +76,8 @@
                 <input type="hidden" id="board_id" th:value="${board.id}">
                 <button id="update" value="수정하기">수정하기</button>
             </div>
-            <div th:unless="${board.writer} == ${#authentication.principal.email}"> 해당 게시글을 수정할 권한이 없습니다.</div>
         </article>
+        <div style="text-align:center" th:unless="${board.writer} == ${#authentication.principal.email}"> 해당 게시글을 수정할 권한이 없습니다.</div>
     </section>
     <footer id="footer">
         <div id="footer_top">

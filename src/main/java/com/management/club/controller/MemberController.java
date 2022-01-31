@@ -24,7 +24,7 @@ public class MemberController {
 
 
     @GetMapping("/member/list") //검색, 페이징 기능
-    public String list(Model model, @PageableDefault(size = 1, direction = Sort.Direction.DESC) Pageable pageable,
+    public String list(Model model, @PageableDefault(size = 10, direction = Sort.Direction.DESC) Pageable pageable,
                                  @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
                                  @RequestParam(value ="searchType", required = false, defaultValue = "1") String searchType){
 
