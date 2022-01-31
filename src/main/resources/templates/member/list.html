@@ -107,26 +107,26 @@
         <footer id="section_footer">
             <a id="section_footer_plus_btn" href="../member/add.html" th:href="@{/member/add}" sec:authorize="hasRole('ROLE_ADMIN')">추가하기</a>
 
-            <<!-----------------------------------------------페이징 구간----------------------------------------------->
+            <!-----------------------------------------------페이징 구간----------------------------------------------->
 
             <ul id="section_footer_move_btn">
 
                 <li class="section_footer_btn" aria-label="First">
-                    <a th:href="@{/member/list(page=${0},keyword=${param.keyword}, searchType=${param.searchType})}">First</a>
+                    <a class="page_btn" th:href="@{/member/list(page=${0},keyword=${param.keyword}, searchType=${param.searchType})}">&lt;&lt;</a>
                 </li>
 
                 <li class="section_footer_btn_num" th:classappend="${i == members.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(begin, end)}">
 
-                    <a th:href="@{/member/list(page=${i-1}, keyword=${param.keyword}, searchType=${param.searchType})}" th:text="${i}">1</a>
+                    <a class="page_num" th:href="@{/member/list(page=${i-1}, keyword=${param.keyword}, searchType=${param.searchType})}" th:text="${i}">1</a>
                 </li>
 
                 <li class="section_footer_btn" aria-label="Last">
-                    <a th:href="@{/member/list(page=${members.totalPages - 1},keyword=${param.keyword}, searchType=${param.searchType})}">Last</a>
+                    <a class="page_btn" th:href="@{/member/list(page=${members.totalPages - 1},keyword=${param.keyword}, searchType=${param.searchType})}">&gt;&gt;</a>
                 </li>
 
             </ul>
 
-            <<!-----------------------------------------------페이징 구간----------------------------------------------->
+            <!-----------------------------------------------페이징 구간----------------------------------------------->
         </footer>
     </section>
     <footer id="footer">
