@@ -68,20 +68,20 @@
             <table id="section_article_table">
                 <thead>
                     <th class="th">학과</th>
-                    <th class="th">학년</th>
-                    <th class="th">학번</th>
+                    <th class="th" sec:authorize="hasRole('ROLE_ADMIN')">학년</th>
+                    <th class="th" sec:authorize="hasRole('ROLE_ADMIN')">학번</th>
                     <th class="th">이름</th>
-                    <th class="th">연락처</th>
-                    <th class="th">직위</th>
+                    <th class="th" sec:authorize="hasRole('ROLE_ADMIN')">연락처</th>
+                    <th class="th" >직위</th>
                     <th class="th" sec:authorize="hasRole('ROLE_ADMIN')">관리</th>
                 </thead>
                 <tbody>
                     <tr id=td th:each="member : ${members}">
                         <td th:text="${member.department}">소프트웨어융합대학</td>
-                        <td th:text="${member.grade}">3</td>
-                        <td th:text="${member.studentId}">20195120</td>
+                        <td th:text="${member.grade}" sec:authorize="hasRole('ROLE_ADMIN')">3</td>
+                        <td th:text="${member.studentId}" sec:authorize="hasRole('ROLE_ADMIN')">20195120</td>
                         <td th:text="${member.memberName}">김도현</td>
-                        <td th:text=${member.contact}>010-2001-6448</td>
+                        <td th:text=${member.contact} sec:authorize="hasRole('ROLE_ADMIN')">010-2001-6448</td>
                         <td th:text=${member.position}>회장</td>
                         <td id="table_btn_wrap" >
                             <a id="table_plus_btn" class="table_btn" href="" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/member/form(code=${member.code})}">수정</a>
@@ -95,9 +95,12 @@
         <article id="mobile_section_article" th:each="member : ${members}">
             <div class="mobile_section_article_div">
                 <p class="mobile_section_article_p_name">이름 : <span th:text="${member.memberName}">김도현</span></p>
-                <p class="mobile_section_article_p"><span th:text="${member.department}">소프트웨어융합대학</span><span th:text="${member.grade}">4</span><span th:text="${member.studentId}">20195120</span><span th:text=${member.contact}>010-2001-6448</span></p>
+                <p class="mobile_section_article_p"><span th:text="${member.department}">소프트웨어융합대학</span>
+                    <span th:text="${member.grade}" sec:authorize="hasRole('ROLE_ADMIN')">4</span>
+                    <span th:text="${member.studentId}" sec:authorize="hasRole('ROLE_ADMIN')">20195120</span>
+                    <span th:text=${member.contact} sec:authorize="hasRole('ROLE_ADMIN')">010-2001-6448</span></p>
                 <p class="mobile_section_article_p"><span th:text=${member.position}>회장</span></p>
-                <div id="mobile_form">
+                <div id="mobile_form" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a id="mobile_plus_btn" class="mobile_btn" href="" th:href="@{/member/form(code=${member.code})}" sec:authorize="hasRole('ROLE_ADMIN')">수정</a>
                     <input type="hidden" id="member_code_mobile" th:value="${member.code}">
                     <button class="mobile_btn" id="delete_mobile" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|javascript:deletemember('${member.code}')|">제명</button>
