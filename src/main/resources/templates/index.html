@@ -1,21 +1,20 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>한림대학교 씨애랑 홈페이지</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    // Add the new slick-theme.css if you want the default styling
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <!--Add the new slick-theme.css if you want the default styling-->
+
     <link rel="stylesheet" href="../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
-    <link rel="stylesheet" href="../static/css/index_style.css" th:href="@{/css/form_style.css}">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <meta name="_csrf" th:content="${_csrf.token}">
-    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <link rel="stylesheet" href="../static/css/index_style.css" th:href="@{/css/index_style.css}">
+
 </head>
 <body>
     <header>
@@ -26,10 +25,10 @@
             </ul>
             <ul id="header_ul_right">
                 <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html"><li class="header_ul_right_li">캠퍼스 맵</li></a>
-                <li class="header_ul_right_li" sec:authentication="name">이메일</li>
-                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin</li>
-                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
-                <a class="header_ul_right_a"  href="" th:href="@{/logout}"><li class="header_ul_right_li">로그아웃</li></a>
+<!--                <li class="header_ul_right_li" sec:authentication="name">이메일</li>-->
+<!--                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin</li>-->
+<!--                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>-->
+<!--                <a class="header_ul_right_a"  href="" th:href="@{/logout}"><li class="header_ul_right_li">로그아웃</li></a>-->
             </ul>
         </div>
         <div id="header_box">
@@ -43,7 +42,7 @@
         </div>
         <div id="head_gray_layer">
             <ul id="now_place">
-                <li class="place_text_li"><a href="./index.html"><img id="gray_home" src="../static/img/home.png" th:src="@{/img/home.png}" alt=""></a></li>
+                <li class="place_text_li"><a href="./index.html" th:href="@{/index}"><img id="gray_home" src="../static/img/home.png" th:src="@{/img/home.png}" alt=""></a></li>
                 <li class="place_text_li"><a href="" id="no_place_a">씨애랑 홈</a></li>
             </ul>
         </div>
@@ -108,7 +107,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="../static/js/index_slide.js"></script>
+<script src="../static/js/index_slide.js" th:src="@{/js/index_slide.js}"></script>
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
