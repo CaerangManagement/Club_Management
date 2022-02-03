@@ -1,39 +1,51 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>한림대학교 씨애랑 홈페이지</title>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    <!--Add the new slick-theme.css if you want the default styling-->
 
     <link rel="stylesheet" href="../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../static/css/index_style.css" th:href="@{/css/index_style.css}">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+
+
 </head>
+
 <body>
     <header>
         <div id="header">
             <ul id="header_ul_left">
-                <a class="header_ul_left_a" href="https://www.hallym.ac.kr/hallym_univ/"><li class="header_ul_left_li">한림대학교</li></a>
-                <a class="header_ul_left_a" href="./index.html"><li class="header_ul_left_li">HOME</li></a>
+                <a class="header_ul_left_a" href="https://www.hallym.ac.kr/hallym_univ/">
+                    <li class="header_ul_left_li">한림대학교</li>
+                </a>
+                <a class="header_ul_left_a" href="./index.html">
+                    <li class="header_ul_left_li">HOME</li>
+                </a>
             </ul>
             <ul id="header_ul_right">
-                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html"><li class="header_ul_right_li">캠퍼스 맵</li></a>
-<!--                <li class="header_ul_right_li" sec:authentication="name">이메일</li>-->
-<!--                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin</li>-->
-<!--                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>-->
-<!--                <a class="header_ul_right_a"  href="" th:href="@{/logout}"><li class="header_ul_right_li">로그아웃</li></a>-->
+                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
+                    <li class="header_ul_right_li_a">캠퍼스 맵</li>
+                </a>
+                <a class="header_ul_right_a" href="">
+                    <li class="header_ul_right_li_a_log">로그인</li>
+                </a>
+                <a class="header_ul_right_a" href="">
+                    <li class="header_ul_right_li_a_log">로그아웃</li>
+                </a>
             </ul>
         </div>
         <div id="header_box">
             <ul>
-                <a href="./index.html" th:href="@{/index}"><img id="head_img"  src="../static/img/logo.jpg" th:src="@{/img/logo.jpg}" alt=""></a>
+                <a href="./index.html" th:href="@{/index}"><img id="head_img" src="../static/img/logo.jpg"
+                        th:src="@{/img/logo.jpg}" alt=""></a>
                 <div class="header_title">
                     <a href="./board/board_list.html" class="header_title_content">게시글</a>
                     <a href="./member/list.html" class="header_title_content">부원관리 </a>
@@ -42,14 +54,15 @@
         </div>
         <div id="head_gray_layer">
             <ul id="now_place">
-                <li class="place_text_li"><a href="./index.html" th:href="@{/index}"><img id="gray_home" src="../static/img/home.png" th:src="@{/img/home.png}" alt=""></a></li>
+                <li class="place_text_li"><a href="./index.html" th:href="@{/index}"><img id="gray_home"
+                            src="../static/img/home.png" th:src="@{/img/home.png}" alt=""></a></li>
                 <li class="place_text_li"><a href="" id="no_place_a">씨애랑 홈</a></li>
             </ul>
         </div>
     </header>
 
     <section>
-        <article id="section_article">
+        <!--<article id="section_article">
             <div id="slide_wrap">
                 <div class="silde_content">
 
@@ -61,14 +74,37 @@
                     
                 </div>
             </div>
-        </article>
+        </article>-->
+        <ul class="bxslider">
+            <li>
+                <img src="../static/img/blog.png" alt="">
+            </li>
+            <li>
+                <img src="../static/img/facebook.png" alt="">
+            </li>
+            <li>
+                <img src="../static/img/hallym_icon.png" alt="">
+            </li>
+        </ul>
+        <div id="board_wrap">
+            <div>게시판</div>
+            <div id="board_content">
+                <div id="board_title">
+                    응애!! 나 안할래!!
+                </div>
+                <div id="board_name_box">
+                    <div id="board_name">
+                        김도현
+                    </div>
+                    <div id="board_view">
+                        <span id="board_view_title">조회</span>
+                        <span id="board_view">283</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>공지사항</div>
     </section>
-
-    <div class="your_class">
-        <div>your content</div>
-        <div>your content</div>
-        <div>your content</div>
-      </div>
 
     <footer id="footer">
         <div id="footer_top">
@@ -96,49 +132,15 @@
                     <p>1, Hallymdaehak-gil, Chuncheon-si, Gangwon-do, Republic of Korea</p>
                     <p>Front-End, Dohyun Kim / E-Mail : rlaehgusqp@naver.com</p>
                     <p>Back-End, Juyoung Park / E-mail : okmlnsunok@gmail.com</p>
-                    <p>GitHub URL : <a href="https://github.com/CaerangManagement/Club_Management">https://github.com/CaerangManagement/Club_Management</a></p>
+                    <p>GitHub URL : <a
+                            href="https://github.com/CaerangManagement/Club_Management">https://github.com/CaerangManagement/Club_Management</a>
+                    </p>
                 </div>
             </div>
         </div>
     </footer>
 </body>
-<script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="../static/js/index_slide.js" th:src="@{/js/index_slide.js}"></script>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-      $('.your_classgit ').slick({
-          infinite: true, // 무한여부
-          slidesToShow: 3, // 보여질 슬라이드 갯수
-          slidesToScroll: 3, // 스크롤할 슬라이드 갯수
-          speed : 100,	 // 버튼 누르고 화면 뜨는데 걸리는 시간
-          arrows : true,	// 화살표 여부
-          dots : true,	// 페이지네이션 여부
-          autoplay : true,	// 자동 스크롤 여부
-          autoplaySpeed : 10000, 	// 자동 스크롤 시 넘어가는데 걸리는 시간
-          pauseOnHover : true,	// 마우스 호버하면 슬라이더 멈추는 설정
-          vertical : false,	// 세로 방향 슬라이드 옵션
-          draggable : true, 	// 드래그 가능 여부
-          responsive: [ // 반응형 웹 구현 옵션
-            {  
-              breakpoint: 1200, // 화면 사이즈 1200px
-              settings: { // 반응형시 위와 다르게 변경할 옵션 추가
-              slidesToShow:3 
-             },
-             { 
-              breakpoint: 768, // 화면 사이즈 768px
-              settings: {	
-              slidesToShow:2 
-             }
-          ]
-      });
-    });
-  </script>
 </html>

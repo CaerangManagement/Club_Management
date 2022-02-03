@@ -36,7 +36,7 @@
 .header_title{
     position: absolute;
     width: 280px;
-    top: 57px;
+    top: 68px;
     right: 11%;
 }
 .header_title_content{
@@ -55,16 +55,8 @@
     justify-content: center;
 }
 /*---------------------------slide--------------------------*/
-#slide_wrap{
-    width: 70%;
-    height: 360px;
-    background-color: beige;
-}
-.silde_content{
-    height: 100%;
+
+.slider_content{
+    height: 400px;
     width: 100%;
-    background-color: #379994;
-    border: solid 1px black;
 }
-
-
