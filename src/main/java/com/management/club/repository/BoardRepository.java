@@ -9,8 +9,6 @@ import java.util.List;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
-    //전체
-    Page<Board> findAll(Pageable pageable);
     //제목으로 검색
     Page<Board> findByTitleContaining(String title, Pageable pageable);
     //작성자로 검색

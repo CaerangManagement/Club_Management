@@ -55,9 +55,8 @@
                 <div id="section_header_div2">
                     <form id="section_header_form" th:action="@{/board/list}" method="GET">
                         <select id="section_header_selectBox" name="searchType">
-                            <option value="1">&nbsp; 전체</option>
-                            <option value="2">&nbsp; 제목</option>
-                            <option value="3">&nbsp; 작성자</option>
+                            <option value="1">&nbsp; 제목</option>
+                            <option value="2">&nbsp; 작성자</option>
                         </select>
                         <input id="section_header_input" type="text" placeholder="   검색어를 입력해 주세요" name="keyword" th:value="${param.keyword}">
                         <button type="submit" id="section_header_button">검색</button>

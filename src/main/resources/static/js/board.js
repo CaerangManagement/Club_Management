@@ -46,7 +46,7 @@ $('#update').click(function () {
                 },
             success: function(){
                 alert('수정 성공 :)');
-                location.href = '/board/list';
+                location.href = '/board/' + $('#board_id').val();
             },
             error: function(){
                 alert('수정 실패 :(');
