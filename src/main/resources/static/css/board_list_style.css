@@ -183,6 +183,9 @@ body{
     color: rgb(82, 82, 82);
     font-weight: 500;
 }
+#td:hover{
+    cursor: pointer;
+}
 #table_btn_wrap{
     display: flex;
     justify-content: center;
