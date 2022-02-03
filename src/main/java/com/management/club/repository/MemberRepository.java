@@ -17,7 +17,7 @@ public interface MemberRepository extends JpaRepository<MemberInfo, Long> {
     //회원 학과로 검색
     Page<MemberInfo> findByDepartmentContaining(String department, Pageable pageable);
 
-    //최근 등록된 4명의 정보를 보여주는 쿼리
+    //상위 4개 회원목록 index페이지에서 보여줄꺼
     List<MemberInfo> findTop4ByOrderByCodeDesc();
 
 
