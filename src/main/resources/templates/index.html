@@ -112,7 +112,7 @@
                     <a id="member_plus" href="./member/list.html" th:href="@{/member/list}">+</a>
                 </div>
                     <!--여기부터 멤버-->
-                <div class="member_content" th:each="member : ${member}">
+                <div class="member_content" th:each="member : ${member}" th:onclick="'javascript:memberView();'">
                     <div class="member_name" th:text="${member.memberName}">김도현</div>
                     <div class="member_info_box">
                         <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
@@ -160,11 +160,15 @@
 </body>
 <script type="text/javascript" th:inline="javascript">
 			var boardView = function(seq) {
-				window.open("/board/"+ seq);
+				window.open("/board/"+ seq, '_self');
 			}
 			var noticeBoardView = function(seq) {
-				window.open("/notice/board/"+ seq);
+				window.open("/notice/board/"+ seq, '_self');
 			}
+			var memberView = function() {
+				window.open("/member/list", '_self');
+			}
+
 </script>
 
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
