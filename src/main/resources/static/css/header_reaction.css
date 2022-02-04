@@ -47,27 +47,26 @@
 }
 .header_ul_right_a{
     text-decoration: none;
-    border-left: 1px #b8dbda solid;
-    border-right: 1px #b8dbda solid;
     color: white;
+    line-height: 18px;
 }
 .header_ul_right_a:hover{
     color: rgb(235, 235, 235);
 }
-.header_ul_right_a:last-child{
-    border: none;
-}
 .header_ul_right_li{
     padding : 0px 17px 0px 17px;
-    border-right: 1px #b8dbda solid;
 }
 .header_ul_right_li_a{
     padding : 0px 17px 0px 17px;
+    height: 18px;
 }
 .header_ul_right_li_a_log{
-    padding : 0px 17px 0px 17px;
-    border-left: none;
-    border-right: 1px #b8dbda solid;
+    padding : 0px 17px 0px 17px;    
+    border-left: 1px solid #ffffff;
+    height: 18px;
+}
+#header_name:hover{
+    color: white;
 }
 #head_img{
     position: absolute;
