@@ -99,7 +99,7 @@
                     <span th:text="${member.grade}" sec:authorize="hasRole('ROLE_ADMIN')">4</span>
                     <span th:text="${member.studentId}" sec:authorize="hasRole('ROLE_ADMIN')">20195120</span>
                     <span th:text=${member.contact} sec:authorize="hasRole('ROLE_ADMIN')">010-2001-6448</span></p>
-                <p class="mobile_section_article_p"><span th:text=${member.position}>회장</span></p>
+                <p class="mobile_section_article_p"><span th:text="${member.position}">회장</span></p>
                 <div id="mobile_form" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a id="mobile_plus_btn" class="mobile_btn" href="" th:href="@{/member/form(code=${member.code})}" sec:authorize="hasRole('ROLE_ADMIN')">수정</a>
                     <input type="hidden" id="member_code_mobile" th:value="${member.code}">

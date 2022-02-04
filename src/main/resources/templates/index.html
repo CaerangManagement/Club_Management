@@ -86,128 +86,38 @@
             <div id="board_wrap">
                 <div id="board">
                     <div id="board_main">게시판</div>
-                    <a id="board_plus" href="./board/board_list.html">+</a>
+                    <a id="board_plus" href="./board/board_list.html" th:href="@{/board/list}">+</a>
                 </div>
                  <!--여기부터 게시글-->
-                <div class="board_content">
-                    <div class="board_title">21-2학기 일반 게시글</div>
-                    <div class="board_day">2022.02.04</div>
-                </div>
-                <div class="board_content">
-                    <div class="board_title">21-2학기 일반 게시글</div>
-                    <div class="board_day">2022.02.04</div>
-                </div>
-                <div class="board_content">
-                    <div class="board_title">21-2학기 일반 게시글</div>
-                    <div class="board_day">2022.02.04</div>
-                </div>
-                <div class="board_content">
-                    <div class="board_title">21-2학기 일반 게시글</div>
-                    <div class="board_day">2022.02.04</div>
-                </div>
-                <div class="board_content">
-                    <div class="board_title">21-2학기 일반 게시글</div>
-                    <div class="board_day">2022.02.04</div>
-                </div>
-                <div class="board_content">
-                    <div class="board_title">21-2학기 일반 게시글</div>
-                    <div class="board_day">2022.02.04</div>
-                </div>
-                <div class="board_content">
-                    <div class="board_title">21-2학기 일반 게시글</div>
-                    <div class="board_day">2022.02.04</div>
+                <div class="board_content" th:each="board : ${board}" th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04</div>
                 </div>
                  <!--여기까지 게시글-->
             </div>
             <div id="notice_wrap">
                 <div id="notice">
                     <div id="notice_main">공지사항</div>
-                    <a id="notice_plus" href="./notice_board/notice_board_list.html">+</a>
+                    <a id="notice_plus" href="./notice_board/notice_board_list.html" th:href="@{/notice/board/list}">+</a>
                 </div>
                     <!--여기부터 공지-->
-                <div class="notice_content">
-                    <div class="notice_title">[공지]22년도 공지사항 게시글</div>
-                    <div class="notice_day">2022.02.04</div>
-                </div>
-                <div class="notice_content">
-                    <div class="notice_title">[공지]22년도 공지사항 게시글</div>
-                    <div class="notice_day">2022.02.04</div>
-                </div>
-                <div class="notice_content">
-                    <div class="notice_title">[공지]22년도 공지사항 게시글</div>
-                    <div class="notice_day">2022.02.04</div>
-                </div>
-                <div class="notice_content">
-                    <div class="notice_title">[공지]22년도 공지사항 게시글</div>
-                    <div class="notice_day">2022.02.04</div>
-                </div>
-                <div class="notice_content">
-                    <div class="notice_title">[공지]22년도 공지사항 게시글</div>
-                    <div class="notice_day">2022.02.04</div>
-                </div>
-                <div class="notice_content">
-                    <div class="notice_title">[공지]22년도 공지사항 게시글</div>
-                    <div class="notice_day">2022.02.04</div>
-                </div>
-                <div class="notice_content">
-                    <div class="notice_title">[공지]22년도 공지사항 게시글</div>
-                    <div class="notice_day">2022.02.04</div>
+                <div class="notice_content" th:each="noticeBoard : ${noticeBoard}" th:onclick="'javascript:noticeBoardView('+ ${noticeBoard.id} + ');'">
+                    <div class="notice_title" th:text="${noticeBoard.title}">[공지]22년도 공지사항 게시글</div>
+                    <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">2022.02.04</div>
                 </div>
                     <!--여기까지 공지-->
             </div>
             <div id="member_wrap">
                 <div id="member">
                     <div id="member_main">부원관리</div>
-                    <a id="member_plus" href="./member/list.html">+</a>
+                    <a id="member_plus" href="./member/list.html" th:href="@{/member/list}">+</a>
                 </div>
                     <!--여기부터 멤버-->
-                <div class="member_content">
-                    <div class="member_name">김도현</div>
+                <div class="member_content" th:each="member : ${member}">
+                    <div class="member_name" th:text="${member.memberName}">김도현</div>
                     <div class="member_info_box">
-                        <div class="member_major">소프트웨어융합대학</div>
-                        <div class="member_level">회장</div>
-                    </div>
-                </div>
-                <div class="member_content">
-                    <div class="member_name">김도현</div>
-                    <div class="member_info_box">
-                        <div class="member_major">소프트웨어융합대학</div>
-                        <div class="member_level">회장</div>
-                    </div>
-                </div>
-                <div class="member_content">
-                    <div class="member_name">김도현</div>
-                    <div class="member_info_box">
-                        <div class="member_major">소프트웨어융합대학</div>
-                        <div class="member_level">회장</div>
-                    </div>
-                </div>
-                <div class="member_content">
-                    <div class="member_name">김도현</div>
-                    <div class="member_info_box">
-                        <div class="member_major">소프트웨어융합대학</div>
-                        <div class="member_level">회장</div>
-                    </div>
-                </div>
-                <div class="member_content">
-                    <div class="member_name">김도현</div>
-                    <div class="member_info_box">
-                        <div class="member_major">소프트웨어융합대학</div>
-                        <div class="member_level">회장</div>
-                    </div>
-                </div>
-                <div class="member_content">
-                    <div class="member_name">김도현</div>
-                    <div class="member_info_box">
-                        <div class="member_major">소프트웨어융합대학</div>
-                        <div class="member_level">회장</div>
-                    </div>
-                </div>
-                <div class="member_content">
-                    <div class="member_name">김도현</div>
-                    <div class="member_info_box">
-                        <div class="member_major">소프트웨어융합대학</div>
-                        <div class="member_level">회장</div>
+                        <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
+                        <div class="member_level" th:text="${member.position}">회장</div>
                     </div>
                 </div>
                     <!--여기까지 멤버-->
@@ -249,6 +159,15 @@
         </div>
     </footer>
 </body>
+<script type="text/javascript" th:inline="javascript">
+			var boardView = function(seq) {
+				window.open("/board/"+ seq);
+			}
+			var noticeBoardView = function(seq) {
+				window.open("/notice/board/"+ seq);
+			}
+</script>
+
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 <script src="../static/js/index_slide.js" th:src="@{/js/index_slide.js}"></script>
 
