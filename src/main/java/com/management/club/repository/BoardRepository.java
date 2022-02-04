@@ -15,8 +15,8 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     Page<Board> findByWriterContaining(String writer, Pageable pageable);
 
 
-    //상위 4개 게시물 index페이지에서 보여줄꺼
-    List<Board> findTop4ByOrderByIdDesc();
+    //상위 7개 게시물 index페이지에서 보여줄꺼
+    List<Board> findTop7ByOrderByIdDesc();
 
 
 }

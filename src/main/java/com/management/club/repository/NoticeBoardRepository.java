@@ -15,6 +15,6 @@ public interface NoticeBoardRepository extends JpaRepository<NoticeBoard, Long> 
     Page<NoticeBoard> findByWriterContaining(String writer, Pageable pageable);
 
 
-    //상위 4개 게시물 index페이지에서 보여줄꺼
-    List<NoticeBoard> findTop4ByOrderByIdDesc();
+    //상위 7개 게시물 index페이지에서 보여줄꺼
+    List<NoticeBoard> findTop7ByOrderByIdDesc();
 }
