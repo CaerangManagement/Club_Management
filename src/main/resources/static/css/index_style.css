@@ -103,6 +103,11 @@ width: 30%;
     padding: 6px 0;
     font-size: 17px;
 }
+.board_content:hover{
+    cursor: pointer;
+    color: #103f61;
+    transition-duration: 0.3s;
+}
 .board_title{
 width: 80%;
 }
@@ -141,6 +146,11 @@ width: 80%;
     justify-content: space-between;
     padding: 6px 0;
     font-size: 17px;
+}
+.notice_content:hover{
+    cursor: pointer;
+    color: #103f61;
+    transition-duration: 0.3s;
 }
 #notice_title{
     width: 80%;
@@ -181,6 +191,11 @@ width: 80%;
     justify-content: space-between;
     padding: 6px 0;
     font-size: 17px;
+}
+.member_content:hover{
+    cursor: pointer;
+    color: #103f61;
+    transition-duration: 0.3s;
 }
 .member_name{
 
