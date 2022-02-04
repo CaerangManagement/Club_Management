@@ -24,6 +24,7 @@ public class Board{
 
     private String title;
 
+    @Lob
     private String content;
 
     private String writer;

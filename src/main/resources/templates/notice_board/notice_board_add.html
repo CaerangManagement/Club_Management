@@ -66,15 +66,12 @@
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
                     </tr>
                     <tr>
-                        <td><input  name="title" type="text" placeholder="제목을 입력해주세요."></td>
-                    </tr>
-                    <tr>
                         <td id="section_article_table_main_wrap"><textarea id="section_article_table_main" name="content" placeholder="내용을 입력해주세요." ></textarea></td>
                     </tr>
                 </table>
             </form>
             <div id="section_back_plus_wrap">
-                <a id="back" th:href="@{/board/list}">취소</a>
+                <a id="back" th:href="@{/notice/board/list}">취소</a>
                 <button id="save" value="글쓰기">추가하기</button>
             </div>
         </article>
@@ -114,6 +111,6 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
-<script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
+<script src="../../static/js/board.js" th:src="@{/js/noticeBoard.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 </html>

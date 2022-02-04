@@ -22,6 +22,7 @@ public class NoticeBoard{
 
     private String title;
 
+    @Lob
     private String content;
 
     private String writer;

@@ -44,7 +44,7 @@
         </div>
         <div id="head_gray_layer">
             <ul id="now_place">
-                <li class="place_text_li"><a href="../index.html"><img id="gray_home" src="../../static/img/home.png" alt=""></a></li>
+                <li class="place_text_li"><a href="../index.html"><img id="gray_home" src="../../static/img/home.png" th:src="@{/img/home.png}" alt=""></a></li>
                 <li class="place_text_li">공지사항</li>
                 <li class="place_text_li"><a id="no_place_a" href="">공지사항 수정</a></li>
             </ul>
@@ -60,9 +60,9 @@
             </div>
         </header>
 
-        <article id="section_article" th:if="${board.writer} == ${#authentication.principal.email}">
+        <article id="section_article" th:if="${noticeBoard.writer} == ${#authentication.principal.email}">
             <form id="section_article_form" >
-                <table id="section_article_table" th:object="${board}">
+                <table id="section_article_table" th:object="${noticeBoard}">
                     <tr>
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요." th:field="*{title}"></td>
                     </tr>
@@ -72,12 +72,12 @@
                 </table>
             </form>
             <div id="section_back_plus_wrap">
-                <a id="back" th:href="@{/board/list}">취소</a>
-                <input type="hidden" id="board_id" th:value="${board.id}">
+                <a id="back" th:href="@{/notice/board/list}">취소</a>
+                <input type="hidden" id="notice_board_id" th:value="${noticeBoard.id}">
                 <button id="update" value="수정하기">수정하기</button>
             </div>
         </article>
-        <div style="text-align:center" th:unless="${board.writer} == ${#authentication.principal.email}"> 해당 게시글을 수정할 권한이 없습니다.</div>
+        <div style="text-align:center" th:unless="${noticeBoard.writer} == ${#authentication.principal.email}"> 해당 게시글을 수정할 권한이 없습니다.</div>
     </section>
     <footer id="footer">
         <div id="footer_top">
@@ -114,6 +114,6 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
-<script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
+<script src="../../static/js/noticeBoard.js" th:src="@{/js/noticeBoard.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 </html>

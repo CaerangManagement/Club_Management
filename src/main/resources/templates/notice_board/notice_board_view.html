@@ -45,7 +45,7 @@
             <ul>
                 <a href="../index.html" th:href="@{/index}"><img id="head_img" src="../../static/img/logo.jpg"
                         th:src="@{/img/logo.jpg}" alt=""></a>
-                <a href="../member/list.html" th:href="@{/list}"><img id="head_img2" src="../../static/img/logo2.png"
+                <a href="../member/list.html" th:href="@{/member/list}"><img id="head_img2" src="../../static/img/logo2.png"
                         th:src="@{/img/logo2.png}" alt=""></a>
             </ul>
         </div>
@@ -68,15 +68,16 @@
         </header>
         <article id="section_article">
             <div id="section_article_wrap">
-                <div id="section_article_plus_minus" th:if="${board.writer} == ${#authentication.principal.email} or ${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'" >
+                <div id="section_article_plus_minus"
+                >
                     <a id="section_article_modify" href="../board/board_modify.html"
-                        th:href="@{/board/modify(id=${board.id})}">수정</a>
+                        th:href="@{/notice/board/modify(id=${noticeBoard.id})}">수정</a>
                     <button id="section_article_delete">삭제</button>
-                    <input type="hidden" id="board_id" th:value="${board.id}">
+                    <input type="hidden" id="notice_board_id" th:value="${noticeBoard.id}">
                 </div>
                 <form id="section_article_table">
                     <div id="section_article_table_title_wrap">
-                        <div id="section_article_table_title" name="title" th:text="${board.title}">
+                        <div id="section_article_table_title" name="title" th:text="${noticeBoard.title}">
                             <!--제목-->
                             응애!! 나의 Today Lunch is 개나리비빔밥이올시다..!
                         </div>
@@ -87,32 +88,27 @@
                                 th:src="@{/img/board_user_img.png}">
                         </span>
                         <div id="section_article_table_who_wrap">
-                            <div id="section_article_table_writer_name" th:text="${board.writer}">
+                            <div id="section_article_table_writer_name" th:text="${noticeBoard.writer}">
                                 <!--글쓴이-->
                             </div>
                             <div id="section_article_table_time_wrap">
                                 <span id="section_article_table_time"
-                                    th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}">
+                                    th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd HH:mm')}">
                                     <!--연도,날짜-->
                                 </span><span id="section_article_table_view_text">조회</span><span
-                                    id="section_article_table_view" th:text="${board.hits}">
+                                    id="section_article_table_view" th:text="${noticeBoard.hits}">
                                     <!--조회수-->
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <div id="section_article_table_main" name="content" th:text="${board.content}">
+                    <div id="section_article_table_main" name="content" th:text="${noticeBoard.content}">
                         <!--내용-->
                         응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 
                     </div>
                 </form>
             </div>
         </article>
-        <!--댓글 등록-->
-        
-        <!--댓글 시작 -->
-        
-
 
     </section>
     <footer id="footer">
@@ -150,6 +146,6 @@
     </footer>
 </body>
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
-<script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
+<script src="../../static/js/noticeBoard.js" th:src="@{/js/noticeBoard.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 </html>

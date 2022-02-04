@@ -2,7 +2,7 @@ package com.management.club.controller;
 
 import com.management.club.model.NoticeBoard;
 import com.management.club.repository.NoticeBoardRepository;
-import com.management.club.service.BoardService;
+import com.management.club.service.NoticeBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +24,7 @@ public class NoticeBoardController {
     private final NoticeBoardRepository noticeBoardRepository;
 
 
-    private final BoardService boardService;
+    private final NoticeBoardService noticeBoardService;
 
     /**
      * 게시글 리스트 조회
@@ -68,7 +68,7 @@ public class NoticeBoardController {
 
     @GetMapping("/notice/board/add") //글 작성 페이지로 이동
     public String board_add(){
-        return "/notice_board/board_add";
+        return "/notice_board/notice_board_add";
     }
 
     @GetMapping("/notice/board/modify") //글 수정 페이지로 이동
@@ -87,7 +87,7 @@ public class NoticeBoardController {
     //상세정보 조회
     @GetMapping("/notice/board/{id}")
     public String findById(@PathVariable final Long id, Model model) {
-        model.addAttribute("noticeBoard", boardService.findById(id));
+        model.addAttribute("noticeBoard", noticeBoardService.findById(id));
         return "/notice_board/notice_board_view";
     }
 

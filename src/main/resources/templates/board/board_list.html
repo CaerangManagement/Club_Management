@@ -73,7 +73,7 @@
                     <th class="th">조회수</th>
                 </thead>
                 <tbody>
-                    <tr id=td th:each="board : ${boards}" th:onclick="'javascript:userDetail('+ ${board.id} + ');'">
+                    <tr id=td th:each="board : ${boards}" th:onclick="'javascript:boardView('+ ${board.id} + ');'">
                         <td th:text="${board.id}" >1</td>
                         <td th:text="${board.title}">1번 게시글</td>
                         <td th:text="${board.writer}">김도현</td>
@@ -84,7 +84,7 @@
             </table>
         </article>
         <article id="mobile_section_article">
-            <div class="mobile_section_article_div" th:each="board : ${boards}" th:onclick="'javascript:userDetail('+ ${board.id} + ');'">
+            <div class="mobile_section_article_div" th:each="board : ${boards}" th:onclick="'javascript:boardView('+ ${board.id} + ');'">
                 <p class="mobile_section_article_p_name" th:text="${board.title}">응애! 나는 하타케 카카시.</p>
                 <p class="mobile_section_article_p"><span class="mobile_section_article_span" th:text="${board.writer}">61기 김도현</span><span class="mobile_section_article_span" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}">2022.02.14</span><span class="mobile_section_article_span">조회 <span th:text="${board.hits}">6192</span></span></p>
             </div>
@@ -145,7 +145,7 @@
     </footer>
 </body>
 <script type="text/javascript" th:inline="javascript">
-			var userDetail = function(seq) {
+			var boardView = function(seq) {
 				window.open("/board/"+ seq);
 			}
 </script>
