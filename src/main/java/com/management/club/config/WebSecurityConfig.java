@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // 2
                 .and()
                 .formLogin() // 7
                 .loginPage("/login") // 로그인 페이지 링크
-                .defaultSuccessUrl("/board/list") // 로그인 성공 후 리다이렉트 주소
+                .defaultSuccessUrl("/index") // 로그인 성공 후 리다이렉트 주소
                 .and()
                 .logout() // 8
                 .logoutSuccessUrl("/login") // 로그아웃 성공시 리다이렉트 주소

@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
     <meta charset="UTF-8">
@@ -34,12 +35,20 @@
                 <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
                     <li class="header_ul_right_li_a">캠퍼스 맵</li>
                 </a>
-                <a class="header_ul_right_a" href="">
+                <a class="header_ul_right_a" href="" sec:authorize="!isAuthenticated()" th:href="@{/login}">
                     <li class="header_ul_right_li_a_log">로그인</li>
                 </a>
-                <a class="header_ul_right_a" href="">
-                    <li class="header_ul_right_li_a_log">로그아웃</li>
+                <a class="header_ul_right_a" href="" sec:authorize="!isAuthenticated()" th:href="@{/signup}">
+                    <li class="header_ul_right_li_a_log">회원가입</li>
                 </a>
+                <a class="header_ul_right_a" href="" sec:authorize="isAuthenticated()" th:href="@{/logout}">
+                    <li sec:authorize="isAuthenticated()"></li><div sec:authentication="name"></div>
+                </a>
+                <a class="header_ul_right_a" href="" sec:authorize="isAuthenticated()" th:href="@{/logout}">
+                    <li class="header_ul_right_li_a_log" >로그아웃</li>
+                </a>
+
+
             </ul>
         </div>
         <div id="header_box">
@@ -65,13 +74,13 @@
 
         <ul class="bxslider">
             <li>
-                <img src="../static/img/blog.png" alt="">
+                <img src="../static/img/blog.png" th:src="@{/img/blog.png}" alt="">
             </li>
             <li>
-                <img src="../static/img/facebook.png" alt="">
+                <img src="../static/img/facebook.png" th:src="@{/img/facebook.png}" alt="">
             </li>
             <li>
-                <img src="../static/img/hallym_icon.png" alt="">
+                <img src="../static/img/hallym_icon.png" th:src="@{/img/hallym_icon.png}" alt="">
             </li>
         </ul>
 
