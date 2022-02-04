@@ -16,8 +16,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
-
-
 </head>
 
 <body>
@@ -54,8 +52,8 @@
                 <a href="./index.html" th:href="@{/index}"><img id="head_img" src="../static/img/logo.jpg"
                         th:src="@{/img/logo.jpg}" alt=""></a>
                 <div class="header_title">
-                    <a href="./board/board_list.html" class="header_title_content">게시글</a>
-                    <a href="./member/list.html" class="header_title_content">부원관리 </a>
+                    <a href="./board/board_list.html" th:href="@{/board/list}" class="header_title_content">게시글</a>
+                    <a href="./member/list.html" th:href="@{/member/list}" class="header_title_content" sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
                 </div>
             </ul>
         </div>
@@ -107,7 +105,8 @@
                 </div>
                     <!--여기까지 공지-->
             </div>
-            <div id="member_wrap">
+
+            <div id="member_wrap" sec:authorize="hasRole('ROLE_ADMIN')">
                 <div id="member">
                     <div id="member_main">부원관리</div>
                     <a id="member_plus" href="./member/list.html" th:href="@{/member/list}">+</a>
