@@ -27,3 +27,11 @@ $('.summernote').summernote({
 		 // 추가한 폰트사이즈
 		fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
 });
+$("#summernote").summernote({
+    toolbar: [
+        ['para', ['ul']]
+    ],
+    focus: true,
+    disableResizeEditor: true
+});
+$('.note-statusbar').hide(); 
