@@ -28,6 +28,7 @@ public class BoardApiController {
     //게시글 생성
     @RequestMapping(value="/board/add", method=RequestMethod.POST)
     ResponseEntity<?> save(@RequestBody final BoardRequestDto params) throws IOException {
+
         Long board_id = boardService.save(params);
         return new ResponseEntity<>(board_id, HttpStatus.CREATED);
     }

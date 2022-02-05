@@ -101,9 +101,9 @@
                             </div>
                         </div>
                     </div>
-                    <div id="section_article_table_main" name="content" th:text="${board.content}">
+                    <!--th:text="${board.content}"-->
+                    <div id="section_article_table_main" name="content"  th:utext="${board.content}">
                         <!--내용-->
-                        응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 응애! 
                     </div>
                     <!--댓글 보여주는곳-->
                     <div id="section_article_comment">
@@ -185,4 +185,5 @@
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="../../static/js/board.js" th:src="@{/js/board.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
+
 </html>

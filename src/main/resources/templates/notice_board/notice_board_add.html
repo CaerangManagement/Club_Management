@@ -15,6 +15,15 @@
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+
+    <!-- 서머노트를 위해 추가해야할 부분 -->
+    <script src="${pageContext.request.contextPath}/resources/static/summernote/summernote-lite.js" th:src="@{/summernote/summernote-lite.js}"></script>
+    <script src="${pageContext.request.contextPath}/resources/static/summernote/lang/summernote-ko-KR.js" th:src="@{/summernote/lang/summernote-ko-KR.js}"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/summernote/summernote-lite.css" th:href="@{/summernote/summernote-lite.css}">
+    <!--  -->
 </head>
 
 <body>
@@ -66,7 +75,7 @@
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
                     </tr>
                     <tr>
-                        <td id="section_article_table_main_wrap"><textarea id="section_article_table_main" name="content" placeholder="내용을 입력해주세요." ></textarea></td>
+                        <td id="section_article_table_main_wrap"><textarea id="section_article_table_main" name="content" placeholder="내용을 입력해주세요." class="summernote"></textarea></td>
                     </tr>
                 </table>
             </form>
@@ -113,4 +122,34 @@
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="../../static/js/board.js" th:src="@{/js/noticeBoard.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
+<script>
+
+$('.summernote').summernote({
+      placeholder: '내용을 입력해주세요.',
+      height: 350,
+      lang: "ko-KR",
+      disableResizeEditor: true,
+      focus : true,
+	  toolbar: [
+		    // 글꼴 설정
+		    ['fontname', ['fontname']],
+		    // 글자 크기 설정
+		    ['fontsize', ['fontsize']],
+		    // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
+		    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+		    // 글자색
+		    ['color', ['forecolor','color']],
+		    // 표만들기
+		    ['table', ['table']],
+		    // 줄간격
+		    ['height', ['height']],
+		    // 그림첨부, 링크만들기, 동영상첨부
+		    ['insert',['picture','link','video']],
+		  ],
+		  // 추가한 글꼴
+		fontNames: ['맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+		 // 추가한 폰트사이즈
+		fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+});
+</script>
 </html>

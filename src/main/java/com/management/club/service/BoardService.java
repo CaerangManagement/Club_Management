@@ -50,6 +50,7 @@ public class BoardService {
     public Board findById(final Long id) {
 
         Board board = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
+        board.getContent().replaceAll("<","&lt").replaceAll(">", "&gt");
         board.increaseHits();
         return board;
     }
