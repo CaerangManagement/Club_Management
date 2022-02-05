@@ -138,6 +138,7 @@ body{
     font-size: 15px;
     padding-top: 20px;
     border-top: 1px solid rgb(211, 211, 211);
+    word-break: break-all;
 }
 #section_article_table_time{
 
