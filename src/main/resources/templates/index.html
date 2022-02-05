@@ -17,9 +17,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
     <!--slick-->
-    <link rel="stylesheet" type="text/css" href="../static/slick-1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="../static/slick-1.8.1/slick/slick-theme.css" />
-    <script type="text/javascript" src="../static/slick-1.8.1/slick/slick.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/slick-1.8.1/slick/slick.css" th:href="@{/slick-1.8.1/slick/slick.css}" />
+    <link rel="stylesheet" type="text/css" href="../static/slick-1.8.1/slick/slick-theme.css" th:href="@{/slick-1.8.1/slick/slick-theme.css}" />
+    <script type="text/javascript" src="../static/slick-1.8.1/slick/slick.js" th:src="@{/slick-1.8.1/slick/slick.js}" ></script>
 </head>
 
 <body>
@@ -141,11 +141,11 @@
         <div class="footer_banner">
             <div id="banner_wrap">
                 <div id="slider-div">
-                    <img class="banner_img" src="../static/img/banner_logo1.gif" alt="">
-                    <img class="banner_img" src="../static/img/banner_logo2.gif" alt="">
-                    <img class="banner_img" src="../static/img/banner_logo3.gif" alt="">
-                    <img class="banner_img" src="../static/img/banner_logo4.gif" alt="">
-                    <img class="banner_img" src="../static/img/banner_logo5.gif" alt="">
+                    <img class="banner_img" src="../static/img/banner_logo1.gif" th:src="@{/img/banner_logo1.gif}" alt="">
+                    <img class="banner_img" src="../static/img/banner_logo2.gif" th:src="@{/img/banner_logo2.gif}" alt="">
+                    <img class="banner_img" src="../static/img/banner_logo3.gif" th:src="@{/img/banner_logo3.gif}" alt="">
+                    <img class="banner_img" src="../static/img/banner_logo4.gif" th:src="@{/img/banner_logo4.gif}" alt="">
+                    <img class="banner_img" src="../static/img/banner_logo5.gif" th:src="@{/img/banner_logo5.gif}" alt="">
                 </div>
             </div>
         </div>

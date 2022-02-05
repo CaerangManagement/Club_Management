@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // 2
 
     @Override
     public void configure(WebSecurity web) { // 4
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/error");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/error", "/slick-1.8.1/**");
     }
 
     @Override
