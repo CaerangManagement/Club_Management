@@ -58,6 +58,7 @@
                         th:src="@{/img/logo.jpg}" alt=""></a>
                 <div class="header_title">
                     <a href="./intro.html" class="header_title_content">소개글</a>
+                    <a href="./notice_board/notice_board_list.html" class="header_title_content">공지사항</a>
                     <a href="./board/board_list.html" th:href="@{/board/list}" class="header_title_content">게시판</a>
                     <a href="./member/list.html" th:href="@{/member/list}" class="header_title_content" sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
                 </div>
@@ -87,20 +88,6 @@
         </ul>
 
         <div id="section_wrap">
-            <div id="board_wrap" class="section_content">
-                <div id="board">
-                    <div id="board_main">게시판</div>
-                    <a id="board_plus" href="./board/board_list.html" th:href="@{/board/list}">+</a>
-                </div>
-                <!--여기부터 게시글-->
-                <div class="board_content" th:each="board : ${board}"
-                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
-                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
-                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
-                    </div>
-                </div>
-                <!--여기까지 게시글-->
-            </div>
             <div id="notice_wrap" class="section_content">
                 <div id="notice">
                     <div id="notice_main">공지사항</div>
@@ -116,8 +103,21 @@
                 </div>
                 <!--여기까지 공지-->
             </div>
-
-            <div id="member_wrap" class="section_content" sec:authorize="hasRole('ROLE_ADMIN')">
+            <div id="board_wrap" class="section_content">
+                <div id="board">
+                    <div id="board_main">게시판</div>
+                    <a id="board_plus" href="./board/board_list.html" th:href="@{/board/list}">+</a>
+                </div>
+                <!--여기부터 게시글-->
+                <div class="board_content" th:each="board : ${board}"
+                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
+                    </div>
+                </div>
+                <!--여기까지 게시글-->
+            </div>
+             <div id="member_wrap" class="section_content" sec:authorize="hasRole('ROLE_ADMIN')">
                 <div id="member">
                     <div id="member_main">부원관리</div>
                     <a id="member_plus" href="./member/list.html" th:href="@{/member/list}">+</a>
@@ -141,11 +141,11 @@
         <div class="footer_banner">
             <div id="banner_wrap">
                 <div id="slider-div">
-                    <img class="banner_img" src="../static/img/banner_logo1.gif" th:src="@{/img/banner_logo1.gif}" alt="">
-                    <img class="banner_img" src="../static/img/banner_logo2.gif" th:src="@{/img/banner_logo2.gif}" alt="">
-                    <img class="banner_img" src="../static/img/banner_logo3.gif" th:src="@{/img/banner_logo3.gif}" alt="">
-                    <img class="banner_img" src="../static/img/banner_logo4.gif" th:src="@{/img/banner_logo4.gif}" alt="">
-                    <img class="banner_img" src="../static/img/banner_logo5.gif" th:src="@{/img/banner_logo5.gif}" alt="">
+                    <a href="https://www.hallym.ac.kr/hallym_univ/"><img class="banner_img" src="../static/img/banner_logo1.gif" th:src="@{/img/banner_logo1.gif}" alt=""></a>
+                    <a href="https://sw.hallym.ac.kr/"><img class="banner_img" src="../static/img/banner_logo2.gif" th:src="@{/img/banner_logo2.gif}" alt=""></a>
+                    <a href="https://hlsw.hallym.ac.kr/"><img class="banner_img" src="../static/img/banner_logo3.gif" th:src="@{/img/banner_logo3.gif}" alt=""></a>
+                    <a href="https://github.com/Hallym-OpenSourceSW"><img class="banner_img" src="../static/img/banner_logo4.gif" th:src="@{/img/banner_logo4.gif}" alt=""></a>
+                    <a href="https://ody.hallym.ac.kr/"><img class="banner_img" src="../static/img/banner_logo5.gif" th:src="@{/img/banner_logo5.gif}" alt=""></a>
                 </div>
             </div>
         </div>

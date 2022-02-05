@@ -36,9 +36,9 @@
 }
 .header_title{
     position: absolute;
-    width: 400px;
+    width: auto;
     top: 68px;
-    right: 11%;
+    right: 7%;
     display: flex;
 }
 .header_title_content{
@@ -48,6 +48,7 @@
     font-weight: bold;
     padding: 0 20px;
     border-right: 2px solid rgb(204, 204, 204);
+    width: auto;
 }
 .header_title_content:last-child{
     border-right: none;
@@ -67,6 +68,52 @@ section{
     width: 100%;
 }
 
+
+/*-------------------notice-------------------------*/
+#notice_wrap{
+    width: 450px;
+}
+#notice{
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+}
+#notice_main{
+    width: 100%;
+}
+#notice_plus{
+    color: rgb(204, 204, 204);
+    position: absolute;
+    right: 0;
+    font-size: 40px;
+    line-height: 28px;
+    text-decoration: none;
+    font-weight: lighter;
+}
+.notice_content{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 17px;
+}
+.notice_content:hover{
+    cursor: pointer;
+    color: #103f61;
+    transition-duration: 0.3s;
+}
+#notice_title{
+    width: 80%;
+}
+.notice_day{
+    color: rgb(155, 155, 155);
+
+}
 /*---------------------board--------------------------*/
 #section_wrap{
     margin-top: 100px;
@@ -118,51 +165,6 @@ width: 80%;
 }
 .board_day{
     color: rgb(155, 155, 155);
-}
-/*-------------------notice-------------------------*/
-#notice_wrap{
-    width: 450px;
-}
-#notice{
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    padding-bottom: 15px;
-    border-bottom: 3px solid rgb(0, 0, 0);
-    display: flex;
-    width: 100%;
-    position: relative;
-    margin-bottom: 10px;
-}
-#notice_main{
-    width: 100%;
-}
-#notice_plus{
-    color: rgb(204, 204, 204);
-    position: absolute;
-    right: 0;
-    font-size: 40px;
-    line-height: 28px;
-    text-decoration: none;
-    font-weight: lighter;
-}
-.notice_content{
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    font-size: 17px;
-}
-.notice_content:hover{
-    cursor: pointer;
-    color: #103f61;
-    transition-duration: 0.3s;
-}
-#notice_title{
-    width: 80%;
-}
-.notice_day{
-    color: rgb(155, 155, 155);
-
 }
 /*----------------member----------------------*/
 #member_wrap{
@@ -236,3 +238,4 @@ padding-right: 20px;
 }
 .banner_img{
 }
+/*-----------footer--------------*/
