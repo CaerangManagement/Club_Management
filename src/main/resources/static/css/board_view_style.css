@@ -134,11 +134,14 @@ body{
 }
 #section_article_table_main{
     width: 100%;
-    height: 400px;
+    min-height: 400px;
     font-size: 15px;
     padding-top: 20px;
+    padding-bottom: 20px;
     border-top: 1px solid rgb(211, 211, 211);
     word-break: break-all;
+    overflow:hidden;
+	height:auto;
 }
 #section_article_table_time{
 
