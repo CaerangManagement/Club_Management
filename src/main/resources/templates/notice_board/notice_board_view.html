@@ -30,14 +30,14 @@
             </ul>
             <ul id="header_ul_right">
                 <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
-                    <li class="header_ul_right_li">캠퍼스 맵</li>
+                    <li class="header_ul_right_li_a">캠퍼스 맵</li>
                 </a>
-                <li class="header_ul_right_li" sec:authentication="name">이메일</li>
-                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
+                <li class="header_ul_right_li_a_log" sec:authentication="name">이메일</li>
+                <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
                 </li>
-                <li class="header_ul_right_li" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
+                <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
                 <a class="header_ul_right_a" href="" th:href="@{/logout}">
-                    <li class="header_ul_right_li">로그아웃</li>
+                    <li class="header_ul_right_li_a_log">로그아웃</li>
                 </a>
             </ul>
         </div>
@@ -45,8 +45,42 @@
             <ul>
                 <a href="../index.html" th:href="@{/index}"><img id="head_img" src="../../static/img/logo.jpg"
                         th:src="@{/img/logo.jpg}" alt=""></a>
-                <a href="../member/list.html" th:href="@{/member/list}"><img id="head_img2" src="../../static/img/logo2.png"
-                        th:src="@{/img/logo2.png}" alt=""></a>
+                <div class="header_title">
+                    <a href="../intro.html" th:href="@{/intro}" class="header_title_content">소개글</a>
+                    <a href="./notice_board_list.html" th:href="@{/notice/board/list}" class="header_title_content">공지사항</a>
+                    <a href="../board/board_list.html" th:href="@{/board/list}" class="header_title_content">게시판</a>
+                    <a href="../member/list.html" th:href="@{/member/list}" class="header_title_content"
+                        sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
+                </div>
+                <nav id="navbar">
+                    <ul id="main_menu">
+                        <li class="navbar_li">
+                            <a id="menu_img_wrap" href="#">
+                                <img id="menu_img"src="../../static/img/menu.png" th:src="@{/img/menu.png}" alt="">
+                            </a>
+                            <ul class="snd_menu sub_menu">
+                                <ul id="nav_loginbar">
+                                    <li><a class="nav_login" href="">로그인</a></li>
+                                    <li><a class="nav_login" href="">회원가입</a></li>
+                                    <li><a class="nav_login" href="">rlaehgusqp@naver.com</a></li>
+                                    <li><a class="nav_login" href="">로그아웃</a></li>
+                                </ul>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../intro.html" th:href="@{/intro}">소개글</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./notice_board_list.html" th:href="@{/notice/board/list}">공지사항</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../board/board_list.html" th:href="@{/board/list}">게시판</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../member/list.html" th:href="@{/member/list}" sec:authorize="hasRole('ROLE_ADMIN')">부원관리</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
             </ul>
         </div>
         <div id="head_gray_layer">
@@ -148,4 +182,5 @@
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="../../static/js/noticeBoard.js" th:src="@{/js/noticeBoard.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
+<script src="../../static/js/menu.js"></script>
 </html>
