@@ -51,4 +51,9 @@ public class IndexController {
         return "/signup";
     }
 
+    @GetMapping("/intro") //회원가입 페이지
+    public String intro(){
+        return "/intro";
+    }
+
 }

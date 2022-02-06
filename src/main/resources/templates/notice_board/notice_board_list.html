@@ -115,7 +115,7 @@
 
                 <li class="section_footer_btn" aria-label="First">
                     <a class="page_btn" th:href="@{/notice/board/list(page=${0},keyword=${param.keyword}, searchType=${param.searchType})}">
-                        <img class="btn_img" src="../../static/img/left.png" alt="">
+                        <img class="btn_img" src="../../static/img/left.png" th:src="@{/img/left.png}" alt="">
                     </a>
                 </li>
 
@@ -129,7 +129,7 @@
 
                 <li class="section_footer_btn" aria-label="Last">
                     <a class="page_btn" th:href="@{/notice/board/list(page=${noticeBoards.totalPages - 1},keyword=${param.keyword}, searchType=${param.searchType})}">
-                        <img class="btn_img" src="../../static/img/right.png" alt="">
+                        <img class="btn_img" src="../../static/img/right.png" th:src="@{/img/right.png}" alt="">
                     </a> 
                 </li>
 
