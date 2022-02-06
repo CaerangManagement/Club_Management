@@ -9,17 +9,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>한림대학교 씨애랑 홈페이지</title>
 
-    <link rel="stylesheet" href="../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
-    <link rel="stylesheet" href="../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
-    <link rel="stylesheet" href="../static/css/index_style.css" th:href="@{/css/index_style.css}">
+
     <!--bxslider -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
-    <!--slick-->
-    <link rel="stylesheet" type="text/css" href="../static/slick-1.8.1/slick/slick.css" th:href="@{/slick-1.8.1/slick/slick.css}" />
-    <link rel="stylesheet" type="text/css" href="../static/slick-1.8.1/slick/slick-theme.css" th:href="@{/slick-1.8.1/slick/slick-theme.css}" />
-    <script type="text/javascript" src="../static/slick-1.8.1/slick/slick.js" th:src="@{/slick-1.8.1/slick/slick.js}" ></script>
+
+    <!--owl-->
+    <link rel="stylesheet" href="../static/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+    <script src="../static/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
+    <script src="../static/js/index_slide.js" th:src="@{/js/index_slide.js}"></script>
+
+
+    <link rel="stylesheet" href="../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
+    <link rel="stylesheet" href="../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
+    <link rel="stylesheet" href="../static/css/index_style.css" th:href="@{/css/index_style.css}">
 </head>
 
 <body>
@@ -40,7 +46,8 @@
                 <a class="header_ul_right_a" href="./login.html" sec:authorize="!isAuthenticated()" th:href="@{/login}">
                     <li class="header_ul_right_li_a_log">로그인</li>
                 </a>
-                <a class="header_ul_right_a" href="./signup.html" sec:authorize="!isAuthenticated()" th:href="@{/signup}">
+                <a class="header_ul_right_a" href="./signup.html" sec:authorize="!isAuthenticated()"
+                    th:href="@{/signup}">
                     <li class="header_ul_right_li_a_log">회원가입</li>
                 </a>
                 <div class="header_ul_right_a" href="" sec:authorize="isAuthenticated()" th:href="@{/logout}">
@@ -60,17 +67,35 @@
                     <a href="./intro.html" class="header_title_content">소개글</a>
                     <a href="./notice_board/notice_board_list.html" class="header_title_content">공지사항</a>
                     <a href="./board/board_list.html" th:href="@{/board/list}" class="header_title_content">게시판</a>
-                    <a href="./member/list.html" th:href="@{/member/list}" class="header_title_content" sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
+                    <a href="./member/list.html" th:href="@{/member/list}" class="header_title_content"
+                        sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
                 </div>
+                <nav id="navbar">
+                    <ul id="main_menu">
+                        <li class="navbar_li">
+                            <a id="menu_img_wrap" href="#">
+                                <img id="menu_img"src="../static/img/menu.png" alt="">
+                            </a>
+                            <ul class="snd_menu sub_menu">
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./intro.html">소개글</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./notice_board/notice_board_list.html">공지사항</a>  
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./board/board_list.html">게시판</a>  
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./member/list.html">부원관리</a>  
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
             </ul>
         </div>
-        <div id="head_gray_layer">
-            <ul id="now_place">
-                <li class="place_text_li"><a href="./index.html" th:href="@{/index}"><img id="gray_home"
-                            src="../static/img/home.png" th:src="@{/img/home.png}" alt=""></a></li>
-                <li class="place_text_li"><a href="" id="no_place_a">씨애랑 홈</a></li>
-            </ul>
-        </div>
+        
     </header>
 
     <section>
@@ -101,6 +126,42 @@
                     <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">
                         2022.02.04</div>
                 </div>
+                <div class="notice_content" th:each="noticeBoard : ${noticeBoard}"
+                    th:onclick="'javascript:noticeBoardView('+ ${noticeBoard.id} + ');'">
+                    <div class="notice_title" th:text="${noticeBoard.title}">[공지]22년도 공지사항 게시글</div>
+                    <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">
+                        2022.02.04</div>
+                </div>
+                <div class="notice_content" th:each="noticeBoard : ${noticeBoard}"
+                    th:onclick="'javascript:noticeBoardView('+ ${noticeBoard.id} + ');'">
+                    <div class="notice_title" th:text="${noticeBoard.title}">[공지]22년도 공지사항 게시글</div>
+                    <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">
+                        2022.02.04</div>
+                </div>
+                <div class="notice_content" th:each="noticeBoard : ${noticeBoard}"
+                    th:onclick="'javascript:noticeBoardView('+ ${noticeBoard.id} + ');'">
+                    <div class="notice_title" th:text="${noticeBoard.title}">[공지]22년도 공지사항 게시글</div>
+                    <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">
+                        2022.02.04</div>
+                </div>
+                <div class="notice_content" th:each="noticeBoard : ${noticeBoard}"
+                    th:onclick="'javascript:noticeBoardView('+ ${noticeBoard.id} + ');'">
+                    <div class="notice_title" th:text="${noticeBoard.title}">[공지]22년도 공지사항 게시글</div>
+                    <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">
+                        2022.02.04</div>
+                </div>
+                <div class="notice_content" th:each="noticeBoard : ${noticeBoard}"
+                    th:onclick="'javascript:noticeBoardView('+ ${noticeBoard.id} + ');'">
+                    <div class="notice_title" th:text="${noticeBoard.title}">[공지]22년도 공지사항 게시글</div>
+                    <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">
+                        2022.02.04</div>
+                </div>
+                <div class="notice_content" th:each="noticeBoard : ${noticeBoard}"
+                    th:onclick="'javascript:noticeBoardView('+ ${noticeBoard.id} + ');'">
+                    <div class="notice_title" th:text="${noticeBoard.title}">[공지]22년도 공지사항 게시글</div>
+                    <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">
+                        2022.02.04</div>
+                </div>
                 <!--여기까지 공지-->
             </div>
             <div id="board_wrap" class="section_content">
@@ -115,9 +176,45 @@
                     <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
                     </div>
                 </div>
+                <div class="board_content" th:each="board : ${board}"
+                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
+                    </div>
+                </div>
+                <div class="board_content" th:each="board : ${board}"
+                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
+                    </div>
+                </div>
+                <div class="board_content" th:each="board : ${board}"
+                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
+                    </div>
+                </div>
+                <div class="board_content" th:each="board : ${board}"
+                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
+                    </div>
+                </div>
+                <div class="board_content" th:each="board : ${board}"
+                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
+                    </div>
+                </div>
+                <div class="board_content" th:each="board : ${board}"
+                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
+                    </div>
+                </div>
                 <!--여기까지 게시글-->
             </div>
-             <div id="member_wrap" class="section_content" sec:authorize="hasRole('ROLE_ADMIN')">
+            <div id="member_wrap" class="section_content" sec:authorize="hasRole('ROLE_ADMIN')">
                 <div id="member">
                     <div id="member_main">부원관리</div>
                     <a id="member_plus" href="./member/list.html" th:href="@{/member/list}">+</a>
@@ -130,25 +227,73 @@
                         <div class="member_level" th:text="${member.position}">회장</div>
                     </div>
                 </div>
+                <div class="member_content" th:each="member : ${member}" th:onclick="'javascript:memberView();'">
+                    <div class="member_name" th:text="${member.memberName}">김도현</div>
+                    <div class="member_info_box">
+                        <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
+                        <div class="member_level" th:text="${member.position}">회장</div>
+                    </div>
+                </div>
+                <div class="member_content" th:each="member : ${member}" th:onclick="'javascript:memberView();'">
+                    <div class="member_name" th:text="${member.memberName}">김도현</div>
+                    <div class="member_info_box">
+                        <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
+                        <div class="member_level" th:text="${member.position}">회장</div>
+                    </div>
+                </div>
+                <div class="member_content" th:each="member : ${member}" th:onclick="'javascript:memberView();'">
+                    <div class="member_name" th:text="${member.memberName}">김도현</div>
+                    <div class="member_info_box">
+                        <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
+                        <div class="member_level" th:text="${member.position}">회장</div>
+                    </div>
+                </div>
+                <div class="member_content" th:each="member : ${member}" th:onclick="'javascript:memberView();'">
+                    <div class="member_name" th:text="${member.memberName}">김도현</div>
+                    <div class="member_info_box">
+                        <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
+                        <div class="member_level" th:text="${member.position}">회장</div>
+                    </div>
+                </div>
+                <div class="member_content" th:each="member : ${member}" th:onclick="'javascript:memberView();'">
+                    <div class="member_name" th:text="${member.memberName}">김도현</div>
+                    <div class="member_info_box">
+                        <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
+                        <div class="member_level" th:text="${member.position}">회장</div>
+                    </div>
+                </div>
+                <div class="member_content" th:each="member : ${member}" th:onclick="'javascript:memberView();'">
+                    <div class="member_name" th:text="${member.memberName}">김도현</div>
+                    <div class="member_info_box">
+                        <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
+                        <div class="member_level" th:text="${member.position}">회장</div>
+                    </div>
+                </div>
                 <!--여기까지 멤버-->
             </div>
         </div>
 
     </section>
- 
-
+    
+    
     <footer id="footer">
         <div class="footer_banner">
             <div id="banner_wrap">
-                <div id="slider-div">
-                    <a href="https://www.hallym.ac.kr/hallym_univ/"><img class="banner_img" src="../static/img/banner_logo1.gif" th:src="@{/img/banner_logo1.gif}" alt=""></a>
-                    <a href="https://sw.hallym.ac.kr/"><img class="banner_img" src="../static/img/banner_logo2.gif" th:src="@{/img/banner_logo2.gif}" alt=""></a>
-                    <a href="https://hlsw.hallym.ac.kr/"><img class="banner_img" src="../static/img/banner_logo3.gif" th:src="@{/img/banner_logo3.gif}" alt=""></a>
-                    <a href="https://github.com/Hallym-OpenSourceSW"><img class="banner_img" src="../static/img/banner_logo4.gif" th:src="@{/img/banner_logo4.gif}" alt=""></a>
-                    <a href="https://ody.hallym.ac.kr/"><img class="banner_img" src="../static/img/banner_logo5.gif" th:src="@{/img/banner_logo5.gif}" alt=""></a>
+                <div class="owl-carousel">
+                    <a class="banner_a" href="https://www.hallym.ac.kr/hallym_univ/"><img class="banner_img"
+                            src="../static/img/banner_logo1.gif" th:src="@{/img/banner_logo1.gif}" alt=""></a>
+                    <a class="banner_a" href="https://sw.hallym.ac.kr/"><img class="banner_img"
+                            src="../static/img/banner_logo2.gif" th:src="@{/img/banner_logo2.gif}" alt=""></a>
+                    <a class="banner_a" href="https://hlsw.hallym.ac.kr/"><img class="banner_img"
+                            src="../static/img/banner_logo3.gif" th:src="@{/img/banner_logo3.gif}" alt=""></a>
+                    <a class="banner_a" href="https://github.com/Hallym-OpenSourceSW"><img class="banner_img"
+                            src="../static/img/banner_logo4.gif" th:src="@{/img/banner_logo4.gif}" alt=""></a>
+                    <a class="banner_a" href="https://ody.hallym.ac.kr/"><img class="banner_img"
+                            src="../static/img/banner_logo5.gif" th:src="@{/img/banner_logo5.gif}" alt=""></a>
                 </div>
             </div>
         </div>
+
         <div id="footer_top">
             <ul id="footer_top_ul">
                 <li class="footer_top_li">
@@ -196,6 +341,5 @@
 </script>
 
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
-<script src="../static/js/index_slide.js" th:src="@{/js/index_slide.js}"></script>
 
 </html>
