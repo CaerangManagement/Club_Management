@@ -29,6 +29,7 @@ body{
     height: 30px;
     right: 10%;
     margin-top: 5px;
+    font-weight: bold;
 }
 .place_text_li{
     height: 30px;
@@ -49,7 +50,7 @@ body{
 }
 #no_place_a{
     text-decoration: none;
-    color: #379994;
+    color: #093555;
 }
 #section_header_div2{
     display: flex;
@@ -185,6 +186,7 @@ body{
 }
 #td:hover{
     cursor: pointer;
+    color: rgb(17, 59, 88);
 }
 #table_btn_wrap{
     display: flex;
@@ -211,6 +213,10 @@ body{
 }
 .table_btn:hover{
     cursor: pointer;
+}
+.btn_img{
+    width: 20px;
+    padding: 5px;
 }
 /*-------------article_reaction---------------*/
 @media (max-width: 1024px){
@@ -337,6 +343,7 @@ body{
     height: 100%;
     text-decoration: none;
     color: black;
+    line-height: 28px;
 }
 .section_footer_btn:first-child{
     width: 30px;
@@ -382,15 +389,20 @@ body{
     background: rgb(250, 250, 250);
 }
 .section_footer_btn:hover{
-    background: #e9f5f4;
+    background: rgb(246, 253, 255)
 }
 /*-----------section_footer_reaction----------*/
 @media (max-width: 768px){
+    .page_num{
+        line-height: 23px;
+    }
+    .btn_img{
+        padding: 2.5px;
+    }
     .section_footer_btn_num{
         width: 25px;
         height: 25px;
-        line-height: 23px;
-        font-size: 13px;
+        font-size: 14px;
     }
     .section_footer_btn:first-child{
         width: 25px;
@@ -418,5 +430,15 @@ body{
     #section_footer_plus_btn:hover{
         cursor: pointer;
         background-color: #379994;
+    }
+    #footer_bottom_content_box{
+        width: 100%;
+    }
+    #content_box_text{
+        padding: 0 30px;
+        margin: 0;
+    }
+    .footer_info{
+        width: 100%;
     }
 }
