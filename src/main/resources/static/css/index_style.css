@@ -234,12 +234,37 @@ padding-right: 20px;
         z-index: 10;
         margin-top: 26px;
     }
+    #nav_loginbar{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        width: 100%;
+        background-color: #093555;
+    }
+    #nav_loginbar li{
+        display: flex;
+        justify-content: center;
+        width: 30%;
+    }
+    .nav_login{
+        width: 200px;
+        background-color: #093555;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        color: skyblue;
+        text-align: center;
+        text-decoration: none;
+        font-size: 12px;
+        margin: 0 15px;
+        padding:0 10px;
+    }
     #menu_img_wrap{
         position: relative;
         left: 92%;
     }
     #menu_img{
         width: 30px;
+        margin-bottom: 14px;
     }
     .navbar_li {
         list-style: none;
@@ -331,6 +356,7 @@ padding-right: 20px;
     }
     #menu_img{
         width: 25px;
+        margin-bottom: 9px;
     }
     .navbar_li {
         list-style: none;
