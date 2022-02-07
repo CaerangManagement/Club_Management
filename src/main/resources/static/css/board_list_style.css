@@ -483,7 +483,7 @@ body{
     background-color: #379994;
 }
 #section_footer_move_btn{
-    margin-top: 40px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -502,7 +502,6 @@ body{
     width: 100%;
     height: 100%;
     text-decoration: none;
-    color: black;
     line-height: 28px;
 }
 .section_footer_btn:first-child{
