@@ -7,7 +7,7 @@ window.onload = function(){
         NavbarLogoutWrap.style.display='none';
         NavbarNameWrap.style.display='none';
     }
-    }
+}
 
 
 //bxslider
