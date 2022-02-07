@@ -1,3 +1,15 @@
+//navbar 
+window.onload = function(){
+    const NavbarName = document.getElementById('navName').innerHTML;
+    const NavbarNameWrap = document.getElementById('navNameWrap');
+    const NavbarLogoutWrap = document.getElementById('navLogoutWrap');
+    if(NavbarName==='anonymousUser'){
+        NavbarLogoutWrap.style.display='none';
+        NavbarNameWrap.style.display='none';
+    }
+    }
+
+
 //bxslider
 $(document).ready(function(){ $('.bxslider').bxSlider({
     auto: true,  // 자동 슬라이드 

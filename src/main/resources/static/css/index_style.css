@@ -40,7 +40,7 @@ section{
     width: 100%;
 }
 .main_img{
-    height: 600px;
+    max-height: 535px;
 }
 .slide_img_wrap{
     display: flex;
