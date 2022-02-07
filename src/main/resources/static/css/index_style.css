@@ -39,7 +39,13 @@ section{
     height: 400px;
     width: 100%;
 }
-
+.main_img{
+    height: 600px;
+}
+.slide_img_wrap{
+    display: flex;
+    justify-content: center;
+}
 
 /*-------------------notice-------------------------*/
 #notice_wrap{
