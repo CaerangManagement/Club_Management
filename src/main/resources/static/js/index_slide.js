@@ -1,4 +1,4 @@
-//navbar 
+//navbar
 window.onload = function(){
     const NavbarName = document.getElementById('navName').innerHTML;
     const NavbarNameWrap = document.getElementById('navNameWrap');
