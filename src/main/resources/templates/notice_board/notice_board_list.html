@@ -60,10 +60,9 @@
                             </a>
                             <ul class="snd_menu sub_menu">
                                 <ul id="nav_loginbar">
-                                    <li><a class="nav_login" href="">로그인</a></li>
-                                    <li><a class="nav_login" href="">회원가입</a></li>
-                                    <li><a class="nav_login" href="">rlaehgusqp@naver.com</a></li>
-                                    <li><a class="nav_login" href="">로그아웃</a></li>
+                                    <li><a class="nav_login" href="" sec:authorize="isAuthenticated()"
+                                           sec:authentication="name">rlaehgusqp@naver.com</a></li>
+                                    <li><a class="nav_login" href="" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
                                 </ul>
                                 <li class="navbar_li navbar_li_content">
                                     <a class="navbar_a" href="../intro.html" th:href="@{/intro}">소개글</a>
@@ -216,6 +215,6 @@
 <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
 <script src="../../static/js/noticeBoard.js" th:src="@{/js/noticeBoard.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
-<script src="../../static/js/menu.js"></script>
+<script src="../../static/js/menu.js" th:src="@{/js/menu.js}"></script>
 
 </html>
