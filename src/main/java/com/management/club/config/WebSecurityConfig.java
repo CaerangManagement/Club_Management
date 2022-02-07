@@ -30,9 +30,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // 2
 //                .csrf().disable()
 //                .headers().frameOptions().disable();
                 .authorizeRequests() // 6
-                .antMatchers("/login", "/signup", "/index").permitAll() // 누구나 접근 허용 (시험을위해 모든경로 허용)
+                .antMatchers("/login", "/signup", "/index", "/intro").permitAll() // 누구나 접근 허용 (시험을위해 모든경로 허용)
                 .antMatchers("/").hasRole("USER") // USER, ADMIN만 접근 가능
-                .antMatchers("/member/**").hasRole("ADMIN") // ADMIN만 접근 가능
+                .antMatchers("/member/**", "/notice/board/add", "/notice/board/modify/**").hasRole("ADMIN") // ADMIN만 접근 가능
                 .anyRequest().authenticated() // 나머지 요청들은 권한의 종류에 상관 없이 권한이 있어야 접근 가능
                 .and()
                 .formLogin() // 7
@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // 2
                 .defaultSuccessUrl("/index") // 로그인 성공 후 리다이렉트 주소
                 .and()
                 .logout() // 8
-                .logoutSuccessUrl("/login") // 로그아웃 성공시 리다이렉트 주소
+                .logoutSuccessUrl("/index") // 로그아웃 성공시 리다이렉트 주소
                 .invalidateHttpSession(true); // 세션 초기화
     }
 
