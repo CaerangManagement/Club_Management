@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../static/css/index_style.css" th:href="@{/css/index_style.css}">
-    <link rel="stylesheet" href="../static/css/hidden.css">
+    <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
 </head>
 
 <body>
@@ -79,11 +79,10 @@
                             </a>
                             <ul class="snd_menu sub_menu">
                                 <ul id="nav_loginbar">
-                                    <li><a class="nav_login" href="" th:href="@{/login}" sec:authorize="!isAuthenticated()">로그인</a></li>
-                                    <li><a class="nav_login" href="" th:href="@{/signup}" sec:authorize="!isAuthenticated()">회원가입</a></li>
-                                    <li><a class="nav_login" href="" sec:authorize="isAuthenticated()"
-                                           sec:authentication="name">rlaehgusqp@naver.com</a></li>
-                                    <li><a class="nav_login" href="" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
+                                    <li sec:authorize="isAnonymous()"><a class="nav_login" href="" th:href="@{/login}" >로그인</a></li>
+                                    <li sec:authorize="isAnonymous()"><a class="nav_login" href="" th:href="@{/signup}" >회원가입</a></li>
+                                    <li ><a class="nav_login" href="" sec:authentication="name" >rlaehgusqp@naver.com</a></li>
+                                    <li ><a class="nav_login" href="" th:href="@{/logout}"  >로그아웃</a></li>
                                 </ul>
                                 <li class="navbar_li navbar_li_content">
                                     <a class="navbar_a" href="./intro.html" th:href="@{/intro}">소개글</a>
