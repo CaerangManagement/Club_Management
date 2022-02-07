@@ -101,8 +101,7 @@
         </header>
         <article id="section_article">
             <div id="section_article_wrap">
-                <div id="section_article_plus_minus"
-                >
+                <div id="section_article_plus_minus" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">
                     <a id="section_article_modify" href="../board/board_modify.html"
                         th:href="@{/notice/board/modify(id=${noticeBoard.id})}">수정</a>
                     <button id="section_article_delete">삭제</button>
