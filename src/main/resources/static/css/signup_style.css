@@ -145,7 +145,7 @@ header{
     outline: none;
     border-radius: 3px;
 }
-#login_bnt{
+#login_btn{
     margin-top: 30px;
     width: 140px;
     height: 50px;
@@ -155,7 +155,7 @@ header{
     border-radius: 8px;
     font-size: 20px;
 }
-#login_bnt:hover{
+#login_btn:hover{
     background-color: #042946;
     cursor: pointer;
     transition-duration: 0.2s;
@@ -292,7 +292,7 @@ header{
         text-align: start;
         padding-left: 67px;    
     }
-    #login_bnt{
+    #login_btn{
         margin-top: 20px;
         width: 100px;
         height: 40px;

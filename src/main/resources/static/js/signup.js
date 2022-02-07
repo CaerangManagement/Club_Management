@@ -70,17 +70,17 @@ $("#email_div").blur(function() {
 		var user_id = $('#email_div').val();
 		$.ajax({
 			url : 'user/idCheck?userId='+ user_id,
-			type : 'get',
+			type : 'GET',
 			success : function(data) {
                         if (data == true) {
                                     $("#id_check").text("사용중인 이메일입니다");
                                     $("#id_check").css("color", "red");
-                                    $("#login_bnt").attr("disabled", true);
+                                    $("#login_btn").attr("disabled", true);
                                 }
                         else{
                         $("#id_check").text("사용가능한 이메일입니다.");
                         $("#id_check").css("color", "blue");
-                        $("#login_bnt").attr("disabled", false);
+                        $("#login_btn").attr("disabled", false);
                         }
                             }, error : function() {
                                     console.log("실패");
