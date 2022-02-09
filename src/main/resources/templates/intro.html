@@ -33,7 +33,8 @@
                     <li class="header_ul_right_li_a">캠퍼스 맵</li>
                 </a>
                 <li class="header_ul_right_li_a_log" sec:authentication="name">이메일</li>
-                <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
+                <li class="header_ul_right_li_a_log"
+                    th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
                 </li>
                 <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
                 <a class="header_ul_right_a" href="" th:href="@{/logout}">
@@ -47,7 +48,8 @@
                         th:src="@{/img/logo.jpg}" alt=""></a>
                 <div class="header_title">
                     <a href="./intro.html" th:href="@{/intro}" class="header_title_content">소개글</a>
-                    <a href="./notice_board/notice_board_list.html" th:href="@{/notice/board/list}" class="header_title_content">공지사항</a>
+                    <a href="./notice_board/notice_board_list.html" th:href="@{/notice/board/list}"
+                        class="header_title_content">공지사항</a>
                     <a href="./board/board_list.html" th:href="@{/board/list}" class="header_title_content">게시판</a>
                     <a href="./member/list.html" th:href="@{/member/list}" class="header_title_content"
                         sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
@@ -56,25 +58,28 @@
                     <ul id="main_menu">
                         <li class="navbar_li">
                             <a id="menu_img_wrap" href="#">
-                                <img id="menu_img"src="../static/img/menu.png" th:src="@{/img/menu.png}" alt="">
+                                <img id="menu_img" src="../static/img/menu.png" th:src="@{/img/menu.png}" alt="">
                             </a>
                             <ul class="snd_menu sub_menu">
                                 <ul id="nav_loginbar">
                                     <li><a class="nav_login" href="" sec:authorize="isAuthenticated()"
-                                           sec:authentication="name">rlaehgusqp@naver.com</a></li>
-                                    <li><a class="nav_login" href="" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
+                                            sec:authentication="name">rlaehgusqp@naver.com</a></li>
+                                    <li><a class="nav_login" href="" th:href="@{/logout}"
+                                            sec:authorize="isAuthenticated()">로그아웃</a></li>
                                 </ul>
                                 <li class="navbar_li navbar_li_content">
                                     <a class="navbar_a" href="./intro.html" th:href="@{/intro}">소개글</a>
                                 </li>
                                 <li class="navbar_li navbar_li_content">
-                                    <a class="navbar_a" href="./notice_board/notice_board_list.html" th:href="@{/notice/board/list}">공지사항</a>
+                                    <a class="navbar_a" href="./notice_board/notice_board_list.html"
+                                        th:href="@{/notice/board/list}">공지사항</a>
                                 </li>
                                 <li class="navbar_li navbar_li_content">
                                     <a class="navbar_a" href="./board/board_list.html" th:href="@{/board/list}">게시판</a>
                                 </li>
                                 <li class="navbar_li navbar_li_content">
-                                    <a class="navbar_a" href="./member/list.html" th:href="@{/member/list}" sec:authorize="hasRole('ROLE_ADMIN')">부원관리</a>
+                                    <a class="navbar_a" href="./member/list.html" th:href="@{/member/list}"
+                                        sec:authorize="hasRole('ROLE_ADMIN')">부원관리</a>
                                 </li>
                             </ul>
                         </li>
@@ -91,8 +96,42 @@
         </div>
     </header>
 
-    <section>
-        asf
+    <section> <!--container-->
+        <div class="team_wrap"> <!--section-->
+            <div class="team_name">라온</div> <!--aside-->
+            <div class="team_content">
+                씨애랑의 게임 개발 팀입니다. 주로 Unity 3D를 배우며 게임프로젝트 제작을 목표로 합니다. 학습 내용은
+                C언어와 Unity3D 입니다. 교내 ‘VR/AR 게임제작기초’ 수업과 병행하면 매우 좋습니다.
+            </div>
+        </div>
+        <div class="team_wrap">
+            <div class="team_name">라떼</div>
+            <div class="team_content">
+                씨애랑의 모바일 앱 개발 팀입니다. 현재는 안드로이드 스튜디오를 주로 배우며 여건이 된다면 Swift교육까지 확장해볼 계획입니다.
+                APP 개발을 목표로 하며 학습 내용은 JAVA와 안드로이드 스튜디오 입니다. 교내 ‘모바일 프로그래밍’ 수업과 병행하면 매우 좋습니다.
+            </div>
+        </div>
+        <div class="team_wrap">
+            <div class="team_name">코어</div>
+            <div class="team_content">
+                씨애랑의 아두이노 팀입니다. 주로 아두이노를 배우며 아두이노를 이용한 최종 프로젝트 제작을 목표로 합니다.
+                학습 내용은 아두이노 및 센서 이론입니다. 교내 ‘임베디드 프로그래밍’수업과 병행하면 매우 좋습니다.
+            </div>
+        </div>
+        <div class="team_wrap">
+            <div class="team_name">태그</div>
+            <div class="team_content">
+                씨애랑의 웹 개발 팀입니다. HTML과 자바스크립트를 배우며 최종 웹 사이트 제작을 목표로 합니다.
+                학습 내용은 HTML, JavaScript, nodeJS 등입니다. 교내 ‘웹 프로그래밍’ 수업과 병행하면 매우 좋습니다.
+            </div>
+        </div>
+        <div class="team_wrap">
+            <div class="team_name">텐서</div>
+            <div class="team_content">
+                씨애랑의 AI 개발 팀입니다. 머신러닝과 딥러닝을 배우며 AI모델을 이용한 프로젝트 제작을 목표로 합니다.
+                학습 내용은 Python, 머신러닝, 딥러닝이며 교내 ‘딥러닝 기초’, ‘머신러닝’, ‘자연어 처리’, ‘영상처리와 딥러닝’ 수업과 병행하면 매우 좋습니다.
+            </div>
+        </div>
     </section>
 
     <footer id="footer">
