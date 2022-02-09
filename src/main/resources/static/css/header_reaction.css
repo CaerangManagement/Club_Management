@@ -70,10 +70,11 @@
 }
 #head_img{
     position: absolute;
-    width: 320px;
-    top: 47px;
+    width: 300px;
+    top: 48px;
     left: 10%;
 }
+
 #head_img2{
     position: absolute;
     width: 280px;
