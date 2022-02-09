@@ -78,7 +78,44 @@ body{
     color: #093555;
     font-weight: bold;
 }
+/*--------------section------------------*/
+section{
+    background-color:tomato;
+    height:100%;
+    width:60vh;
+    padding:0px 30px;
+}
+.team_wrap{
+    background-color:beige;
+    height:70%;
+    width:100%;
+    margin:35px 0px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.team_name{
+    background-color:teal;
+    height:50px;
+    width:100%;
+    position:sticky;
+    top:0px;
+    text-align:center;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.team_content{
 
+}
+/*------------footer-----------*/
+#footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 /*-------------article_reaction---------------*/
 @media (max-width: 1024px){
     .place_text_li{
