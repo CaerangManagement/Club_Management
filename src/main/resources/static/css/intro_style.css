@@ -131,7 +131,8 @@ section{
     width: 50vh;
     left: 50%;
     margin-left: calc(-50vh/2);
-    opacity: 50%;
+    top: 50%;
+    opacity: 20%;
 }
 #caerang_content{
 }
