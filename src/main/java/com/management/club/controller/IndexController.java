@@ -56,4 +56,9 @@ public class IndexController {
         return "/intro";
     }
 
+    @GetMapping("/test")
+    public String test(){
+        return "/test";
+    }
+
 }

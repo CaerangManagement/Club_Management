@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://${rds.hostname}:${rds.port}/${rds.dbname}
+    driver-class-name: ${rds.username}
+    username: ${rds.username}
+    password: ${rds.password}
+
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+    ddl-auto: update
+
+server:
+  port: 5000
