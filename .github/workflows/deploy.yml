@@ -35,7 +35,7 @@ jobs:
   # ...
 
       - name: CodeDeploy
-        run: aws deploy create-deployment --application-name springboot-with-githubaction --deployment-group-name springboot-with-githubaction-group --s3-location bucket=springboot-intro,key=springboot-with-githubaction.zip,bundleType=zip
+        run: aws deploy create-deployment --application-name springboot-with-githubaction --deployment-group-name springboot-with-githubaction-group --region ap-northeast-2 --s3-location bucket=springboot-intro,key=springboot-with-githubaction.zip,bundleType=zip
 
       - name: Upload S3
         env:
