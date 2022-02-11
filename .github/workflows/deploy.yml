@@ -4,7 +4,7 @@ name: front-dev-deploy
 
 on:
   push: # 적용될 액션
-    branches: develop # 적용될 브랜치
+    branches: master # 적용될 브랜치
     paths:
       - 'frontend/**' # workflow에서 적용될 path
 
