@@ -87,11 +87,12 @@ section{
     padding: 50px 0 200px 0;
 }
 #intro_wrap{
-    background-color:tomato;
-    height:100%;
+    background-color: rgb(245, 245, 245);
+    height:90%;
     width:40%;
     padding:0px 30px;
     overflow: scroll;
+    border-radius: 5px;
 }
 #intro_wrap::-webkit-scrollbar{
     display:none;
@@ -100,7 +101,7 @@ section{
     cursor: pointer;
 }
 .team_wrap{
-    background-color:beige;
+    background-color:rgb(255, 255, 233);
     height:70%;
     width:100%;
     margin:35px 0px;
@@ -109,7 +110,7 @@ section{
     flex-wrap: wrap;
 }
 .team_name{
-    background-color:teal;
+    background-color:#093555;
     height:60px;
     width:100%;
     position:sticky;
@@ -123,8 +124,8 @@ section{
 }
 .team_content{
     width: 100%;
-    font-size: 20px;
-    padding: 20px 30px;
+    font-size: 16px;
+    padding: 10px 30px;
 }
 #cae_img{
     position: absolute;
