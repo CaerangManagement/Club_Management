@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api")
 public class NoticeBoardApiController {
 
     private final NoticeBoardRepository noticeBoardRepository;

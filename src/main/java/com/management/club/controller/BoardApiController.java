@@ -15,7 +15,7 @@ import java.io.IOException;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api")
 public class BoardApiController {
 
     private final BoardRepository boardRepository;
