@@ -54,5 +54,5 @@ jobs:
         run: |
           aws s3 cp \
           --region ap-northeast-2 \
-          --acl private \
-    ./isntyet-deploy10.zip s3://isntyet-deploy10/
+          --acl private \ 
+          ./springboot-intro.zip s3://springboot-intro/
