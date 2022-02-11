@@ -23,29 +23,29 @@ public class UserController {
     @PostMapping("/user")
     public String signup(UserInfoDto infoDto) { // 회원 추가
         userService.save(infoDto);
-        return "redirect:/login";
+        return "redirect:login";
     }
 
-    @GetMapping("/auth/login") //로그인 에러 컨트롤러
+    @GetMapping("auth/login") //로그인 에러 컨트롤러
     public String login(@RequestParam(value = "error", required = false) String error, @RequestParam(value = "exception", required = false) String exception, Model model) {
         model.addAttribute("error", error);
         model.addAttribute("exception", exception);
-        return "/login";
+        return "login";
     }
 
 
     //security config에서 로그아웃 설정을 해줬지만 post로 csrf를 보내야 하기때문에 직접 패스를 치면 404에러가뜸,
     //이것을 막아주기위해 Get으로 요청해도 가능하게끔 따로 만들어줌.
 
-    @GetMapping(value = "/logout")
+    @GetMapping(value = "logout")
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-        return "redirect:/index";
+        return "redirect:index";
     }
 
 
     @ResponseBody
-    @GetMapping("/user/idCheck{userId}")
+    @GetMapping("user/idCheck{userId}")
     public boolean idCheck(@RequestParam("userId") String user_id) {
 
         return userService.userIdCheck(user_id);

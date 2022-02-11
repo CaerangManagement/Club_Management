@@ -29,7 +29,7 @@ public class BoardController {
     /**
      * 게시글 리스트 조회
      */
-    @GetMapping("/board/list")
+    @GetMapping("board/list")
     public String board_list(Model model , @PageableDefault(size = 10 , sort="createdDate", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
                              @RequestParam(value ="searchType", required = false, defaultValue = "1") String searchType){
@@ -46,7 +46,7 @@ public class BoardController {
             model.addAttribute("begin", begin);
             model.addAttribute("end", end);
             model.addAttribute("boards", boards);
-            return "/board/board_list";
+            return "board/board_list";
         }
 
         //작성자로 조회
@@ -61,34 +61,34 @@ public class BoardController {
             model.addAttribute("begin", begin);
             model.addAttribute("end", end);
             model.addAttribute("boards", boards);
-            return "/board/board_list";
+            return "board/board_list";
         }
 
     }
 
-    @GetMapping("/board/add") //글 작성 페이지로 이동
+    @GetMapping("board/add") //글 작성 페이지로 이동
     public String board_add(){
-        return "/board/board_add";
+        return "board/board_add";
     }
     
-    @GetMapping("/board/modify") //글 수정 페이지로 이동
+    @GetMapping("board/modify") //글 수정 페이지로 이동
     public String board_modify(Model model, @RequestParam(required = false) Long id){
         if(id == null){
-            return "redirect:/board/list";
+            return "redirect:board/list";
         }
         else{
             Board board = boardRepository.findById(id).orElse(null);
             model.addAttribute("board", board);
         }
 
-        return "/board/board_modify";
+        return "board/board_modify";
     }
 
     //상세정보 조회
-    @GetMapping("/board/{id}")
+    @GetMapping("board/{id}")
     public String findById(@PathVariable final Long id, Model model) {
         model.addAttribute("board", boardService.findById(id));
-        return "/board/board_view";
+        return "board/board_view";
     }
 
 }

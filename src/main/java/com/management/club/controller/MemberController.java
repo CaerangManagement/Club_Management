@@ -23,7 +23,7 @@ public class MemberController {
     private MemberService memberService;
 
 
-    @GetMapping("/member/list") //검색, 페이징 기능
+    @GetMapping("member/list") //검색, 페이징 기능
     public String list(Model model, @PageableDefault(size = 10, direction = Sort.Direction.DESC) Pageable pageable,
                                  @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
                                  @RequestParam(value ="searchType", required = false, defaultValue = "1") String searchType){
@@ -66,12 +66,12 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/member/add") //추가 페이지
+    @GetMapping("member/add") //추가 페이지
     public String add(){
         return "member/add";
     }
 
-    @GetMapping("/member/form") //수정 페이지 기존 데이터를 넘겨줌
+    @GetMapping("member/form") //수정 페이지 기존 데이터를 넘겨줌
     public String form(Model model,  @RequestParam(required = false) Long code){
         if(code == null){
             model.addAttribute("member", new MemberInfo());

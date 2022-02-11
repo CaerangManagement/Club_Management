@@ -38,7 +38,7 @@ public class IndexController {
         model.addAttribute("board", board);
         model.addAttribute("noticeBoard", noticeBoard);
         model.addAttribute("member", member);
-        return "/index";
+        return "index";
     }
 
     @GetMapping("login") //로그인 페이지

@@ -29,7 +29,7 @@ public class NoticeBoardController {
     /**
      * 게시글 리스트 조회
      */
-    @GetMapping("/notice/board/list")
+    @GetMapping("notice/board/list")
     public String notice_board_list(Model model , @PageableDefault(size = 10 , sort="createdDate", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
                              @RequestParam(value ="searchType", required = false, defaultValue = "1") String searchType){
@@ -46,7 +46,7 @@ public class NoticeBoardController {
             model.addAttribute("begin", begin);
             model.addAttribute("end", end);
             model.addAttribute("noticeBoards", noticeBoards);
-            return "/notice_board/notice_board_list";
+            return "notice_board/notice_board_list";
         }
 
         //작성자로 조회
@@ -61,34 +61,34 @@ public class NoticeBoardController {
             model.addAttribute("begin", begin);
             model.addAttribute("end", end);
             model.addAttribute("noticeBoards", noticeBoards);
-            return "/notice_board/notice_board_list";
+            return "notice_board/notice_board_list";
         }
 
     }
 
-    @GetMapping("/notice/board/add") //글 작성 페이지로 이동
+    @GetMapping("notice/board/add") //글 작성 페이지로 이동
     public String board_add(){
-        return "/notice_board/notice_board_add";
+        return "notice_board/notice_board_add";
     }
 
-    @GetMapping("/notice/board/modify") //글 수정 페이지로 이동
+    @GetMapping("notice/board/modify") //글 수정 페이지로 이동
     public String board_modify(Model model, @RequestParam(required = false) Long id){
         if(id == null){
-            return "redirect:/notice/board/list";
+            return "redirect:notice/board/list";
         }
         else{
             NoticeBoard noticeBoard = noticeBoardRepository.findById(id).orElse(null);
             model.addAttribute("noticeBoard", noticeBoard);
         }
 
-        return "/notice_board/notice_board_modify";
+        return "notice_board/notice_board_modify";
     }
 
     //상세정보 조회
-    @GetMapping("/notice/board/{id}")
+    @GetMapping("notice/board/{id}")
     public String findById(@PathVariable final Long id, Model model) {
         model.addAttribute("noticeBoard", noticeBoardService.findById(id));
-        return "/notice_board/notice_board_view";
+        return "notice_board/notice_board_view";
     }
 
 }

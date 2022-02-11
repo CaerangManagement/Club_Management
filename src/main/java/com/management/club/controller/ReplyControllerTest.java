@@ -13,7 +13,7 @@ public class ReplyControllerTest {
     @Autowired
     private BoardRepository boardRepository;
 
-    @GetMapping("/test/board/{id}")
+    @GetMapping("test/board/{id}")
     public Board getBoard(@PathVariable Long id){
         return boardRepository.findById(id).get();
     }
