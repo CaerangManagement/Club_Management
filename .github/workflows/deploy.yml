@@ -20,7 +20,7 @@ jobs:
       - name: Build with maven
         run: |
           ./mvnw --version
-          ./mvnw build # 빌드 
+          ./mvnw package # 빌드 
 
       - name: Upload S3
         env:
