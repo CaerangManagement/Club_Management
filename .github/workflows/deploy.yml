@@ -1,57 +1,32 @@
-# This workflow will build a Java project with Gradle
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
+# .github/workflows/front-dev-deploy.yml
 
-# Repo Action 페이지에 나타날 이름
-name: Spring Boot & Maven CI/CD
+name: front-dev-deploy
 
-# Event Trigger
-# master branch에 push 또는 pull request가 발생할 경우 동작
-# branch 단위 외에도, tag나 cron 식 등을 사용할 수 있음
 on:
-  push:
-    branches: [ master ]
+  push: # 적용될 액션
+    branches: develop # 적용될 브랜치
+    paths:
+      - 'frontend/**' # workflow에서 적용될 path
 
+defaults:
+  run:
+    working-directory: ./frontend # workflow에서 default working directory
 
 jobs:
-    deploy:
-      # 실행 환경 지정
-      runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest # 인스턴스 OS
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2 # 워크플로에서 액세스할 수 있도록 에서 저장소를 체크아웃
 
-      # Task의 sequence를 명시한다.
-      steps:
-        - name: Checkout source code
-        - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: yarn
 
-        - name: Install Dependencies
-          run: yarn
+      - name: Build
+        run: yarn build
 
-        - name: Set up JDK 1.8
-          uses: actions/setup-java@v1
-          with:
-            java-version: 1.8
-
-        - name: Grant execute permission for mvnw
-          run: chmod +x mvnw
-
-        # Build
-        - name: Build with mvn
-          run: ./mvnw clean build
-
-        # 전송할 파일을 담을 디렉토리 생성
-        - name: Make Directory for deliver
-          run: mkdir deploy
-
-        # Jar 파일 Copy
-        - name: Copy Jar
-          run: cp ./build/libs/*.jar ./deploy/
-
-        # 압축파일 형태로 전달
-        - name: Make zip file
-          run: zip -r -qq -j ./springboot-intro-build.zip ./deploy
-
-        # S3 Bucket으로 copy
-        - name: S3 Deploy
-          run: aws s3 sync ./dist s3://spring-boot-intro/ --acl bucket-owner-full-control # s3 이름 2021-cvi-dev
-          env:
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: S3 Deploy
+        run: aws s3 sync ./dist s3://springboot-intro/ --acl bucket-owner-full-control # s3 이름 2021-cvi-dev
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
