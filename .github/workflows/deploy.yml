@@ -21,5 +21,5 @@ jobs:
         shell: bash
 
       - name: Build with maven
-        run: ./mvn build
+        run: ./mvnw build
         shell: bash
