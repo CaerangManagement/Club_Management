@@ -9,9 +9,9 @@ name: Spring Boot & Maven CI/CD
 # branch 단위 외에도, tag나 cron 식 등을 사용할 수 있음
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
     deploy:
