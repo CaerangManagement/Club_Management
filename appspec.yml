@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ubuntu/app # 인스턴스에서 파일이 저장될 위치
+    destination: /home/ubuntu/app #  인스턴스에서 파일이 저장될 위치
 permissions:
   - object: /ubuntu/app/
     owner: ubuntu
