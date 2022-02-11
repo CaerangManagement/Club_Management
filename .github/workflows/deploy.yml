@@ -9,7 +9,7 @@ name: Spring Boot & Maven CI/CD
 # branch 단위 외에도, tag나 cron 식 등을 사용할 수 있음
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 
 jobs:
@@ -50,12 +50,8 @@ jobs:
           run: zip -r -qq -j ./springboot-intro-build.zip ./deploy
 
         # S3 Bucket으로 copy
-        - name: Deliver to AWS S3
+        - name: S3 Deploy
+          run: aws s3 sync ./dist s3://spring-boot-intro/ --acl bucket-owner-full-control # s3 이름 2021-cvi-dev
           env:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          run: |
-            aws s3 cp \
-            --region ap-northeast-2 \
-            --acl private \ 
-            ./springboot-intro.zip s3://springboot-intro/
