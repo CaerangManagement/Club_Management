@@ -43,6 +43,5 @@ jobs:
 
       - name: CodeDeploy
         run: aws deploy create-deployment --application-name springboot-with-githubaction
-        --deployment-config-name CodeDeployDefault.OneAtATime 
         --deployment-group-name springboot-with-githubaction-group 
         --s3-location bucket=springboot-intro, bundleType=zip,key=$GITHUB_SHA.zip
