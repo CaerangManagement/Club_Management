@@ -28,6 +28,15 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
+  # appspec.yml 파일 복사
+      - name: Copy appspec.yml
+        run: cp appspec.yml ./deploy
+
+  # ...
+
+      - name: CodeDeploy
+        run: aws deploy create-deployment --application-name springboot-with-githubaction --deployment-group-name springboot-with-githubaction-group --s3-location bucket=springboot-intro,key=springboor-with-githubaction.zip,bundleType=zip
+
       - name: Upload S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
