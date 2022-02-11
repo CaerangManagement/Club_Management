@@ -16,10 +16,10 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Grant execute permission for maven
+      - name: Grant execute permission for mvnw
         run: chmod +x ./mvnw
         shell: bash
 
       - name: Build with maven
-        run: ./maven build
+        run: ./mvnw build
         shell: bash
