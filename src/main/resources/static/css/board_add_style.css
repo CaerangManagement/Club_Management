@@ -137,11 +137,11 @@ body{
     cursor: pointer;
 }
 #save{
-    border: none;
+    border: 1px solid rgb(211, 211, 211);
     width: 70px;
-    height: 31.6px;
-    background-color: #03c75a1f;
-    color: #009f47;
+    height: 31.2px;
+    background-color: #037cc71f;
+    color: #006f9f;
     border-radius: 5px;
 }
 #save:hover{
