@@ -15,7 +15,7 @@ jobs:
           java-version: 8
 
       - name: Build with maven
-        run: mvn -B package --file pom.xml
+        run: mvn package
 
       - name: Upload S3
         env:
