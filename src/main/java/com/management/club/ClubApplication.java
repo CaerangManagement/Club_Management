@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
+
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
+//@ComponentScan(basePackages = {"controller","com.management.repositories"})
 public class ClubApplication {
 
 	@PostConstruct
