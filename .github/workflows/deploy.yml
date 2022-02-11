@@ -35,4 +35,4 @@ jobs:
         run: |
           aws s3 cp \
             --region ap-northeast-2 \
-            ~/club-0.0.1-SNAPSHOT.jar s3://springboot-intro
+            /home/runner/work/Club_Management/Club_Management/target/club-0.0.1-SNAPSHOT.jar s3://springboot-intro
