@@ -1,29 +1,32 @@
-name: dev-deploy-actions
+name: Java CI with Maven
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-18.04
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 8
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v1
         with:
-          java-version: '8'
-          distribution: 'adopt'
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify
+          java-version: 8
 
-      - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete
+      - name: Grant execute permission for mvnw
+        run: chmod +x mvnw
+
+      - name: Build with maven
+        run: |
+          ./mvnw --version
+          ./mvnw build # 빌드 
+
+      - name: Upload S3
         env:
-          AWS_S3_BUCKET: springboot-intro
-          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          AWS_REGION: ap-northeast-2
-
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 cp \
+            --region ap-northeast-2 \
+            ./build/libs/*.jar s3://springboot-intro
