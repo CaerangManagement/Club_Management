@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-  #    local 환경  jdbc:mariadb://localhost:3308/mydb
+  #    local  환경  jdbc:mariadb://localhost:3308/mydb
       driver-class-name: org.mariadb.jdbc.Driver
       url: jdbc:mariadb://database-2.chbjzeqycfbl.ap-northeast-2.rds.amazonaws.com:3306/innodb
       username: admin
