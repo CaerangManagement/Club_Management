@@ -7,12 +7,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
-      - name: Setup Python for AWS CLI
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.x'
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '8'
+        distribution: 'adopt'
+        - name: Build with Maven
+          run: mvn --batch-mode --update-snapshots verify
       - name: Install AWS CLI
         run: pip3 install awscli --upgrade --user
       - name: Configure AWS Credentials
@@ -23,8 +25,6 @@ jobs:
           aws-region: ap-northeast-2
           mask-aws-account-id: true
 
-      - name: Build with maven
-        run: mvn -B package --file pom.xml
       - name: Deploy to S3
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
