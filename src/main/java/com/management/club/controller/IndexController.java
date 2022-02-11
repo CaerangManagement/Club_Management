@@ -29,7 +29,7 @@ public class IndexController {
 
 
 
-    @GetMapping("/index") //메인페이지
+    @GetMapping("index") //메인페이지
     public String index(Model model){
         List<Board> board = boardRepository.findTop7ByOrderByIdDesc(); //상위 7개의 게시물을 보여주는 쿼리
         List<NoticeBoard> noticeBoard = noticeBoardRepository.findTop7ByOrderByIdDesc(); //상위 7개의 공지사항 게시물을 보여주는 쿼리
@@ -41,24 +41,24 @@ public class IndexController {
         return "/index";
     }
 
-    @GetMapping("/login") //로그인 페이지
+    @GetMapping("login") //로그인 페이지
     public String login(){
-        return "/login";
+        return "login";
     }
     
-    @GetMapping("/signup") //회원가입 페이지
+    @GetMapping("signup") //회원가입 페이지
     public String signup(){
-        return "/signup";
+        return "signup";
     }
 
-    @GetMapping("/intro") //회원가입 페이지
+    @GetMapping("intro") //회원가입 페이지
     public String intro(){
-        return "/intro";
+        return "intro";
     }
 
-    @GetMapping("/test")
+    @GetMapping("test")
     public String test(){
-        return "/test";
+        return "test";
     }
 
 }
