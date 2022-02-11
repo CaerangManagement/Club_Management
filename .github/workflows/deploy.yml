@@ -9,50 +9,54 @@ name: Spring Boot & Maven CI/CD
 # branch 단위 외에도, tag나 cron 식 등을 사용할 수 있음
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
-  build:
-    # 실행 환경 지정
-    runs-on: ubuntu-latest
+    deploy:
+      # 실행 환경 지정
+      runs-on: ubuntu-latest
 
-    # Task의 sequence를 명시한다.
-    steps:
-      - uses: actions/checkout@v2
+      # Task의 sequence를 명시한다.
+      steps:
+        - name: Checkout source code
+        - uses: actions/checkout@v2
 
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
+        - name: Install Dependencies
+          run: yarn
 
-      - name: Grant execute permission for mvnw
-        run: chmod +x mvnw
+        - name: Set up JDK 1.8
+          uses: actions/setup-java@v1
+          with:
+            java-version: 1.8
 
-      # Build
-      - name: Build with mvn
-        run: ./mvnw clean build
+        - name: Grant execute permission for mvnw
+          run: chmod +x mvnw
 
-      # 전송할 파일을 담을 디렉토리 생성
-      - name: Make Directory for deliver
-        run: mkdir deploy
+        # Build
+        - name: Build with mvn
+          run: ./mvnw clean build
 
-      # Jar 파일 Copy
-      - name: Copy Jar
-        run: cp ./build/libs/*.jar ./deploy/
+        # 전송할 파일을 담을 디렉토리 생성
+        - name: Make Directory for deliver
+          run: mkdir deploy
 
-      # 압축파일 형태로 전달
-      - name: Make zip file
-        run: zip -r -qq -j ./springboot-intro-build.zip ./deploy
+        # Jar 파일 Copy
+        - name: Copy Jar
+          run: cp ./build/libs/*.jar ./deploy/
 
-      # S3 Bucket으로 copy
-      - name: Deliver to AWS S3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          aws s3 cp \
-          --region ap-northeast-2 \
-          --acl private \ 
-          ./springboot-intro.zip s3://springboot-intro/
+        # 압축파일 형태로 전달
+        - name: Make zip file
+          run: zip -r -qq -j ./springboot-intro-build.zip ./deploy
+
+        # S3 Bucket으로 copy
+        - name: Deliver to AWS S3
+          env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          run: |
+            aws s3 cp \
+            --region ap-northeast-2 \
+            --acl private \ 
+            ./springboot-intro.zip s3://springboot-intro/
