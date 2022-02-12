@@ -159,7 +159,8 @@
                     th:each="i : ${#numbers.sequence(begin, end)}">
                     <a class="page_num"
                         th:href="@{/notice/board/list(page=${i-1}, keyword=${param.keyword}, searchType=${param.searchType})}"
-                        th:text="${i}">1</a>
+                        th:text="${i}"
+                        th:classappend="${i == noticeBoards.pageable.pageNumber + 1} ? 'disabled_ano'">1</a>
                 </li>
 
                 <li class="section_footer_btn" aria-label="Last">

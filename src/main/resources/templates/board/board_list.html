@@ -145,7 +145,7 @@
                 th:classappend="${i == boards.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(begin, end)}">
                     <a class="page_num"
                     th:href="@{/board/list(page=${i-1}, keyword=${param.keyword}, searchType=${param.searchType})}" th:text="${i}"
-                    th:classappend="${i == noticeBoards.pageable.pageNumber + 1} ? 'disabled_ano'">1</a>
+                    th:classappend="${i == boards.pageable.pageNumber + 1} ? 'disabled_ano'">1</a>
                 </li>
                 
 
