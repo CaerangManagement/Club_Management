@@ -38,8 +38,16 @@ public class UserService implements UserDetailsService {
                 .password(infoDto.getPassword()).build()).getCode(); //고유값인 code를 리턴
     }
 
-    public boolean userIdCheck(String email){
-        return userRepository.existsByEmail(email);
+    public int userIdCheck(String email){
+        if(email.isEmpty()){
+            return 3;
+        }
+        if (userRepository.existsByEmail(email)){
+            return 1;
+        }
+        else{
+            return 2;
+        }
 
     }
 
