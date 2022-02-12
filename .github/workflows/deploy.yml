@@ -28,7 +28,7 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-  # appspec.yml  파일 복사
+  # appspec.yml 파일 복사
       - name: Copy appspec.yml
         run: cp appspec.yml ./deploy
 
