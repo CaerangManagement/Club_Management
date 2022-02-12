@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../../static/css/board_add_style.css" th:href="@{/css/board_add_style.css}">
     <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/hidden.css}">
+    <link rel="stylesheet" href="../../static/css/eventCancle.css" th:href="@{/css/eventCancle.css}">
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
     
@@ -114,8 +115,9 @@
         <article id="section_article">
             <form id="section_article_form">
                 <table id="section_article_table">
-                    <tr>
+                    <tr id="section_article_table_wrap">
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
+                        <td id="section_article_table_title_warning">제목을 입력하세요.</td>
                     </tr>
                     <tr>
                         <td id="section_article_table_main_wrap"><textarea id="section_article_table_main" name="content" placeholder="내용을 입력해주세요." class="summernote" ></textarea></td>
@@ -167,4 +169,6 @@
 <script src="../../static/js/summernote.js" th:src="@{/js/summernote.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 <script src="../../static/js/menu_ano.js" th:src="@{/js/menu_ano.js}"></script>
+<script src="../../static/js/nullChkAdd.js" th:src="@{/js/nullChkAdd.js}"></script>
+
 </html>
