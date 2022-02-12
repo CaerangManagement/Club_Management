@@ -68,19 +68,27 @@ function adminPasswordChk(event){
 //singup email 중복 체크 <박주영>
 $("#email_div").blur(function() {
 		var user_id = $('#email_div').val();
+
+
 		$.ajax({
 			url : 'user/idCheck?userId='+ user_id,
 			type : 'GET',
 			success : function(data) {
-                        if (data == true) {
+                        if (data == 1) {
                                     $("#id_check").text("사용중인 이메일입니다");
                                     $("#id_check").css("color", "red");
                                     $("#login_btn").attr("disabled", true);
                                 }
-                        else{
+                        else if(data == 2){
+
                         $("#id_check").text("사용가능한 이메일입니다.");
                         $("#id_check").css("color", "blue");
                         $("#login_btn").attr("disabled", false);
+                        }
+                        else if(data == 3){
+                        $("#id_check").text("");
+                        console.log('id=null');
+
                         }
                             }, error : function() {
                                     console.log("실패");

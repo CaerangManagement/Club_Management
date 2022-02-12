@@ -46,7 +46,7 @@ public class UserController {
 
     @ResponseBody
     @GetMapping("user/idCheck{userId}")
-    public boolean idCheck(@RequestParam("userId") String user_id) {
+    public int idCheck(@RequestParam("userId") String user_id) {
 
         return userService.userIdCheck(user_id);
     }
