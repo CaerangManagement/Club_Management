@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../../static/css/board_add_style.css" th:href="@{/css/board_add_style.css}">
+    <link rel="stylesheet" href="../../static/css/eventCancle.css" th:href="@{/css/eventCancle.css}">
     <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/hidden.css}">
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
@@ -121,7 +122,7 @@
             </form>
             <div id="section_back_plus_wrap">
                 <a id="back" th:href="@{/notice/board/list}">취소</a>
-                <button id="save" value="글쓰기">추가하기</button>
+                <button id="save" class="eventCancle" value="글쓰기">추가하기</button>
             </div>
         </article>
     </section>
@@ -164,6 +165,5 @@
 <script src="../../static/js/summernote.js" th:src="@{/js/summernote.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 <script src="../../static/js/menu_ano.js" th:src="@{/js/menu_ano.js}"></script>
-<script src="../../static/js/addModifyNullChk.js"></script>
 
 </html>
