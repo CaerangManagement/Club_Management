@@ -497,12 +497,16 @@ section{
     width: 20px;
     padding: 5px;
 }
+.disabled_ano{
+    color: white !important;
+}
 .page_num{
     display: block;
     width: 100%;
     height: 100%;
     text-decoration: none;
-    line-height: 28px;
+    line-height: 27px;
+    color: rgb(35, 34, 34);
 }
 .section_footer_btn:first-child{
     width: 30px;
