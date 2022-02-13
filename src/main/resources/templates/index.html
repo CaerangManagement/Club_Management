@@ -82,8 +82,8 @@
                                 <ul id="nav_loginbar">
                                     <li sec:authorize="isAnonymous()"><a class="nav_login" href="" th:href="@{/login}" >로그인</a></li>
                                     <li sec:authorize="isAnonymous()"><a class="nav_login" href="" th:href="@{/signup}" >회원가입</a></li>
-                                    <li id="navNameWrap"><a id="navName" class="nav_login" href="" sec:authentication="name" >rlaehgusqp@naver.com</a></li>
-                                    <li id="navLogoutWrap"><a class="nav_login" href="" th:href="@{/logout}"  >로그아웃</a></li>
+                                    <li id="navNameWrap"><a id="navName" class="nav_login" href="" sec:authentication="name" ></a></li>
+                                    <li id="navLogoutWrap"><a class="nav_login" href="" th:href="@{/logout}">로그아웃</a></li>
                                 </ul>
                                 <li class="navbar_li navbar_li_content">
                                     <a class="navbar_a" href="./intro.html" th:href="@{/intro}">소개글</a>
