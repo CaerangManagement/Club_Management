@@ -22,7 +22,7 @@ ___
 <img src="https://img.shields.io/badge/Java-white?style=flat-square&logo=Java&logoColor=007396" style="height : 30px; margin-left : 0px; margin-right : 0px;"/>
 <img src="https://img.shields.io/badge/Springboot-white?style=flat-square&logo=springboot&logoColor=#6DB33F" style="height : 30px; margin-left : 0px; margin-right : 0px;"/>
 <img src="https://img.shields.io/badge/SpringSecurity-white?style=flat-square&logo=springsecurity&logoColor=#6DB33F" style="height : 30px; margin-left : 0px; margin-right : 0px;"/>
-<img src="https://img.shields.io/badge/Thymeleaf-a?style=flat-square&logo=Thymeleaf&logoColor=#6DB33F" style="height : 30px; margin-left : 0px; margin-right : 0px;"/>
+<img src="https://img.shields.io/badge/Thymeleaf-white?style=flat-square&logo=Thymeleaf&logoColor=green" style="height : 30px; margin-left : 0px; margin-right : 0px;"/>
 <br>
 <img src="https://img.shields.io/badge/AWS-black?style=flat-square&logo=Amazon AWS&logoColor=#FF9900" style="height : 30px; margin-left : 0px; margin-right : 0px;"/>
 <img src="https://img.shields.io/badge/MariaDB-black?style=flat-square&logo=MariaDB&logoColor=#FF9900" style="height : 30px; margin-left : 0px; margin-right : 0px;"/>
