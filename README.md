@@ -56,6 +56,7 @@ branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많
 시켜서 jpa를 잘 활용해야만 구현 할 수 있었다. 많은 예제를 참고했지만 결국은 내가 만든 게시판과 연동하기 위해 시행착오를 많이 겪어야만 했고 결국 성공했다.
 <p>
 <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white">
+ <br>
 완성된 웹페이지 배포는 AWS를 사용하기로 했다. 프리티어계정을 생성 하고 EC2 인스턴스의 ubuntu os로 서버를 구축하고 RDS-mariaDB 를 연결하였는데 처음하는 작업들이라 시간이 꽤 많이 걸렸다.
 </P>
 
