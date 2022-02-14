@@ -42,8 +42,8 @@ Back-End 까지 공부를 하게되었다.
 <br>
 <p>
 <br>
+  
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
-
 1학년 때에도 깃을 사용했었지만 혼자 올리는 것뿐이라 단순 commit push만 했었는데 협업을 하면서 굉장히 많은 오류들을 겪었고
 branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많은 도움이 되었다.
 깃을 통한 협업을 하는데 가장 중요한점은 일의 순서라고 생각한다, front 에서 페이지 퍼블리싱을 끝낸 후 back 으로 넘겨줘야 동시에 만질 걱정이 없어 깃이 엉키지 않는다. (깃이 엉켜서 한번 초기화 한적이있다) 
