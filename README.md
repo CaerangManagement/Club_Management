@@ -41,6 +41,7 @@ Back-End 까지 공부를 하게되었다.
 </p>
 <br>
 <p>
+<br>
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 
 1학년 때에도 깃을 사용했었지만 혼자 올리는 것뿐이라 단순 commit push만 했었는데 협업을 하면서 굉장히 많은 오류들을 겪었고
