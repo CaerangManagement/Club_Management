@@ -18,7 +18,7 @@ ___
 
 
 ___
-# Back-End 박주영
+## Back-End 박주영
 <p>
 <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
 <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white">
@@ -52,7 +52,7 @@ branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많
 만들게 되었다. 처음 게시판을 만드는데는 여러가지 필요한것들이 많고 공부해야 할 것들이 많아서 1주일가량 걸렸지만 나중에 추가하게된 공지사항 게시판은 중복되는것이 많아
 하루만에 만들게 되어서 정말 좋았다. 개인적으로 머리가 아팠던 것은 댓글구현 부분이였다. 지금까지 단순히 데이터를 받고 뿌리는 것만 했다면 댓글은 user id, board id를 연관
 시켜서 jpa를 잘 활용해야만 구현 할 수 있었다. 많은 예제를 참고했지만 결국은 내가 만든 게시판과 연동하기 위해 시행착오를 많이 겪어야만 했고 결국 성공했다.
-### <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white">
+<img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white">
 완성된 웹페이지 배포는 AWS를 사용하기로 했다. 프리티어계정을 생성 하고 EC2 인스턴스의 ubuntu os로 서버를 구축하고 RDS-mariaDB 를 연결하였는데 처음하는 작업들이라 시간이 꽤 많이 걸렸다.
 
 ## 웹 리뷰
