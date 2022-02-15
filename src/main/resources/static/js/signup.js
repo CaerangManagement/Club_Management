@@ -83,7 +83,7 @@ function adminPasswordChk(event){
 //singup email 중복 체크
 $("#email_div").blur(function() {
 		var user_id = $('#email_div').val();
-
+        const idCheck = document.getElementById('id_check');
 		$.ajax({
 			url : 'user/idCheck?userId='+ user_id,
 			type : 'GET',
@@ -92,15 +92,17 @@ $("#email_div").blur(function() {
                             $("#id_check").text("중복된 이메일입니다");
                             $("#id_check").css("color", "red");
                             $("#login_btn").attr("disabled", true);
+                            idCheck.classList.remove('hidden');
                         }
                 else if(data == 2){
                 $("#id_check").text("사용가능한 이메일입니다.");
                 $("#id_check").css("color", "blue");
                 $("#login_btn").attr("disabled", false);
+                idCheck.classList.remove('hidden');
                 }
                 else if(data == 3){
                 $("#id_check").text("");
-
+                idCheck.classList.add('hidden');
                 }
                     }, error : function() {
                             console.log("실패");
