@@ -6,54 +6,69 @@ const loginForm = document.getElementById('login_form');
 
 const idNullChkText = document.getElementById('login_id_null_notice');
 const passNullChkText = document.getElementById('login_pass_null_notice');
+const passverNullChkText = document.getElementById('login_passver_null_notice');
 const signUpBox = document.getElementById('box1');
 const signUpBoxHeight = document.getElementById('box1').style.height;
 
 
 
-
+//빈값 체크 및 비번 확인
 function loginNullChk(e){
-    if(loginForm.email.value=="" && loginForm.password.value=="" && loginForm.passver.value==""){
+    //모두 안적혀있을때
+    if(!signUpEmail.value && !signUpPass.value && !signUpPassVer.value){
         e.preventDefault();
         document.loginForm.email.focus();
         idNullChkText.classList.remove('hidden');
-        passNullChkText.classList.remove('hidden'); 
-    }else if(loginForm.email.value==""){
+        passNullChkText.classList.remove('hidden');
+    }
+    //이메일만 안적혀있을때
+    else if(!signUpEmail.value){
         e.preventDefault();
         document.loginForm.email.focus();
         idNullChkText.classList.remove('hidden');
         passNullChkText.classList.add('hidden');
-    }else if(loginForm.password.value=="" && loginForm.passver.value==""){
+    }
+    //비번과 비번체크가 안적혀있을때
+    else if(!signUpPass.value && !signUpPassVer.value){
         e.preventDefault();
         document.loginForm.password.focus();
         passNullChkText.classList.remove('hidden');
         idNullChkText.classList.add('hidden');
-    }else{
+    }
+    //비번만 안적혀있을때
+    else if(!signUpPass.value){
+        e.preventDefault();
+        document.loginForm.password.focus();
+        passNullChkText.classList.remove('hidden');
+        idNullChkText.classList.add('hidden');
+    }
+    //비번체크가 안적혀있을때
+    else if(!signUpPassVer.value){
+        e.preventDefault();
+        document.loginForm.passwordver.focus();
+        passverNullChkText.classList.remove('hidden');
         passNullChkText.classList.add('hidden');
+        idNullChkText.classList.add('hidden');
+        }
+    //비번과 비번체크가 다를때
+    else if(signUpPass.value != signUpPassVer.value){
+        e.preventDefault();
+        document.loginForm.passwordver.focus();
+        passverNullChkText.classList.remove('hidden');
+        passNullChkText.classList.add('hidden');
+        idNullChkText.classList.add('hidden');
+    }
+    //모두 이상없을 경우
+    else{
+        passNullChkText.classList.add('hidden');
+        passverNullChkText.classList.add('hidden');
         idNullChkText.classList.add('hidden');
     }
 }
 loginForm.addEventListener('submit',loginNullChk);
 
-//signup form 비밀번호 확인 함수(끝 건들 ㄴㄴ)
-const pass1 = document.getElementById('password_div');
-const pass2 = document.getElementById('password_verify_div');
-const signUpForm = document.getElementById('login_form');
-const passverNullChkText = document.getElementById('login_passver_null_notice');
 
-function passwordChk(event){
-        if(pass1.value!=pass2.value){
-            event.preventDefault();
-            passverNullChkText.classList.remove('hidden');
-            return true;
-        }else if(pass1.value==pass2.value){
-            passverNullChkText.classList.add('hidden');
-            return false;
-        }
-}
-signUpForm.addEventListener('submit',passwordChk);
-
-//signup form Admin password 확인 함수(끝 건들 ㄴㄴ)
+//관리자 비밀번호
 function adminPasswordChk(event){
     const adminPasswordInput = document.getElementById('admin_password');
     const adminWrap = document.getElementById('hidden_admin');
@@ -65,33 +80,30 @@ function adminPasswordChk(event){
     }
 }
 
-//singup email 중복 체크 <박주영>
+//singup email 중복 체크
 $("#email_div").blur(function() {
 		var user_id = $('#email_div').val();
-
 
 		$.ajax({
 			url : 'user/idCheck?userId='+ user_id,
 			type : 'GET',
 			success : function(data) {
-                        if (data == 1) {
-                                    $("#id_check").text("사용중인 이메일입니다");
-                                    $("#id_check").css("color", "red");
-                                    $("#login_btn").attr("disabled", true);
-                                }
-                        else if(data == 2){
-
-                        $("#id_check").text("사용가능한 이메일입니다.");
-                        $("#id_check").css("color", "blue");
-                        $("#login_btn").attr("disabled", false);
+                if (data == 1) {
+                            $("#id_check").text("중복된 이메일입니다");
+                            $("#id_check").css("color", "red");
+                            $("#login_btn").attr("disabled", true);
                         }
-                        else if(data == 3){
-                        $("#id_check").text("");
-                        console.log('id=null');
+                else if(data == 2){
+                $("#id_check").text("사용가능한 이메일입니다.");
+                $("#id_check").css("color", "blue");
+                $("#login_btn").attr("disabled", false);
+                }
+                else if(data == 3){
+                $("#id_check").text("");
 
-                        }
-                            }, error : function() {
-                                    console.log("실패");
-                            }
-                        });
-                    });
+                }
+                    }, error : function() {
+                            console.log("실패");
+                    }
+        });
+});
