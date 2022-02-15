@@ -113,6 +113,13 @@ header{
 #login_form div{
     padding: 3px 0px 3px 0px;
 }
+#id_check{
+    font-size: 12px;
+    margin: 5px 0;
+    text-align: start;
+    padding-left: 100px;
+    color: red;
+}
 #login_id_null_notice{
     font-size: 12px;
     margin: 5px 0;
