@@ -89,20 +89,20 @@ $("#email_div").blur(function() {
 			type : 'GET',
 			success : function(data) {
                 if (data == 1) {
-                            $("#id_check").text("중복된 이메일입니다");
-                            $("#id_check").css("color", "red");
-                            $("#login_btn").attr("disabled", true);
-                            idCheck.classList.remove('hidden');
+                    idCheck.classList.remove('hidden');
+                    $("#id_check").text("중복된 이메일입니다");
+                    $("#id_check").css("color", "red");
+                    $("#login_btn").attr("disabled", true);
                         }
                 else if(data == 2){
-                $("#id_check").text("사용가능한 이메일입니다.");
-                $("#id_check").css("color", "blue");
-                $("#login_btn").attr("disabled", false);
-                idCheck.classList.remove('hidden');
+                    idCheck.classList.remove('hidden');
+                    $("#id_check").text("사용가능한 이메일입니다.");
+                    $("#id_check").css("color", "blue");
+                    $("#login_btn").attr("disabled", false);
                 }
                 else if(data == 3){
-                $("#id_check").text("");
-                idCheck.classList.add('hidden');
+                    idCheck.classList.add('hidden');
+                    $("#id_check").text("");
                 }
                     }, error : function() {
                             console.log("실패");
