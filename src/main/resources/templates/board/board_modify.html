@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../../static/css/board_modify_style.css" th:href="@{/css/board_modify_style.css}">
     <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/hidden.css}">
-    <link rel="stylesheet" href="../../static/css/eventCancle.css">
+    <link rel="stylesheet" href="../../static/css/eventCancle.css" th:href="@{/css/eventCancle.css}">
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -115,8 +115,8 @@
             <form id="section_article_form" >
                 <table id="section_article_table" th:object="${board}">
                     <tr id="section_article_table_wrap">
-                        <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
-                        <td id="section_article_table_title_warning" th:field="*{title}">제목을 입력하세요.</td>
+                        <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요." th:field="*{title}"></td>
+                        <td id="section_article_table_title_warning" >제목을 입력하세요.</td>
                     </tr>
                     <tr>
                         <td id="section_article_table_main_wrap"><textarea id="section_article_table_main" name="content"  class="summernote" th:field="*{content}"></textarea></td>
