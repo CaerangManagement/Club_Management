@@ -3,7 +3,8 @@ const content = document.getElementById('section_article_table_main');
 const warning = document.getElementById('section_article_table_title_warning');
 const btn = document.getElementById('update');
 
-    btn.classList.add('eventCancle');
+    btn.classList.remove('eventCancle');
+    warning.classList.add('hidden');
 
     $("#section_article_table_title").blur(function(){
         if(title.value==''){
