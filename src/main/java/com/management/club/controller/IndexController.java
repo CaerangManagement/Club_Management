@@ -29,7 +29,7 @@ public class IndexController {
 
 
 
-    @GetMapping(value = {"index", "main"})//메인페이지
+    @GetMapping(value = {"index", "main", ""})//메인페이지
     public String index(Model model){
         List<Board> board = boardRepository.findTop7ByOrderByIdDesc(); //상위 7개의 게시물을 보여주는 쿼리
         List<NoticeBoard> noticeBoard = noticeBoardRepository.findTop7ByOrderByIdDesc(); //상위 7개의 공지사항 게시물을 보여주는 쿼리
