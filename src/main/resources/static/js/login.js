@@ -12,19 +12,19 @@ function loginNullChk(event){
         document.loginForm.username.focus();
         idNullChkText.classList.remove('hidden');
         passNullChkText.classList.remove('hidden');
-        loginBox.style.height='420px';
+        loginBox.style.height='440px';
     }else if(loginLoginForm.username.value==""){
         event.preventDefault();
         document.loginForm.username.focus();
         idNullChkText.classList.remove('hidden');
         passNullChkText.classList.add('hidden');
-        loginBox.style.height='420px';
+        loginBox.style.height='440px';
     }else if(loginLoginForm.password.value==""){
         event.preventDefault();
         document.loginForm.password.focus();
         passNullChkText.classList.remove('hidden');
         idNullChkText.classList.add('hidden');
-        loginBox.style.height='420px';
+        loginBox.style.height='440px';
     }
 }
 loginLoginForm.addEventListener('submit',loginNullChk);

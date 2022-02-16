@@ -205,6 +205,10 @@ header{
         left: 0%;
         bottom:0%;
     }
+    #id_check{
+        padding-left: 100px;
+    }
+
 }
 @media (max-width: 768px){
     *{
@@ -250,6 +254,7 @@ header{
     }
     #box1{
         height: 460px;
+        width: 350px;
     }
     #form_title{
         font-size: 22px;
@@ -287,12 +292,12 @@ header{
     #login_id_null_notice{
         margin: 1px 0;
         text-align: start;
-        padding-left: 67px;
+        padding-left: 60px;
     }
     #login_pass_null_notice{
         margin: 1px 0;
         text-align: start;
-        padding-left: 67px;        
+        padding-left: 60px;        
     }
     #login_passver_null_notice{
         margin: 1px 0;
@@ -311,5 +316,8 @@ header{
         height: 40px;
         margin-top: 40px;
         padding: 3px 16px 6px 16px;
+    }
+    #id_check{
+        padding-left: 60px;
     }
 }

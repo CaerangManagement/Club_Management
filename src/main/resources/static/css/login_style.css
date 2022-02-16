@@ -36,7 +36,7 @@ header>p{
 }
 #box1{
     width: 500px;
-    height: 380px;
+    height: 400px;
     margin: 20px 10px;
     background-color: white;
     color: black;
@@ -126,8 +126,18 @@ header>p{
     height: 30px;
 }
 
+#none_notice{
+    font-size: 14px;
+    margin: 10px 0 0 0;
+    text-align: center;
+    color: red;
+}
+
 /* -------------------반응형---------------------- */
 @media (max-width: 768px){
+    #box1{
+        width: 330px;
+    }
     #main_img_wrap{
         display: flex;
         justify-content: center;
@@ -140,9 +150,9 @@ header>p{
         font-size: 16px;
     }
     #login_id_null_notice{
-        padding-left: 40px;
+        padding-left: 17px;
     }
     #login_pass_null_notice{
-        padding-left: 40px;
+        padding-left: 17px;
     }
 }
