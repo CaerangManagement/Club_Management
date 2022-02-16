@@ -116,7 +116,7 @@
                 <table id="section_article_table" th:object="${board}">
                     <tr id="section_article_table_wrap">
                         <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요."></td>
-                        <td id="section_article_table_title_warning">제목을 입력하세요.</td>
+                        <td id="section_article_table_title_warning" th:field="*{title}">제목을 입력하세요.</td>
                     </tr>
                     <tr>
                         <td id="section_article_table_main_wrap"><textarea id="section_article_table_main" name="content"  class="summernote" th:field="*{content}"></textarea></td>
