@@ -317,3 +317,40 @@ body{
         display: none; 
     } /* 서브메뉴들 숨김 */
 }
+
+
+@media (max-width:1368px){
+    .note-editable{
+        height: 300px !important;
+    }
+}
+@media (max-width:951px){
+    .note-editable{
+        height: 270px !important;
+    }
+}
+@media (max-width:816px){
+    .note-editable{
+        height: 230px !important;
+    }
+}
+@media (max-width:768px){
+    .note-editable{
+        height: 300px !important;
+    }
+}
+@media (max-width:552px){
+    .note-editable{
+        height: 270px !important;
+    }
+}
+@media (max-width:416px){
+    .note-editable{
+        height: 230px !important;
+    }
+}
+@media (max-width:360px){
+    .note-editable{
+        height: 195px !important;
+    }
+}

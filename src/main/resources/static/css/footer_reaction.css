@@ -90,10 +90,16 @@
     #footer_bottom_content_box{
         width: 80%;
         display: block;
+        flex-direction: column;
         left: 0;
     }
     #footer_bottom_content_box img{
         height: 40px;
+        width: 131.76px;
+    }
+    #content_box_text{
+        margin-top: 20px;
+        margin-left: 15px;
     }
     #content_box_text p{
         color: #a8a9ac;
@@ -107,3 +113,4 @@
         padding-bottom: 20px;
     }
 }
+

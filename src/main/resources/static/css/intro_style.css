@@ -124,7 +124,7 @@ section{
 }
 .team_content{
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px 30px;
 }
 #cae_img{
@@ -152,7 +152,7 @@ section{
         font-size: 13.5px;
     }
     #gray_home{
-        width: 14px;
+        width: 12px;
         margin-top: 3px;
     }
     #head_img{
@@ -228,6 +228,13 @@ section{
     .sub_menu { 
         display: none; 
     } /* 서브메뉴들 숨김 */
+    /*-------section----------*/
+    #intro_wrap{
+        width: 80%;
+    }
+    .team_wrap{
+        height: 50%;
+    }
 }
 @media (max-width: 768px){
     /*-----------header---------*/
@@ -237,6 +244,7 @@ section{
     /*--------section---------*/
     section{
         margin-bottom: 50px;
+        padding-bottom: 0px;
     }
     /*-------bxslider--------*/
     .bx-wrapper{
@@ -358,5 +366,9 @@ section{
     }
     .footer_info{
         width: 100%;
+    }
+    /*-----------section------------*/
+    #intro_wrap{
+        
     }
 }
