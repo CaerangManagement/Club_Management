@@ -1,9 +1,9 @@
 //navbar
 window.onload = function(){
-    const NavbarName = document.getElementById('navName').innerHTML;
+    const NavbarName = document.getElementById('navName');
     const NavbarNameWrap = document.getElementById('navNameWrap');
     const NavbarLogoutWrap = document.getElementById('navLogoutWrap');
-    if(NavbarName==='anonymousUser'){
+    if(!NavbarName){
         NavbarLogoutWrap.style.display='none';
         NavbarNameWrap.style.display='none';
     }
