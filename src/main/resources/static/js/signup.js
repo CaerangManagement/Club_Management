@@ -2,68 +2,56 @@
 const signUpEmail = document.getElementById('email_div');
 const signUpPass = document.getElementById('password_div');
 const signUpPassVer = document.getElementById('password_verify_div');
+const signUpName = document.getElementById('name');
 const loginForm = document.getElementById('login_form');
 
 const idNullChkText = document.getElementById('login_id_null_notice');
 const passNullChkText = document.getElementById('login_pass_null_notice');
 const passverNullChkText = document.getElementById('login_passver_null_notice');
+const nameNullChkText = document.getElementById('login_name_null_notice');
 const signUpBox = document.getElementById('box1');
 const signUpBoxHeight = document.getElementById('box1').style.height;
 
-
+signUpName
+nameNullChkText
 
 //빈값 체크 및 비번 확인
 function loginNullChk(e){
     //모두 안적혀있을때
-    if(!signUpEmail.value && !signUpPass.value && !signUpPassVer.value){
+    if(!signUpEmail.value && !signUpPass.value && !signUpPassVer.value &&!signUpName.value){
         e.preventDefault();
         document.loginForm.email.focus();
         idNullChkText.classList.remove('hidden');
         passNullChkText.classList.remove('hidden');
+        nameNullChkText.classList.remove('hidden');
     }
-    //이메일만 안적혀있을때
+    /*
+    1. 모두 다 안적었을때
+    2. 이메일만 안적었을때
+    3. 비밀번호만 안적었을때
+    4. 이름만 안적었을때
+    5. 이메일과 비밀번호를 안적었을때
+    6. 이메일과 이름을 안적었을때
+    7. 비밀번호와 이름을 안적었을때
+    8. 이메일만 안적었는데 비밀번호 확인 값이 틀렸을때
+    9. 이름만 안적었는데 비밀번호 확인 값이 틀렸을때
+    */
+   
     else if(!signUpEmail.value){
         e.preventDefault();
         document.loginForm.email.focus();
         idNullChkText.classList.remove('hidden');
         passNullChkText.classList.add('hidden');
+        nameNullChkText.classList.add('hidden');
     }
-    //비번과 비번체크가 안적혀있을때
-    else if(!signUpPass.value && !signUpPassVer.value){
+    else if(!signUpPass){
         e.preventDefault();
-        document.loginForm.password.focus();
+        document.loginForm.email.focus();
+        idNullChkText.classList.add('hidden');
         passNullChkText.classList.remove('hidden');
-        idNullChkText.classList.add('hidden');
+        nameNullChkText.classList.add('hidden');
     }
-    //비번만 안적혀있을때
-    else if(!signUpPass.value){
-        e.preventDefault();
-        document.loginForm.password.focus();
-        passNullChkText.classList.remove('hidden');
-        idNullChkText.classList.add('hidden');
-    }
-    //비번체크가 안적혀있을때
-    else if(!signUpPassVer.value){
-        e.preventDefault();
-        document.loginForm.passwordver.focus();
-        passverNullChkText.classList.remove('hidden');
-        passNullChkText.classList.add('hidden');
-        idNullChkText.classList.add('hidden');
-        }
-    //비번과 비번체크가 다를때
-    else if(signUpPass.value != signUpPassVer.value){
-        e.preventDefault();
-        document.loginForm.passwordver.focus();
-        passverNullChkText.classList.remove('hidden');
-        passNullChkText.classList.add('hidden');
-        idNullChkText.classList.add('hidden');
-    }
-    //모두 이상없을 경우
-    else{
-        passNullChkText.classList.add('hidden');
-        passverNullChkText.classList.add('hidden');
-        idNullChkText.classList.add('hidden');
-    }
+
 }
 loginForm.addEventListener('submit',loginNullChk);
 
