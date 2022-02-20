@@ -53,7 +53,7 @@
                 </a>
                 <div class="header_ul_right_a" href="" sec:authorize="isAuthenticated()">
                     <li id="header_name" class="header_ul_right_li_a_log" sec:authorize="isAuthenticated()"
-                        sec:authentication="name">김도현</li>
+                        sec:authentication="principal.name">김도현</li>
                 </div>
                 <a class="header_ul_right_a" href="" sec:authorize="isAuthenticated()" th:href="@{/logout}">
                     <li class="header_ul_right_li_a_log">로그아웃</li>
