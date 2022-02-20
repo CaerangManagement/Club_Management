@@ -134,12 +134,10 @@ function loginNullChk(e){
     }
     //올바르게 다 적음
     else{
-        e.preventDefault();
         passNullChkText.classList.add('hidden');
         passverNullChkText.classList.add('hidden');
         idNullChkText.classList.add('hidden');
         nameNullChkText.classList.add('hidden');
-        alert('회원가입성공');
     }
 }
 loginForm.addEventListener('submit',loginNullChk);
