@@ -26,7 +26,9 @@
                     <div><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
                     <p id="login_pass_null_notice" class="hidden">비밀번호를 입력해주세요.</p>
                     <p id="none_notice" th:if="${param.error}" th:text="${param.exception}"></p>
-                    <button id="login_bnt" type="submit">Login</button>
+                    <button id="login_bnt" type="submit">
+                        <div id="login_btn_content">Login</div>
+                        </button>
                 </form>
                 <a id="btn1" href="../templates/signup.html" th:href="@{/signup}">Join with us!</a>
             </div>

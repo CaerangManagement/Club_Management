@@ -106,6 +106,9 @@ header>p{
     cursor: pointer;
     transition-duration: 0.2s;
 }
+#login_btn_content{
+    margin-top: -5px;
+}
 #btn1{
     text-decoration: none;
     background-color: rgb(65, 65, 65);
