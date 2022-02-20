@@ -109,3 +109,44 @@ $("#email_div").blur(function() {
                     }
         });
 });
+
+//password 특수문자 정규식
+
+function check_passwd(e)  {
+    var check1 = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$~!%*#?&])[A-Za-z\d$@$~!%*#?&]{8,12}$/.test(signUpPass.value);  
+    if(!check1){
+        alert("비밀번호는 영문,숫자,특수문자(~!@$%^&* 만 허용)를\n조합하여 8자 이상으로 구성하세요.");
+        e.preventDefault();			
+    }
+
+    if(/(\w)\1\1/.test(signUpPass.value)){
+        alert('같은 문자를 3번 이상 사용하실 수 없습니다.');
+        e.preventDefault();			
+    }				
+    
+    var cnt = 0;
+    var cnt2 = 0;
+    var tmp = "";
+    var tmp2 = "";
+    var tmp3 = "";
+    for (var i = 0; i < signUpPass.value.length; i++) {
+        tmp = signUpPass.value.charAt(i);
+        tmp2 = signUpPass.value.charAt(i + 1);
+        tmp3 = signUpPass.value.charAt(i + 2);
+
+        if (tmp.charCodeAt(0) - tmp2.charCodeAt(0) == 1
+                && tmp2.charCodeAt(0) - tmp3.charCodeAt(0) == 1) {
+            cnt = cnt + 1;
+        }
+        if (tmp.charCodeAt(0) - tmp2.charCodeAt(0) == -1
+                && tmp2.charCodeAt(0) - tmp3.charCodeAt(0) == -1) {
+            cnt2 = cnt2 + 1;
+        }
+    }
+    if (cnt > 0 || cnt2 > 0) {
+        alert('연속된 문자를 3번 이상 사용하실 수 없습니다.');
+    } 
+    
+    return 'O';
+}
+loginForm.addEventListener('submit',check_passwd);
