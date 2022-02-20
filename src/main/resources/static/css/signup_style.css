@@ -319,12 +319,12 @@ header{
     #login_passver_null_notice{
         margin: 1px 0;
         text-align: start;
-        padding-left: 67px;    
+        padding-left: 60px;    
     }
     #login_name_null_notice{
         margin: 1px 0;
         text-align: start;
-        padding-left: 67px;  
+        padding-left: 60px;  
     }
     #login_btn{
         margin-top: 20px;
