@@ -1,0 +1,116 @@
+
+/*-------------footer------------*/
+#footer{
+    position: relative;
+    bottom: 0%;
+}
+#footer_top{
+    width: 100%;
+}
+#footer_top_ul{
+    height: 50px;
+    width: 100%;
+    background-color: #1f2838;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.footer_top_li{
+    text-align: center;
+    line-height: 50px;
+    width: 300px;
+    border-left: 1px rgb(59, 59, 59) solid;
+}
+.footer_top_li:last-child{
+    border-right: 1px rgb(59, 59, 59) solid;
+
+}
+.footer_top_li a{
+    text-decoration: none;
+    color: #ffffff99;
+    font-size: 13.5px;
+    width: 300px;
+    height: 50px;
+}
+.footer_top_li:first-child a{
+    color: #11d7da;
+    font-weight: 600;
+}
+#footer_bottom{
+    background-color: #19202d;
+    padding: 30px 50px;
+}
+#footer_bottom_content_box{
+    width: 80%;
+    display: flex;
+    position: relative;
+    left: 8%;
+}
+#footer_bottom_content_box img{
+    height: 51px;
+}
+#content_box_text{
+    margin-left: 30px;
+}
+#content_box_text p{
+    color: #a8a9ac;
+    font-size: 14px;
+    padding: 2px 0px;
+}
+#content_box_text p:first-child{
+    padding-bottom: 10px;
+}
+#content_box_text p:last-child{
+    padding-top: 10px;
+}
+#content_box_text p a{
+    text-decoration: none;
+    color: #a8a9ac;
+}
+/*--------------반응형--------------*/
+@media (max-width: 768px){
+    #footer_top_ul{
+        height: 50px;
+        width: 100%;
+        background-color: #1f2838;
+        display: flex;
+        justify-content: center;
+        list-style-type: none
+    }
+    .footer_top_li a{
+        text-decoration: none;
+        color: #ffffff99;
+        font-size: 11px;
+        width: 300px;
+        height: 50px;
+    }
+    #footer_bottom{
+        padding: 10px;
+    }
+    #footer_bottom_content_box{
+        width: 80%;
+        display: block;
+        flex-direction: column;
+        left: 0;
+    }
+    #footer_bottom_content_box img{
+        height: 40px;
+        width: 131.76px;
+    }
+    #content_box_text{
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+    #content_box_text p{
+        color: #a8a9ac;
+        font-size: 12.5px;
+    }
+    #content_box_text p:first-child{
+        padding-top: 10px;
+    }
+    #content_box_text p:last-child{
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+}
+

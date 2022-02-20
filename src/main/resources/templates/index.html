@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>한림대학교 씨애랑 홈페이지</title>
+
+
+    <!--bxslider -->
+    <script src="../static/bxslider-4-4.2.12/docs_src/assets/vendors/jquery.min.js" th:src="@{/bxslider-4-4.2.12/docs_src/assets/vendors/jquery.min.js}"></script>
+    <link href="../static/bxslider-4-4.2.12/dist/jquery.bxslider.css" th:href="@{/bxslider-4-4.2.12/dist/jquery.bxslider.css}" rel="stylesheet"/>
+    <script src="../static/bxslider-4-4.2.12/dist/jquery.bxslider.min.js" th:src="@{/bxslider-4-4.2.12/dist/jquery.bxslider.min.js}"></script>
+
+    <!--owl-->
+    <link rel="stylesheet" href="../static/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" th:href="@{/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css}">
+    <link rel="stylesheet" href="../static/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" th:href="@{/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css}">
+    <script src="../static/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.min.js" th:src="@{/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+
+    <script src="../static/js/index_slide.js" th:src="@{/js/index_slide.js}"></script>
+
+
+    <link rel="stylesheet" href="../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
+    <link rel="stylesheet" href="../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
+    <link rel="stylesheet" href="../static/css/index_style.css" th:href="@{/css/index_style.css}">
+    <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <ul id="header_ul_left">
+                <a class="header_ul_left_a" href="https://www.hallym.ac.kr/hallym_univ/">
+                    <li class="header_ul_left_li">한림대학교</li>
+                </a>
+                <a class="header_ul_left_a" href="./index.html" th:href="@{/index}">
+                    <li class="header_ul_left_li">HOME</li>
+                </a>
+            </ul>
+            <ul id="header_ul_right">
+                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
+                    <li class="header_ul_right_li_a">캠퍼스 맵</li>
+                </a>
+                <a class="header_ul_right_a" href="./login.html" sec:authorize="!isAuthenticated()" th:href="@{/login}">
+                    <li class="header_ul_right_li_a_log">로그인</li>
+                </a>
+                <a class="header_ul_right_a" href="./signup.html" sec:authorize="!isAuthenticated()"
+                    th:href="@{/signup}">
+                    <li class="header_ul_right_li_a_log">회원가입</li>
+                </a>
+                <div class="header_ul_right_a" href="" sec:authorize="isAuthenticated()">
+                    <li id="header_name" class="header_ul_right_li_a_log" sec:authorize="isAuthenticated()"
+                        sec:authentication="name">김도현</li>
+                </div>
+                <a class="header_ul_right_a" href="" sec:authorize="isAuthenticated()" th:href="@{/logout}">
+                    <li class="header_ul_right_li_a_log">로그아웃</li>
+                </a>
+            </ul>
+        </div>
+        <div id="header_box">
+            <ul>
+                <a href="./index.html" th:href="@{/index}">
+                    <img id="head_img" src="../static/img/logo.jpg" th:src="@{/img/logo.jpg}" alt="">
+                </a>
+                <div class="header_title">
+                    <a href="./intro.html" th:href="@{/intro}" class="header_title_content">소개글</a>
+                    <a href="./notice_board/notice_board_list.html" th:href="@{/notice/board/list}" class="header_title_content">공지사항</a>
+                    <a href="./board/board_list.html" th:href="@{/board/list}" class="header_title_content">게시판</a>
+                    <a href="./member/list.html" th:href="@{/member/list}" class="header_title_content"
+                        sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
+                </div>
+                <nav id="navbar">
+                    <ul id="main_menu">
+                        <li class="navbar_li">
+                            <a id="menu_img_wrap" href="#">
+                                <img id="menu_img"src="../static/img/menu.png" th:src="@{/img/menu.png}" alt="">
+                            </a>
+                            <ul class="snd_menu sub_menu">
+                                <ul id="nav_loginbar">
+                                    <li sec:authorize="isAnonymous()"><a class="nav_login" href="" th:href="@{/login}" >로그인</a></li>
+                                    <li sec:authorize="isAnonymous()"><a class="nav_login" href="" th:href="@{/signup}" >회원가입</a></li>
+                                    <li id="navNameWrap"><a id="navName" class="nav_login" href="" sec:authentication="name" ></a></li>
+                                    <li id="navLogoutWrap"><a class="nav_login" href="" th:href="@{/logout}">로그아웃</a></li>
+                                </ul>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./intro.html" th:href="@{/intro}">소개글</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./notice_board/notice_board_list.html" th:href="@{/notice/board/list}">공지사항</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./board/board_list.html" th:href="@{/board/list}">게시판</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./member/list.html" th:href="@{/member/list}" sec:authorize="hasRole('ROLE_ADMIN')">부원관리</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </ul>
+        </div>
+        
+    </header>
+
+    <section>
+
+        <ul class="bxslider">
+            <li class="slide_img_wrap">
+                <img class="main_img" src="../static/img/main_img1.jpg" th:src="@{/img/main_img1.jpg}" alt="">
+            </li>
+            <li class="slide_img_wrap">
+                <img class="main_img" src="../static/img/main_img2.jpg" th:src="@{/img/main_img2.jpg}" alt="">
+            </li>
+        </ul>
+
+        <div id="section_wrap">
+            <div id="notice_wrap" class="section_content">
+                <div id="notice">
+                    <div id="notice_main">공지사항</div>
+                    <a id="notice_plus" href="./notice_board/notice_board_list.html"
+                        th:href="@{/notice/board/list}">+</a>
+                </div>
+                <!--여기부터 공지-->
+                <div class="notice_content" th:each="noticeBoard : ${noticeBoard}"
+                    th:onclick="'javascript:noticeBoardView('+ ${noticeBoard.id} + ');'">
+                    <div class="notice_title" th:text="${noticeBoard.title}">[공지]22년도 공지사항 게시글</div>
+                    <div class="notice_day" th:text="${#temporals.format(noticeBoard.createdDate, 'yyyy-MM-dd')}">
+                        2022.02.04</div>
+                </div>
+                <!--여기까지 공지-->
+            </div>
+            <div id="board_wrap" class="section_content">
+                <div id="board">
+                    <div id="board_main">게시판</div>
+                    <a id="board_plus" href="./board/board_list.html" th:href="@{/board/list}">+</a>
+                </div>
+                <!--여기부터 게시글-->
+                <div class="board_content" th:each="board : ${board}"
+                    th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                    <div class="board_title" th:text="${board.title}">21-2학기 일반 게시글</div>
+                    <div class="board_day" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">2022.02.04
+                    </div>
+                </div>
+                <!--여기까지 게시글-->
+            </div>
+            <div id="member_wrap" class="section_content" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div id="member">
+                    <div id="member_main">부원관리</div>
+                    <a id="member_plus" href="./member/list.html" th:href="@{/member/list}">+</a>
+                </div>
+                <!--여기까지 멤버-->
+                <div class="member_content" th:each="member : ${member}" th:onclick="'javascript:memberView();'">
+                    <div class="member_name" th:text="${member.memberName}">김도현</div>
+                    <div class="member_info_box">
+                        <div class="member_major" th:text="${member.department}">소프트웨어융합대학</div>
+                        <div class="member_level" th:text="${member.position}">회장</div>
+                    </div>
+                </div>
+                <!--여기까지 멤버-->
+            </div>
+        </div>
+
+    </section>
+    
+    
+    <footer id="footer">
+        <div class="footer_banner">
+            <div id="banner_wrap">
+                <div class="owl-carousel">
+                    <a class="banner_a" href="https://www.hallym.ac.kr/hallym_univ/"><img class="banner_img"
+                            src="../static/img/banner_logo1.gif" th:src="@{/img/banner_logo1.gif}" alt=""></a>
+                    <a class="banner_a" href="https://sw.hallym.ac.kr/"><img class="banner_img"
+                            src="../static/img/banner_logo2.gif" th:src="@{/img/banner_logo2.gif}" alt=""></a>
+                    <a class="banner_a" href="https://hlsw.hallym.ac.kr/"><img class="banner_img"
+                            src="../static/img/banner_logo3.gif" th:src="@{/img/banner_logo3.gif}" alt=""></a>
+                    <a class="banner_a" href="https://github.com/Hallym-OpenSourceSW"><img class="banner_img"
+                            src="../static/img/banner_logo4.gif" th:src="@{/img/banner_logo4.gif}" alt=""></a>
+                    <a class="banner_a" href="https://ody.hallym.ac.kr/"><img class="banner_img"
+                            src="../static/img/banner_logo5.gif" th:src="@{/img/banner_logo5.gif}" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_top">
+            <ul id="footer_top_ul">
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP2/tab2">개인정보처리방침</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://was1.hallym.ac.kr:8081/HLMS/main/LoginPage.do">통합정보시스템</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub02/cP1/sCP1">학사일정</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP1">주요민원 연락처</a>
+                </li>
+            </ul>
+        </div>
+        <div id="footer_bottom">
+            <div id="footer_bottom_content_box">
+                <img src="../static/img/img_foot_logo.png" th:src="@{/img/img_foot_logo.png}">
+                <div id="content_box_text">
+                    <p>한림대학교</p>
+                    <p>강원도 춘천시 한림대학길 1 한림대학교 공학관</p>
+                    <p>1, Hallymdaehak-gil, Chuncheon-si, Gangwon-do, Republic of Korea</p>
+                    <p>Front-End, Dohyun Kim / E-Mail : rlaehgusqp@naver.com</p>
+                    <p>Back-End, Juyoung Park / E-mail : okmlnsunok@gmail.com</p>
+                    <p>GitHub URL : <a
+                            href="https://github.com/CaerangManagement/Club_Management">https://github.com/CaerangManagement/Club_Management</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" th:inline="javascript">
+    var boardView = function (seq) {
+        window.open("/board/" + seq, '_self');
+    }
+    var noticeBoardView = function (seq) {
+        window.open("/notice/board/" + seq, '_self');
+    }
+    var memberView = function () {
+        window.open("/member/list", '_self');
+    }
+
+</script>
+
+<script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
+<script src="../static/js/menu.js" th:src="@{/js/menu.js}"></script>
+</html>

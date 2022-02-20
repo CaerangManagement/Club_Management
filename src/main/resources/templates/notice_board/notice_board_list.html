@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>한림대학교 씨애랑 부원 관리</title>
+    <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/board_list_style.css" th:href="@{/css/board_list_style.css}">
+    <link rel="stylesheet" href="../../static/css/disabled.css" th:href="@{/css/disabled.css}">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <ul id="header_ul_left">
+                <a class="header_ul_left_a" href="https://www.hallym.ac.kr/hallym_univ/">
+                    <li class="header_ul_left_li">한림대학교</li>
+                </a>
+                <a class="header_ul_left_a" href="../index.html" th:href="@{/index}">
+                    <li class="header_ul_left_li">HOME</li>
+                </a>
+            </ul>
+            <ul id="header_ul_right">
+                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
+                    <li class="header_ul_right_li_a">캠퍼스 맵</li>
+                </a>
+                <li class="header_ul_right_li_a_log" sec:authentication="name">이메일</li>
+                <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
+                </li>
+                <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
+                <a class="header_ul_right_a" href="" th:href="@{/logout}">
+                    <li class="header_ul_right_li_a_log">로그아웃</li>
+                </a>
+            </ul>
+        </div>
+        <div id="header_box">
+            <ul>
+                <a href="../index.html" th:href="@{/index}"><img id="head_img" src="../../static/img/logo.jpg"
+                        th:src="@{/img/logo.jpg}" alt=""></a>
+                <div class="header_title">
+                    <a href="../intro.html" th:href="@{/intro}" class="header_title_content">소개글</a>
+                    <a href="./notice_board_list.html" th:href="@{/notice/board/list}" class="header_title_content">공지사항</a>
+                    <a href="../board/board_list.html" th:href="@{/board/list}" class="header_title_content">게시판</a>
+                    <a href="../member/list.html" th:href="@{/member/list}" class="header_title_content"
+                        sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
+                </div>
+                <nav id="navbar">
+                    <ul id="main_menu">
+                        <li class="navbar_li">
+                            <a id="menu_img_wrap" href="#">
+                                <img id="menu_img"src="../../static/img/menu.png" th:src="@{/img/menu.png}" alt="">
+                            </a>
+                            <ul class="snd_menu sub_menu">
+                                <ul id="nav_loginbar">
+                                    <li><a class="nav_login" href="" sec:authorize="isAuthenticated()"
+                                           sec:authentication="name">rlaehgusqp@naver.com</a></li>
+                                    <li><a class="nav_login" href="" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
+                                </ul>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../intro.html" th:href="@{/intro}">소개글</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./notice_board_list.html" th:href="@{/notice/board/list}">공지사항</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../board/board_list.html" th:href="@{/board/list}">게시판</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../member/list.html" th:href="@{/member/list}" sec:authorize="hasRole('ROLE_ADMIN')">부원관리</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </ul>
+        </div>
+        <div id="head_gray_layer">
+            <ul id="now_place">
+                <li class="place_text_li"><a href="../index.html" th:href="@{/index}"><img id="gray_home"
+                            src="../../static/img/home.png" th:src="@{/img/home.png}" alt=""></a></li>
+                <li class="place_text_li"><a id="no_place_a" href="">공지사항</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="section">
+        <header id="section_header">
+            <div id="section_header_div1">
+                <span id="section_header_mange_span1"><img id="section_header_mange_img"
+                        src="../../static/img/mange_logo.png" alt="" th:src="@{/img/mange_logo.png}"></span>
+                <span id="section_header_mange_span2">공지사항</span>
+            </div>
+            <div id="section_header_div2">
+                <form id="section_header_form" th:action="@{/notice/board/list}" method="GET">
+                    <select id="section_header_selectBox" name="searchType">
+                        <option value="1">&nbsp; 제목</option>
+                        <option value="2">&nbsp; 작성자</option>
+                    </select>
+                    <input id="section_header_input" type="text" placeholder="   검색어를 입력해 주세요" name="keyword"
+                        th:value="${param.keyword}">
+                    <button type="submit" id="section_header_button">검색</button>
+                </form>
+            </div>
+        </header>
+        <article id="section_article">
+            <table id="section_article_table">
+                <thead>
+                    <th class="th">번호</th>
+                    <th class="th">제목</th>
+                    <th class="th">작성자</th>
+                    <th class="th">등록일</th>
+                    <th class="th">조회수</th>
+                </thead>
+                <tbody>
+                    <tr id="td" th:each="board : ${noticeBoards}"
+                        th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                        <td th:text="${board.id}">1</td>
+                        <td th:text="${board.title}">1번 게시글</td>
+                        <td th:text="${board.writer}">김도현</td>
+                        <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
+                        <td th:text="${board.hits}">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <article id="mobile_section_article">
+            <div class="mobile_section_article_div" th:each="board : ${noticeBoards}"
+                th:onclick="'javascript:boardView('+ ${board.id} + ');'">
+                <p class="mobile_section_article_p_name" th:text="${board.title}">응애! 나는 하타케 카카시.</p>
+                <p class="mobile_section_article_p"><span class="mobile_section_article_span"
+                        th:text="${board.writer}">61기 김도현</span><span class="mobile_section_article_span"
+                        th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}">2022.02.14</span><span
+                        class="mobile_section_article_span">조회 <span th:text="${board.hits}">6192</span></span></p>
+            </div>
+        </article>
+        <footer id="section_footer">
+            <a th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'" id="section_footer_plus_btn"
+                href="./notice_board_add.html" th:href="@{/notice/board/add}">글쓰기</a>
+
+            <!-----------------------------------------------페이징 구간 시작----------------------------------------------->
+            <ul id="section_footer_move_btn">
+
+                <li class="section_footer_btn" aria-label="First">
+                    <a class="page_btn" th:href="@{/notice/board/list(page=${0},keyword=${param.keyword}, searchType=${param.searchType})}">
+                        <img class="btn_img" src="../../static/img/left.png" th:src="@{/img/left.png}" alt="">
+                    </a>
+                </li>
+
+                <li class="section_footer_btn_num"
+                    th:classappend="${i == noticeBoards.pageable.pageNumber + 1} ? 'disabled'"
+                    th:each="i : ${#numbers.sequence(begin, end)}">
+                    <a class="page_num"
+                        th:href="@{/notice/board/list(page=${i-1}, keyword=${param.keyword}, searchType=${param.searchType})}"
+                        th:text="${i}"
+                        th:classappend="${i == noticeBoards.pageable.pageNumber + 1} ? 'disabled_ano'">1</a>
+                </li>
+
+                <li class="section_footer_btn" aria-label="Last">
+                    <a class="page_btn" th:href="@{/notice/board/list(page=${noticeBoards.totalPages - 1},keyword=${param.keyword}, searchType=${param.searchType})}">
+                        <img class="btn_img" src="../../static/img/right.png" th:src="@{/img/right.png}" alt="">
+                    </a> 
+                </li>
+
+            </ul>
+            <!-----------------------------------------------페이징 구간 끝----------------------------------------------->
+
+        </footer>
+    </section>
+    <footer id="footer">
+        <div id="footer_top">
+            <ul id="footer_top_ul">
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP2/tab2">개인정보처리방침</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://was1.hallym.ac.kr:8081/HLMS/main/LoginPage.do">통합정보시스템</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub02/cP1/sCP1">학사일정</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP1">주요민원 연락처</a>
+                </li>
+            </ul>
+        </div>
+        <div id="footer_bottom">
+            <div id="footer_bottom_content_box">
+                <img src="../../static/img/img_foot_logo.png" th:src="@{/img/img_foot_logo.png}">
+                <div id="content_box_text">
+                    <p class="footer_info">한림대학교</p>
+                    <p class="footer_info">강원도 춘천시 한림대학길 1 한림대학교 공학관</p>
+                    <p class="footer_info">1, Hallymdaehak-gil, Chuncheon-si, Gangwon-do, Republic of Korea</p>
+                    <p class="footer_info">Front-End, Dohyun Kim / E-Mail : rlaehgusqp@naver.com</p>
+                    <p class="footer_info">Back-End, Juyoung Park / E-mail : okmlnsunok@gmail.com</p>
+                    <p class="footer_info">GitHub URL : <a
+                            href="https://github.com/CaerangManagement/Club_Management">https://github.com/CaerangManagement/Club_Management</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" th:inline="javascript">
+    var boardView = function (seq) {
+        window.open("/notice/board/" + seq, '_self');
+    }
+</script>
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+<script src="../../static/js/noticeBoard.js" th:src="@{/js/noticeBoard.js}"></script>
+<script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
+<script src="../../static/js/menu_ano.js" th:src="@{/js/menu_ano.js}"></script>
+
+</html>
