@@ -177,5 +177,7 @@
     #head_gray_layer{
         display: none;
     }
-    
+    #section{
+        padding: 40px 0px 0px 0px;
+    }
 }
