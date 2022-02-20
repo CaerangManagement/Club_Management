@@ -398,10 +398,17 @@ margin-left: 4px;
     }
     #section_article_plus_minus{
         position: relative;
-        left: 90%;
     }
     #section_article_modify{
         margin-top: 1px;
+        width: 50%;
+        text-align: end;
+        position: relative;
+        left: 42%;
+    }
+    #section_article_delete{
+        width: 50%;
+        text-align: end;
     }
     /*-------bxslider--------*/
     .bx-wrapper{
