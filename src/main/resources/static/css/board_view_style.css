@@ -395,6 +395,13 @@ margin-left: 4px;
     section{
         margin-bottom: 50px;
     }
+    #section_article_plus_minus{
+        position: relative;
+        left: 90%;
+    }
+    #section_article_modify{
+        margin-top: 1px;
+    }
     /*-------bxslider--------*/
     .bx-wrapper{
         margin-top: 20px;
