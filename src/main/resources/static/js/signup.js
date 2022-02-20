@@ -12,49 +12,6 @@ const nameNullChkText = document.getElementById('login_name_null_notice');
 const signUpBox = document.getElementById('box1');
 const signUpBoxHeight = document.getElementById('box1').style.height;
 
-signUpName
-nameNullChkText
-
-//빈값 체크 및 비번 확인
-function loginNullChk(e){
-    //모두 안적혀있을때
-    if(!signUpEmail.value && !signUpPass.value && !signUpPassVer.value &&!signUpName.value){
-        e.preventDefault();
-        document.loginForm.email.focus();
-        idNullChkText.classList.remove('hidden');
-        passNullChkText.classList.remove('hidden');
-        nameNullChkText.classList.remove('hidden');
-    }
-    /*
-    1. 모두 다 안적었을때
-    2. 이메일만 안적었을때
-    3. 비밀번호만 안적었을때
-    4. 이름만 안적었을때
-    5. 이메일과 비밀번호를 안적었을때
-    6. 이메일과 이름을 안적었을때
-    7. 비밀번호와 이름을 안적었을때
-    8. 이메일만 안적었는데 비밀번호 확인 값이 틀렸을때
-    9. 이름만 안적었는데 비밀번호 확인 값이 틀렸을때
-    */
-   
-    else if(!signUpEmail.value){
-        e.preventDefault();
-        document.loginForm.email.focus();
-        idNullChkText.classList.remove('hidden');
-        passNullChkText.classList.add('hidden');
-        nameNullChkText.classList.add('hidden');
-    }
-    else if(!signUpPass){
-        e.preventDefault();
-        document.loginForm.email.focus();
-        idNullChkText.classList.add('hidden');
-        passNullChkText.classList.remove('hidden');
-        nameNullChkText.classList.add('hidden');
-    }
-
-}
-loginForm.addEventListener('submit',loginNullChk);
-
 
 //관리자 비밀번호
 function adminPasswordChk(event){
@@ -67,6 +24,128 @@ function adminPasswordChk(event){
         alert('관리자만 입력해주세요.');
     }
 }
+
+//빈값 체크 및 비번 확인
+function loginNullChk(e){
+    //모두 안적혀있을때
+    if(!signUpEmail.value && !signUpPass.value && !signUpPassVer.value &&!signUpName.value){
+        e.preventDefault();
+        document.loginForm.email.focus();
+        idNullChkText.classList.remove('hidden');
+        passNullChkText.classList.remove('hidden');
+        nameNullChkText.classList.remove('hidden');
+        signUpBox.style.height='660px';
+    }
+   //이메일만 적었을때
+    else if(!signUpPass.value&&!signUpName.value){
+        e.preventDefault();
+        document.loginForm.password.focus();
+        idNullChkText.classList.add('hidden');
+        passNullChkText.classList.remove('hidden');
+        nameNullChkText.classList.remove('hidden');
+        signUpBox.style.height='630px';
+   }
+   //비밀번호만 적었을때
+   else if(!signUpEmail.value&&!signUpName.value){
+        e.preventDefault();
+        if(signUpPass.value == signUpPassVer.value){
+            document.loginForm.email.focus();
+            passverNullChkText.classList.add('hidden');
+            passNullChkText.classList.add('hidden');
+            idNullChkText.classList.remove('hidden');
+            nameNullChkText.classList.remove('hidden');
+            signUpBox.style.height='630px';
+        }else{
+            document.loginForm.email.focus();
+            passverNullChkText.classList.remove('hidden');
+            passNullChkText.classList.add('hidden');
+            idNullChkText.classList.remove('hidden');
+            nameNullChkText.classList.remove('hidden');
+            signUpBox.style.height='660px';
+        }
+   }
+   //이름만 적었을때
+   else if(!signUpEmail.value&&!signUpPass.value){
+        e.preventDefault();
+        document.loginForm.email.focus();
+        idNullChkText.classList.remove('hidden');
+        passNullChkText.classList.remove('hidden');
+        nameNullChkText.classList.add('hidden');
+        signUpBox.style.height='630px';
+    }
+    //이메일과 비번만 적었을때
+    else if(!signUpName.value){
+        e.preventDefault();
+        if(signUpPass.value == signUpPassVer.value){
+            document.loginForm.name.focus();
+            passverNullChkText.classList.add('hidden');
+            passNullChkText.classList.add('hidden');
+            idNullChkText.classList.add('hidden');
+            nameNullChkText.classList.remove('hidden');
+            signUpBox.style.height='630px';
+
+        }else{
+            document.loginForm.passwordver.focus();
+            passverNullChkText.classList.remove('hidden');
+            passNullChkText.classList.add('hidden');
+            idNullChkText.classList.add('hidden');
+            nameNullChkText.classList.remove('hidden');
+            signUpBox.style.height='660px';
+        }
+    }
+    //이메일과 이름만 적었을때
+    else if(!signUpPass.value){
+        e.preventDefault();
+        document.loginForm.password.focus();
+        passverNullChkText.classList.add('hidden');
+        passNullChkText.classList.remove('hidden');
+        idNullChkText.classList.add('hidden');
+        nameNullChkText.classList.add('hidden');
+        signUpBox.style.height='630px';
+    }
+    //비번과 이름만 적었을때
+    else if(!signUpEmail.value){
+        e.preventDefault();
+        if(signUpPass.value == signUpPassVer.value){
+            document.loginForm.email.focus();
+            passverNullChkText.classList.add('hidden');
+            passNullChkText.classList.add('hidden');
+            idNullChkText.classList.remove('hidden');
+            nameNullChkText.classList.add('hidden');
+            signUpBox.style.height='630px';
+        }else{
+            document.loginForm.email.focus();
+            passverNullChkText.classList.remove('hidden');
+            passNullChkText.classList.add('hidden');
+            idNullChkText.classList.remove('hidden');
+            nameNullChkText.classList.add('hidden');
+            signUpBox.style.height='660px';
+        }
+    }
+    //다 적었는데 비번확인이 틀렸을때
+    else if(signUpPass.value != signUpPassVer.value){
+        e.preventDefault();
+        document.loginForm.passwordver.focus();
+        passverNullChkText.classList.remove('hidden');
+        passNullChkText.classList.add('hidden');
+        idNullChkText.classList.add('hidden');
+        nameNullChkText.classList.add('hidden');
+        signUpBox.style.height='630px';
+    }
+    //올바르게 다 적음
+    else{
+        e.preventDefault();
+        passNullChkText.classList.add('hidden');
+        passverNullChkText.classList.add('hidden');
+        idNullChkText.classList.add('hidden');
+        nameNullChkText.classList.add('hidden');
+        alert('회원가입성공');
+    }
+}
+loginForm.addEventListener('submit',loginNullChk);
+
+
+
 
 //singup email 중복 체크
 $("#email_div").blur(function() {
