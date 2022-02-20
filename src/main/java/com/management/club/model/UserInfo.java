@@ -29,6 +29,9 @@ public class UserInfo implements UserDetails {
     @Email
     private String email;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "password")
     private String password;
 
@@ -36,8 +39,9 @@ public class UserInfo implements UserDetails {
     private String auth;
 
     @Builder
-    public UserInfo(String email, String password, String auth) {
+    public UserInfo(String email, String name, String password, String auth) {
         this.email = email;
+        this.name = name;
         this.password = password;
         this.auth = auth;
     }

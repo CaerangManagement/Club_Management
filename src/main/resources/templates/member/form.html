@@ -25,7 +25,7 @@
                 <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
                     <li class="header_ul_right_li_a">캠퍼스 맵</li>
                 </a>
-                <li class="header_ul_right_li_a_log" sec:authentication="name">이메일</li>
+                <li class="header_ul_right_li_a_log" sec:authentication="principal.name">이름</li>
                 <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
                 </li>
                 <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
@@ -54,7 +54,7 @@
                             <ul class="snd_menu sub_menu">
                                 <ul id="nav_loginbar">
                                     <li><a class="nav_login" href="" sec:authorize="isAuthenticated()"
-                                           sec:authentication="name">rlaehgusqp@naver.com</a></li>
+                                           sec:authentication="principal.name">이름</a></li>
                                     <li><a class="nav_login" href="" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
                                 </ul>
                                 <li class="navbar_li navbar_li_content">

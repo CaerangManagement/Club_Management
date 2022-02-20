@@ -1,7 +1,11 @@
 package com.management.club.dto;
 
 import com.management.club.model.Board;
-import lombok.*;
+import com.management.club.model.UserInfo;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -16,13 +20,14 @@ public class BoardRequestDto {
     public Board toEntity() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        //작성자는 spring security에서 email을 가져옴.
+        UserInfo userInfo = (UserInfo) authentication.getPrincipal();
+        String writer = userInfo.getName();
+
 
         return Board.builder()
                 .title(title)
                 .content(content)
-                .writer(username)
+                .writer(writer)
                 .hits(0)
                 .build();
 

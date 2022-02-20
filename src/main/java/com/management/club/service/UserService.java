@@ -34,6 +34,7 @@ public class UserService implements UserDetailsService {
 
         return userRepository.save(UserInfo.builder()
                 .email(infoDto.getEmail())
+                .name(infoDto.getName())
                 .auth(infoDto.getAuth())
                 .password(infoDto.getPassword()).build()).getCode(); //고유값인 code를 리턴
     }

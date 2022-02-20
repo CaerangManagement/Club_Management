@@ -32,7 +32,7 @@
                 <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
                     <li class="header_ul_right_li_a">캠퍼스 맵</li>
                 </a>
-                <li class="header_ul_right_li_a_log" sec:authentication="name">이메일</li>
+                <li class="header_ul_right_li_a_log" sec:authentication="principal.name">이름</li>
                 <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
                 </li>
                 <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
@@ -61,7 +61,7 @@
                             <ul class="snd_menu sub_menu">
                                 <ul id="nav_loginbar">
                                     <li><a class="nav_login" href="" sec:authorize="isAuthenticated()"
-                                           sec:authentication="name">rlaehgusqp@naver.com</a></li>
+                                           sec:authentication="principal.name">이름</a></li>
                                     <li><a class="nav_login" href="" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
                                 </ul>
                                 <li class="navbar_li navbar_li_content">
@@ -147,7 +147,7 @@
                                 <img class="comment_writer_img" src="../../static/img/board_user_img.png" th:src="@{/img/board_user_img.png}" alt="">
                             </span>
                             <div class="comment_writer">
-                                <div class="comment_writer_name" th:text="${replie.userInfo.email}">김도현</div>
+                                <div class="comment_writer_name" th:text="${replie.userInfo.name}">김도현</div>
                                 <div class="comment_content" th:text="${replie.content}">댓글</div>
                                 <input type="hidden" id="replie_id" th:value="${replie.id}">
                                 <div class="comment_delete_div">
@@ -164,7 +164,7 @@
                     <!--댓글 작성란-->
                         <div id="comment_input_wrap">
                             <div id="comment_wrap_content">
-                                <div id="comment_name" th:text=${#authentication.principal.email}>rlaehgusqp@naver.com</div>
+                                <div id="comment_name" th:text=${#authentication.principal.name}>이름</div>
                                 <input type="hidden" id="reply_boardId" th:value="${board.id}">
                                 <textarea id="reply_content" rows="1" placeholder="댓글을 입력하세요." onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                                 <button id="btn_reply_save">등록</button>
@@ -174,11 +174,6 @@
                 </form>
             </div>
         </article>
-        <!--댓글 등록-->
-        
-        <!--댓글 시작 -->
-        
-
 
     </section>
     <footer id="footer">
