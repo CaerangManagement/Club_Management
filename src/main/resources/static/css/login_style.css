@@ -161,4 +161,7 @@ header>p{
     #login_pass_null_notice{
         padding-left: 17px;
     }
+    #login_form div{
+        padding : 5px 0px 3px 0px;
+    }
 }
