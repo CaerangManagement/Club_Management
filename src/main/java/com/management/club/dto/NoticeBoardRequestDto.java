@@ -1,6 +1,7 @@
 package com.management.club.dto;
 
 import com.management.club.model.NoticeBoard;
+import com.management.club.model.UserInfo;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,13 +20,13 @@ public class NoticeBoardRequestDto {
     public NoticeBoard toEntity() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        //작성자는 spring security에서 email을 가져옴.
+        UserInfo userInfo = (UserInfo) authentication.getPrincipal();
+        String writer = userInfo.getName();
 
         return NoticeBoard.builder()
                 .title(title)
                 .content(content)
-                .writer(username)
+                .writer(writer)
                 .hits(0)
                 .build();
 

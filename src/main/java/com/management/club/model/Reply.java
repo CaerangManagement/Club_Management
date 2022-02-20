@@ -28,7 +28,7 @@ public class Reply {
     private Board board;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "name")
     private UserInfo userInfo;
 
     @CreationTimestamp

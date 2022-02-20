@@ -74,7 +74,7 @@
                             <ul class="snd_menu sub_menu">
                                 <ul id="nav_loginbar">
                                     <li><a class="nav_login" href="" sec:authorize="isAuthenticated()"
-                                           sec:authentication="name">rlaehgusqp@naver.com</a></li>
+                                           sec:authentication="principal.name">이름</a></li>
                                     <li><a class="nav_login" href="" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
                                 </ul>
                                 <li class="navbar_li navbar_li_content">

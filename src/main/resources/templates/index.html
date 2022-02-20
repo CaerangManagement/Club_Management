@@ -52,9 +52,12 @@
                     <li class="header_ul_right_li_a_log">회원가입</li>
                 </a>
                 <div class="header_ul_right_a" href="" sec:authorize="isAuthenticated()">
-                    <li id="header_name" class="header_ul_right_li_a_log" sec:authorize="isAuthenticated()"
+                    <li id="header_name" class="header_ul_right_li_a_log"
                         sec:authentication="principal.name">김도현</li>
                 </div>
+                <li class="header_ul_right_li_a_log" sec:authorize="isAuthenticated()" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
+                </li>
+                <li class="header_ul_right_li_a_log" sec:authorize="isAuthenticated()" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
                 <a class="header_ul_right_a" href="" sec:authorize="isAuthenticated()" th:href="@{/logout}">
                     <li class="header_ul_right_li_a_log">로그아웃</li>
                 </a>
@@ -82,7 +85,7 @@
                                 <ul id="nav_loginbar">
                                     <li sec:authorize="isAnonymous()"><a class="nav_login" href="" th:href="@{/login}" >로그인</a></li>
                                     <li sec:authorize="isAnonymous()"><a class="nav_login" href="" th:href="@{/signup}" >회원가입</a></li>
-                                    <li id="navNameWrap"><a id="navName" class="nav_login" href="" sec:authentication="name" ></a></li>
+                                    <li id="navNameWrap"><a id="navName" class="nav_login" href="" sec:authorize="isAuthenticated()" sec:authentication="principal.name" ></a></li>
                                     <li id="navLogoutWrap"><a class="nav_login" href="" th:href="@{/logout}">로그아웃</a></li>
                                 </ul>
                                 <li class="navbar_li navbar_li_content">
