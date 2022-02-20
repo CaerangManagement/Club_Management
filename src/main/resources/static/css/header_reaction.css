@@ -1,3 +1,6 @@
+*{
+    font-family: sans-serif;
+}
 /*------------header CSS-------------- */
 #header{
     display: flex;

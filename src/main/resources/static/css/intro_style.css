@@ -1,3 +1,6 @@
+*{
+    font-family: sans-serif;
+}
 /*일반*/
 #navbar{
     display: none;
