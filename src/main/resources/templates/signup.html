@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>한림대학교 회원가입</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../static/img/hallym_icon.png" th:href="@{/img/hallym_icon.jpg}">
-    <link rel="stylesheet" href="../static/css/signup_style.css?after" th:href="@{/css/signup_style.css?after}" >
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/hallym_icon.png"
+        th:href="@{/img/hallym_icon.jpg}">
+    <link rel="stylesheet" href="../static/css/signup_style.css?after" th:href="@{/css/signup_style.css?after}">
     <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
-<body>
-        <header>
-            <a id="main_img_wrap" href="./index.html" th:href="@{/index}"><img id="main_img" src="../static/img/hallym_main.png" th:src="@{/img/hallym_main.png}" alt="한림대학교"></a>
-            <p id="main_header_text">글로벌 선진 일류대학, 한림대학교<br>
-            융, 복합 교육을 통해 글로벌 인재를 양성합니다.
-            </p>
-        </header>
-        <section id="sec1">
-            <div id="box1" class="box">
 
-                <form id="login_form" name="loginForm" th:action="@{/user}" method="POST">
-                    <p id="form_title">회원가입</p>
-                    <div id="admin_email_wrap" class="input_div">
-                        <input id="email_div" class="login_div" type="email" name="email" placeholder="Email">
-                    </div>
-                    <p id="id_check" class="hidden"></p>
-                    <p id="login_id_null_notice" class="hidden">이메일을 입력해주세요.</p>
-                    <div class="input_div"><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
-                    <p id="login_pass_null_notice" class="hidden">비밀번호를 입력해주세요.</p>
-                    <div class="input_div"><input id="password_verify_div" class="login_div"  type="password" name="passwordver" placeholder="Password verify"></div>
-                    <p id="login_passver_null_notice" class="hidden">비밀번호를 같게 입력해주세요.</p>
-                    <div id="admin_password_wrap" class="input_div">
-                        <input id="admin_password" class="login_div" type="password" placeholder="Only Admin">
-                        <span><button id="admin_chk" type="button" onclick="adminPasswordChk();">Check</button></span>
-                    </div>
-                    <div id="hidden_admin" class= "hidden">
-                        <input id="admin" type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER">
-                        <label for='admin'> admin</label>
-                        <input id="user" type="radio" name="auth" value="ROLE_USER" checked="checked">
-                        <label for='user'> user</label><br>
-                    </div>
-                    <button id="login_btn" type="submit">
-                        <div id="login_btn_content">Sign up</div>
-                    </button>
-                </form>
-                <a id="btn1" href="../templates/login.html" th:href="@{/login}">login</a>
-            </div>
-        </section>
+<body>
+    <header>
+        <a id="main_img_wrap" href="./index.html" th:href="@{/index}"><img id="main_img"
+                src="../static/img/hallym_main.png" th:src="@{/img/hallym_main.png}" alt="한림대학교"></a>
+        <p id="main_header_text">글로벌 선진 일류대학, 한림대학교<br>
+            융, 복합 교육을 통해 글로벌 인재를 양성합니다.
+        </p>
+    </header>
+    <section id="sec1">
+        <div id="box1" class="box">
+
+            <form id="login_form" name="loginForm" th:action="@{/user}" method="POST">
+                <p id="form_title">회원가입</p>
+                <div id="admin_email_wrap" class="input_div">
+                    <input id="email_div" class="login_div" type="email" name="email" placeholder="Email">
+                </div>
+                <p id="id_check" class="hidden"></p>
+                <p id="login_id_null_notice" class="hidden">이메일을 입력해주세요.</p>
+                <div class="input_div"><input id="password_div" class="login_div" type="password" name="password"
+                        placeholder="Password"></div>
+                <p id="login_pass_null_notice" class="hidden">비밀번호를 입력해주세요.</p>
+                <div class="input_div"><input id="password_verify_div" class="login_div" type="password"
+                        name="passwordver" placeholder="Password verify"></div>
+                <p id="login_passver_null_notice" class="hidden">비밀번호를 같게 입력해주세요.</p>
+
+
+                <div class="input_div"><input id="name" class="login_div" type="text"
+                        name="name" placeholder="Name"></div>
+                <p id="login_name_null_notice" class="hidden">이름을 입력해주세요.</p>
+
+
+                <div id="admin_password_wrap" class="input_div">
+                    <input id="admin_password" class="login_div" type="password" placeholder="Only Admin">
+                    <span><button id="admin_chk" type="button" onclick="adminPasswordChk();">Check</button></span>
+                </div>
+                <div id="hidden_admin" class="hidden">
+                    <input id="admin" type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER">
+                    <label for='admin'> admin</label>
+                    <input id="user" type="radio" name="auth" value="ROLE_USER" checked="checked">
+                    <label for='user'> user</label><br>
+                </div>
+                <button id="login_btn" type="submit">
+                    <div id="login_btn_content">Sign up</div>
+                </button>
+            </form>
+            <a id="btn1" href="../templates/login.html" th:href="@{/login}">login</a>
+        </div>
+    </section>
 </body>
 <script src="../static/js/signup.js" th:src="@{/js/signup.js}"></script>
+
 </html>

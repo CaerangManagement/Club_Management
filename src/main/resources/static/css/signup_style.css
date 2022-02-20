@@ -87,6 +87,10 @@ header{
     background-image: url("../img/password.png");
     background-repeat: no-repeat;
 }
+#name{
+    background-image: url("../img/id.png");
+    background-repeat: no-repeat;
+}
 #hidden_admin{
     margin-top: 15px;
 }
@@ -138,6 +142,13 @@ header{
     color: red;
 }
 #login_passver_null_notice{
+    font-size: 12px;
+    margin: 5px 0;
+    text-align: start;
+    padding-left: 100px;
+    color: red;
+}
+#login_name_null_notice{
     font-size: 12px;
     margin: 5px 0;
     text-align: start;
