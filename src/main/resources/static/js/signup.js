@@ -72,7 +72,7 @@ loginForm.addEventListener('submit',loginNullChk);
 function adminPasswordChk(event){
     const adminPasswordInput = document.getElementById('admin_password');
     const adminWrap = document.getElementById('hidden_admin');
-    if(adminPasswordInput.value=='asdf'){
+    if(adminPasswordInput.value=='001020'){
         adminWrap.classList.remove('hidden');
         alert('관리자 계정으로 회원가입이 가능합니다.');
     }else{
