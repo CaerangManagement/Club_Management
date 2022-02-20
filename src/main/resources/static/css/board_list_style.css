@@ -47,9 +47,7 @@ body{
     min-height: 100vh;
     flex-direction: column;
 }
-#section{
-    padding: 40px 150px 60px 150px;
-}
+
 #now_place{
     position: relative;
     float: right;
