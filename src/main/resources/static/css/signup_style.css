@@ -38,7 +38,7 @@ header{
 }
 #box1{
     width: 500px;
-    height: 560px;
+    height: 580px;
     margin: 20px 10px;
     background-color: white;
     color: black;
@@ -270,13 +270,13 @@ header{
         
     }
     #box1{
-        height: 460px;
+        height: 540px !important;
         width: 350px;
     }
     #form_title{
         font-size: 22px;
         text-align: center;
-        padding: 20px 0;
+        padding: 40px 0 20px 0;
     }
     .login_div{
         width: 230px;
@@ -320,6 +320,11 @@ header{
         margin: 1px 0;
         text-align: start;
         padding-left: 67px;    
+    }
+    #login_name_null_notice{
+        margin: 1px 0;
+        text-align: start;
+        padding-left: 67px;  
     }
     #login_btn{
         margin-top: 20px;
