@@ -141,8 +141,8 @@
                     <!--댓글 보여주는곳-->
                     <div id="section_article_comment">
                         <div id=section_article_comment_title>댓글</div>
-
-                        <div class="comment_wrap" name="writer" th:each="replie : ${board.replies}">
+                        <!-- 댓글 반복적으로 뿌리는 곳-->
+                        <div class="comment_wrap"  name="writer" th:each="replie : ${board.replies}">
                             <span>
                                 <img class="comment_writer_img" src="../../static/img/board_user_img.png" th:src="@{/img/board_user_img.png}" alt="">
                             </span>
@@ -153,11 +153,12 @@
                                 <div class="comment_delete_div">
                                     <div class="comment_write_time"
                                         th:text="${#temporals.format(replie.createdDate, 'yyyy-MM-dd HH:mm')}">2022-01-25 13:27</div>
-                                    <button id="btn_reply_delete" class="comment_delete"  th:onclick="|javascript:deleteComment('${replie.id}')|"
-                                        th:if="${replie.userInfo.email} == ${#authentication.principal.email} or ${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'" >삭제</button>
+                                    <input type="button" value="삭제" id="btn_reply_delete" class="comment_delete"  th:onclick="|javascript:deleteComment('${replie.id}')|"
+                                        th:if="${replie.userInfo.email} == ${#authentication.principal.email} or ${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'" >
                                 </div>
                             </div>
                         </div>
+                        <!-- 댓글 반복적으로 뿌리는 곳 끝-->
                     </div>
                     <!--댓글 끝 -->
 
@@ -167,8 +168,9 @@
                                 <div id="comment_name" th:text=${#authentication.principal.name}>이름</div>
                                 <input type="hidden" id="reply_boardId" th:value="${board.id}">
                                 <textarea id="reply_content" rows="1" placeholder="댓글을 입력하세요." onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-                                <button id="btn_reply_save">등록</button>
+                                <input value="등록" type="button" onclick="dataSend()">
                             </div>
+
                         </div>
                     <!--댓글 작성란-->
                 </form>

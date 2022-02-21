@@ -74,11 +74,7 @@ $('#section_article_delete').click(function() {
 })
 
 //댓글 추가
-$('#btn_reply_save').click(function() {
-
-        if (!confirm('댓글을 작성하시겠어요?')) {
-        		return false;
-        	}
+function dataSend() {
 
         var jsonData = JSON.stringify({
                     content: $('#reply_content').val()
@@ -87,20 +83,17 @@ $('#btn_reply_save').click(function() {
             url: "/api/board/" + $('#reply_boardId').val() +"/reply",
             method: "POST",
             data: jsonData,
-            contentType: 'application/json; charset=utf-8',
+            contentType: 'application/json;charset=utf-8',
             beforeSend: function(xhr){
                 xhr.setRequestHeader(header, token);
             },
-            success: function(){
-                alert('댓글작성이 완료되었습니다 :)');
-                location.reload(true);
-            },
-            error: function(){
-                alert('댓글작성이 완료되었습니다 :)');
-                location.reload(true);
-            }
-        });
-})
+            }).done(function (fragment){
+                $('#section_article_comment').replaceWith(fragment);
+                $('#reply_content').val('');
+                alert('댓글작성 성공 :)');
+            });
+
+}
 
 //댓글삭제
 function deleteComment(idx) {
@@ -109,27 +102,15 @@ function deleteComment(idx) {
 		return false;
 	}
 
-	var uri = "/api/deleteComment/" + idx;
-
-	var headers = {"Content-Type": "application/json", "X-HTTP-Method-Override": "DELETE"};
-
 	$.ajax({
-		url: uri,
-		type: "DELETE",
-		headers: headers,
-		dataType: "json",
+		url: "/api/deleteComment/" + idx + "/" + $('#reply_boardId').val(),
+		method: "DELETE",
 		beforeSend: function(xhr){
                         xhr.setRequestHeader(header, token);
-                    },
-		success: function() {
-			alert("댓글 삭제에 성공하였습니다.");
-            location.reload(true);
-		},
-		error: function(xhr, status, error) {
-			alert("댓글 삭제에 성공하였습니다.");
-			location.reload(true);
-		}
-	});
+        },
+        }).done(function (fragment){
+            $('#section_article_comment').replaceWith(fragment);
+        });
 }
 
 
