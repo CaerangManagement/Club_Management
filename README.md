@@ -64,7 +64,9 @@ branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많
 ## 웹 리뷰
 
 ### 메인 페이지
-![Uploading ezgif.com-gif-maker.gif…]()
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/52206904/155127822-e3738f57-251f-4b66-855d-8f5732a0aab2.gif)
+
 
 ### 로그인
 
