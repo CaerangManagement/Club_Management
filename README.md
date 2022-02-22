@@ -64,8 +64,10 @@ branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많
 ## 웹 리뷰
 
 ### 메인 페이지
+![Uploading ezgif.com-gif-maker.gif…]()
 
 ### 로그인
+
 
 ### 회원가입
 
