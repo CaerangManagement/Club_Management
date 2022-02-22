@@ -125,9 +125,13 @@
                 </table>
             </form>
             <div id="section_back_plus_wrap">
-                <a id="back" th:href="@{/notice/board/list}">취소</a>
-                <input type="hidden" id="notice_board_id" th:value="${noticeBoard.id}">
-                <button id="update" value="수정하기">수정하기</button>
+                <div id="back_wrap">
+                    <a id="back" th:href="@{/notice/board/list}">취소</a>
+                </div>
+                <div id="save_wrap">
+                    <input type="hidden" id="notice_board_id" th:value="${noticeBoard.id}">
+                    <button id="update" value="수정하기">수정하기</button>
+                </div>
             </div>
         </article>
         <div style="text-align:center" th:unless="${noticeBoard.writer} == ${#authentication.principal.name}"> 해당 게시글을 수정할 권한이 없습니다.</div>

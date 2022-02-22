@@ -134,6 +134,8 @@ body{
     height: 50px;
     margin-top: 30px;
     text-align: end;
+    display: flex;
+    justify-content: flex-end
 }
 #back{
     padding: 6px 9px;
@@ -144,6 +146,10 @@ body{
     text-align: center;
     text-decoration: none;
     color: black;
+}
+#back_wrap{
+    margin-top: 4px;
+    margin-right: 6px;
 }
 #back:hover{
     cursor: pointer;
@@ -273,6 +279,9 @@ body{
     /*--------section---------*/
     section{
         margin-bottom: 50px;
+    }
+    #back{
+        padding: 6.5px 9px;
     }
     /*-------bxslider--------*/
     .bx-wrapper{
