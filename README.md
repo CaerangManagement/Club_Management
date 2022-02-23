@@ -81,8 +81,8 @@ branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많
 
 ### 부원관리
 
-## 부원추가
+#### 부원추가
 ![부원 추가](https://user-images.githubusercontent.com/52206904/155299161-287694b5-add5-4f84-91b4-70c121779c86.gif)
-## 부원수정 및 삭제
+#### 부원수정 및 삭제
 ![부원관리 수정 및 삭제](https://user-images.githubusercontent.com/52206904/155299177-90ccec8e-5d53-4520-9ea6-9a944e916a40.gif)
 
