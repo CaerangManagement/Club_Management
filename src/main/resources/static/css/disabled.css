@@ -1,0 +1,6 @@
+.disabled{
+    background-color: #20567c !important;
+    border: 1px solid #093555;
+    pointer-events: none;
+    text-decoration: none;
+}

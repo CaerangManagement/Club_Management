@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+  #    local 환경  jdbc:mariadb://localhost:3308/mydb
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://database-2.chbjzeqycfbl.ap-northeast-2.rds.amazonaws.com:3306/innodb
+      username: admin
+      password: jyp13990
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+
+
+
+
