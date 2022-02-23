@@ -68,10 +68,8 @@ branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52206904/155127822-e3738f57-251f-4b66-855d-8f5732a0aab2.gif)
 
 
-### 로그인
-
-
-### 회원가입
+### 회원가입 및 로그인
+![회원가입 및 로그인](https://user-images.githubusercontent.com/52206904/155304211-0bcc517a-52bf-4727-8b10-005fccda5470.gif)
 
 ### 소개글
 
