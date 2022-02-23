@@ -77,6 +77,9 @@ branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많
 
 ### 게시판 및 공지사항
 
+#### 글 추가 및 댓글 추가(공지사항은 댓글 없고 운영진만 작성가능)
+![게시판 추가 및 댓글 추가](https://user-images.githubusercontent.com/52206904/155302619-34ffcd46-2e51-4c96-861b-26d622a2428a.gif)
+
 #### 글 수정 및 삭제
 ![수정 삭제](https://user-images.githubusercontent.com/52206904/155301259-7b58c549-d894-428d-a5af-20e222b796ec.gif)
 
