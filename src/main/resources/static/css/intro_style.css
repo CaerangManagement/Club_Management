@@ -111,6 +111,7 @@ section{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
 }
 .team_name{
     background-color:#093555;
@@ -129,14 +130,16 @@ section{
     width: 100%;
     font-size: 18px;
     padding: 10px 30px;
+    z-index: 10;
 }
-#cae_img{
+.team_logo{
     position: absolute;
-    width: 50vh;
+    width: 70%;
     left: 50%;
-    margin-left: calc(-50vh/2);
-    top: 50%;
-    opacity: 20%;
+    margin-left: -35%;
+    opacity: 10%;
+    top: calc(60px + 50%);
+    margin-top: calc(60px - 48%);
 }
 #caerang_content{
 }
@@ -251,6 +254,9 @@ section{
     section{
         margin-bottom: 50px;
         padding-bottom: 0px;
+    }
+    .team_logo{
+        margin-top: calc(10px - 50%);
     }
     /*-------bxslider--------*/
     .bx-wrapper{
