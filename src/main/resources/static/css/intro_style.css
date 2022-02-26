@@ -105,7 +105,7 @@ section{
 }
 .team_wrap{
     background-color:rgb(255, 255, 233);
-    height:70%;
+    height:90%;
     width:100%;
     margin:35px 0px;
     display:flex;
@@ -125,21 +125,37 @@ section{
     align-items:center;
     justify-content:center;
     font-size: 30px;
+    z-index: 10;
 }
 .team_content{
     width: 100%;
     font-size: 18px;
     padding: 10px 30px;
+    /*
     z-index: 10;
+    */
 }
 .team_logo{
-    position: absolute;
-    width: 70%;
+    position: relative;
+    width: 400px;
     left: 50%;
-    margin-left: -35%;
-    opacity: 10%;
-    top: calc(60px + 50%);
-    margin-top: calc(60px - 48%);
+    margin-left: -200px;
+    margin-top: 30px;
+}
+#raon{
+    height: 133px;
+}
+#latte{
+    height: 300px;
+}
+#core{
+    height: 270px;
+}
+#tag{
+    height: 270px;
+}
+#tensor{
+    height: 133px;
 }
 #caerang_content{
 }
@@ -250,14 +266,7 @@ section{
     .header_title{
         display: none;
     }
-    /*--------section---------*/
-    section{
-        margin-bottom: 50px;
-        padding-bottom: 0px;
-    }
-    .team_logo{
-        margin-top: calc(10px - 50%);
-    }
+
     /*-------bxslider--------*/
     .bx-wrapper{
         margin-top: 20px;
@@ -383,7 +392,42 @@ section{
     #intro_wrap{
         
     }
+    #main_wrap{
+        height: 50%;
+    }
+    .team_wrap{
+        height: 65%;
+    }
     .team_content{
         font-size: 14px;
+    }
+    section{
+        margin-bottom: 50px;
+        padding-bottom: 0px;
+    }
+    .team_logo{
+        margin-top: calc(10px - 50%);
+    }
+    .team_logo{
+        position: relative;
+        width: 200px;
+        left: 50%;
+        margin-left: -100px;
+        margin-top: 10px;
+    }
+    #raon{
+        height: 66px;
+    }
+    #latte{
+        height: 150px;
+    }
+    #core{
+        height: 135px;
+    }
+    #tag{
+        height: 135px;
+    }
+    #tensor{
+        height: 66px;
     }
 }
