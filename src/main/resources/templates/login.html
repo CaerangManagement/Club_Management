@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한림대학교 로그인</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/hallym_icon.png" th:href="@{/img/hallym_icon.jpg}">
+    <link rel="stylesheet" href="../static/css/login_style.css" th:href="@{/css/login_style.css}" >
+    <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
+</head>
+<body>
+        <header>
+            <a id="main_img_wrap" href="./index.html" th:href="@{/index}"><img id="main_img" src="../static/img/hallym_main.png" th:src="@{/img/hallym_main.png}" alt="한림대학교"></a>
+            <p id="main_text">글로벌 선진 일류대학, 한림대학교<br>
+            융, 복합 교육을 통해 글로벌 인재를 양성합니다.
+            </p>
+        </header>
+        <section id="sec1">
+            <div id="box1" class="box">
+                <form id="login_form" name="loginForm" action="/login" method="POST">
+                    <p id="login_title">로그인</p>
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    <div><input id="email_div" class="login_div" type="email" name="username" placeholder="Email"></div>
+                    <p id="login_id_null_notice" class="hidden">이메일을 입력해주세요.</p>
+                    <div><input id="password_div" class="login_div" type="password" name="password" placeholder="Password"></div>
+                    <p id="login_pass_null_notice" class="hidden">비밀번호를 입력해주세요.</p>
+                    <p id="none_notice" th:if="${param.error}" th:text="${param.exception}"></p>
+                    <button id="login_bnt" type="submit">
+                        <div id="login_btn_content">Login</div>
+                        </button>
+                </form>
+                <a id="btn1" href="../templates/signup.html" th:href="@{/signup}">Join with us!</a>
+            </div>
+        </section>
+</body>
+<script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
+</html>

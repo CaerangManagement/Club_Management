@@ -1,0 +1,396 @@
+*{
+margin:0;
+padding:0;
+font-family: sans-serif;
+}
+/*일반*/
+#navbar{
+    display: none;
+}
+
+.header_title{
+    position: absolute;
+    width: auto;
+    top: 68px;
+    right: 7%;
+    display: flex;
+}
+.header_title_content{
+    font-size: 27px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0 20px;
+    border-right: 2px solid rgb(204, 204, 204);
+    width: auto;
+}
+.header_title_content:last-child{
+    border-right: none;
+}
+#mobile_member_form_table_wrap{
+    display: none;
+}
+#section{
+    height: 690px;
+}
+#now_place{
+    position: relative;
+    float: right;
+    list-style-type: none;
+    display: flex;
+    color: rgb(99, 99, 99);
+    height: 30px;
+    right: 10%;
+    margin-top: 5px;
+}
+.place_text_li{
+    height: 30px;
+    line-height: 30px;
+}
+.place_text_li::before {
+    content: "\f105";
+    font-family: FontAwesome;
+    margin-left: 0.8em;
+    margin-right: 0.5em;
+}
+.place_text_li:first-child::before{
+    content: none;
+}
+#gray_home{
+    width: 18px;
+    margin-top: 6px;
+}
+#no_place_a{
+    text-decoration: none;
+    color: #093555;
+    font-weight: bold;
+}
+#section_article{
+    display: flex;
+    justify-content: center;
+}
+#member_form{
+    width: 84%;
+}
+#member_form_level{
+    height: 50px;
+    display: flex;
+    justify-content: end;
+}
+#member_form_level_span{
+    line-height: 50px;
+}
+#member_form_level_select{
+    height: 35px;
+    width: 15%;
+    border: 1px solid #66c4bf;
+    font-size: 15px;
+    color: rgb(134, 134, 134);
+    margin-top: 7px;
+}
+#member_form_table{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    border-top: 2px solid black;
+    border-collapse: collapse;
+}
+#member_form_table tr{
+    border-bottom: 0.5px solid #66c4bf;
+}
+.member_form_table_title{
+    background-color: #fafad2;
+    width: 170px;
+    height: 80px;
+    font-size: 15px;
+    text-align: start;
+}
+.member_form_table_in{
+    padding: 20px 20px;
+}
+.member_form_table_title_text{
+    position: relative;
+    left: 25px;
+}
+.star{
+    color: red;
+    font-weight: 700;
+}
+.member_form_table_input{
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    border: 1px solid #66c4bf;
+    background-color: rgb(248, 248, 248);
+}
+#form_btn_wrap{
+    width: 100%;
+    height: 60px;
+    padding-top: 60px;
+    display: flex;
+    justify-content: end;
+}
+.form_btn{
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    border-radius: 7px;
+    width: 80px;
+    height: 40px;
+    background-color: #66c4bf;
+    color: white;
+    font-size: 15px;
+    margin: 0px 10px;
+}
+.form_btn:hover{
+    cursor: pointer;
+    background-color: #379994;
+}
+#update_mobile{
+    display: none;
+}
+
+@media (max-width: 1024px){
+    .member_form_table_title{
+        background-color: #fafad2;
+        width: 80px;
+        height: 50px;
+        font-size: 15px;
+        text-align: start;
+    }
+    .member_form_table_title_text{
+        position: relative;
+        font-size: 13px;
+        text-align: center;
+    }
+    #member_form_table_title_text_id{
+        position: relative;
+        left: 11px;
+    }
+    .member_form_table_input{
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        border: 1px solid #66c4bf;
+        background-color: rgb(248, 248, 248);
+    }
+    .place_text_li{
+        height: 30px;
+        line-height: 20px;
+        font-size: 13.5px;
+    }
+    #gray_home{
+        width: 14px;
+        margin-top: 3px;
+    }
+    #head_img{
+        top: 9px;
+        z-index: 20;
+    }
+    .header_title{
+        display: none;
+    }
+    /*---------section---------*/
+    section {
+        margin-bottom: 100px;
+    }
+    /*---------nav bar---------*/
+    #navbar{
+        display: block;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        z-index: 10;
+        margin-top: 26px;
+    }
+    #nav_loginbar{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        width: 100%;
+        background-color: #093555;
+    }
+    #nav_loginbar li{
+        display: flex;
+        justify-content: center;
+        width: 30%;
+    }
+    .nav_login{
+        width: 200px;
+        background-color: #093555;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        color: skyblue;
+        text-align: center;
+        text-decoration: none;
+        font-size: 12px;
+        margin: 0 15px;
+        padding:0 10px;
+    }
+    #menu_img_wrap{
+        position: relative;
+        left: 92%;
+    }
+    #menu_img{
+        width: 30px;
+        margin-bottom: 9px;
+    }
+    .navbar_li {
+        list-style: none;
+        line-height: 34px;
+    }
+    .navbar_li_content{
+        border-bottom: 1px solid rgb(211,211,211);
+    }
+    .navbar_li_content:last-child{
+        border-bottom: none;
+    }
+    .navbar_a {
+        display: block; /* 중요 */
+        text-decoration: none;
+        color: #616161;
+        text-align: center;
+        font-size: 18px;
+        line-height: 60px;
+        height: 60px;
+    }
+    .snd_menu { 
+        background: #f7f7f7; 
+    }
+    .sub_menu { 
+        display: none; 
+    } /* 서브메뉴들 숨김 */
+}
+
+@media (max-width: 768px){
+    #member_form{
+        width: 100%;
+    }
+    #mobile_member_form_table_wrap{
+        display: block;
+    }
+    #member_form_table_wrap{
+        display: none;
+    }
+    #member_form_level{
+        height: 40px;
+    }
+    #member_form_level_span{
+        font-size: 15px;
+        line-height: 45px;
+    }
+    #member_form_level_select{
+        height: 30px;
+        width: 80px;
+    }
+    #mobile_member_form_table_wrap{
+        display: flex;
+        justify-content: center;
+    }
+    #mobile_member_info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+        border-top: 2px solid black;
+    }
+    .mobile_member_form_table_title{
+        height: 35px;
+        width: 100%;
+        text-align: center;
+        background-color: #fafad2;
+        border-bottom: 0.5px solid #66c4bf;
+        border-top: 0.5px solid #66c4bf;
+        border-collapse: collapse;
+    }
+    .mobile_member_form_table_title:first-child{
+        border-top: none;
+    }
+    .mobile_member_form_table_title_text{
+        height: 100%;
+        line-height: 35px;
+        font-size: 15px;
+    }
+    #mobile_member_form_table_title_text_id{
+        font-size: 15px;
+        left: 0;
+        line-height: 32px;
+        text-align: center;
+    }
+    .mobile_member_form_table_in{
+        text-align: center;
+        width: 90%;
+        padding: 10px 0;
+    }
+    .mobile_member_form_table_input{
+        border: none;
+        width: 100%;
+        height: 35px;
+        background-color: #fffbfb;
+        border: 1px solid #66c4bf;
+    }
+    #form_btn_wrap{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+    }
+    #update{
+        display: none;
+    }
+    #update_mobile{
+        display: block;
+    }
+    /*-----------header---------*/
+    .header_title{
+        display: none;
+    }
+    /*--------section---------*/
+    section{
+        margin-bottom: 50px;
+    }
+    /*-------bxslider--------*/
+    .bx-wrapper{
+        margin-top: 20px;
+    }
+    /*---------nav bar---------*/
+    #navbar{
+        width: 100%;
+        position: absolute;
+        right: 0;
+        z-index: 10;
+        margin-top: 21px;
+    }
+    #menu_img_wrap{
+        position: relative;
+        left: 87%;
+    }
+    #menu_img{
+        width: 25px;
+        margin-bottom: 9px;
+    }
+    .navbar_li {
+        list-style: none;
+        line-height: 34px;
+    }
+    .navbar_li_content{
+        border-bottom: 1px solid rgb(211,211,211);
+    }
+    .navbar_li_content:last-child{
+        border-bottom: none;
+    }
+    .navbar_a {
+        display: block; /* 중요 */
+        text-decoration: none;
+        color: #616161;
+        text-align: center;
+        font-size: 15px;
+    }
+    .snd_menu { 
+        background: #f7f7f7; 
+    }
+    .sub_menu { 
+        display: none; 
+    } /* 서브메뉴들 숨김 */
+}

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>한림대학교 씨애랑 부원 관리</title>
+    <link rel="stylesheet" href="../../static/css/footer_reaction.css" th:href="@{/css/footer_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
+    <link rel="stylesheet" href="../../static/css/board_modify_style.css" th:href="@{/css/board_modify_style.css}">
+    <link rel="stylesheet" href="../../static/css/hidden.css" th:href="@{/css/hidden.css}">
+    <link rel="stylesheet" href="../../static/css/eventCancle.css" th:href="@{/css/eventCancle.css}">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+
+    <!-- 서머노트를 위해 추가해야할 부분 -->
+    <script src="../../static/summernote/summernote-lite.js" th:src="@{/summernote/summernote-lite.js}"></script>
+    <script src="../../static/summernote/lang/summernote-ko-KR.js" th:src="@{/summernote/lang/summernote-ko-KR.js}"></script>
+    <link rel="stylesheet" href="../../static/summernote/summernote-lite.css" th:href="@{/summernote/summernote-lite.css}">
+    <!--  -->
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <ul id="header_ul_left">
+                <a class="header_ul_left_a" href="https://www.hallym.ac.kr/hallym_univ/">
+                    <li class="header_ul_left_li">한림대학교</li>
+                </a>
+                <a class="header_ul_left_a" href="../index.html" th:href="@{/index}">
+                    <li class="header_ul_left_li">HOME</li>
+                </a>
+            </ul>
+            <ul id="header_ul_right">
+                <a class="header_ul_right_a" href="https://doggang.github.io/campusmap/campus_map.html">
+                    <li class="header_ul_right_li_a">캠퍼스 맵</li>
+                </a>
+                <li class="header_ul_right_li_a_log" sec:authentication="principal.name">이름</li>
+                <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_ADMIN,ROLE_USER'">Admin
+                </li>
+                <li class="header_ul_right_li_a_log" th:if="${#authentication.principal.auth} == 'ROLE_USER'">User</li>
+                <a class="header_ul_right_a" href="" th:href="@{/logout}">
+                    <li class="header_ul_right_li_a_log">로그아웃</li>
+                </a>
+            </ul>
+        </div>
+        <div id="header_box">
+            <ul>
+                <a href="../index.html" th:href="@{/index}"><img id="head_img" src="../../static/img/logo.jpg"
+                        th:src="@{/img/logo.jpg}" alt=""></a>
+                <div class="header_title">
+                    <a href="../intro.html" th:href="@{/intro}" class="header_title_content">소개글</a>
+                    <a href="./notice_board_list.html" th:href="@{/notice/board/list}" class="header_title_content">공지사항</a>
+                    <a href="../board/board_list.html" th:href="@{/board/list}" class="header_title_content">게시판</a>
+                    <a href="../member/list.html" th:href="@{/member/list}" class="header_title_content"
+                        sec:authorize="hasRole('ROLE_ADMIN')">부원관리 </a>
+                </div>
+                <nav id="navbar">
+                    <ul id="main_menu">
+                        <li class="navbar_li">
+                            <a id="menu_img_wrap" href="#">
+                                <img id="menu_img"src="../../static/img/menu.png" th:src="@{/img/menu.png}" alt="">
+                            </a>
+                            <ul class="snd_menu sub_menu">
+                                <ul id="nav_loginbar">
+                                    <li><a class="nav_login" href="" sec:authorize="isAuthenticated()"
+                                           sec:authentication="principal.name">이름</a></li>
+                                    <li><a class="nav_login" href="" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
+                                </ul>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../intro.html" th:href="@{/intro}">소개글</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="./notice_board_list.html" th:href="@{/notice/board/list}">공지사항</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../board/board_list.html" th:href="@{/board/list}">게시판</a>
+                                </li>
+                                <li class="navbar_li navbar_li_content">
+                                    <a class="navbar_a" href="../member/list.html" th:href="@{/member/list}" sec:authorize="hasRole('ROLE_ADMIN')">부원관리</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </ul>
+        </div>
+        <div id="head_gray_layer">
+            <ul id="now_place">
+                <li class="place_text_li"><a href="../index.html" th:href="@{/index}"><img id="gray_home" src="../../static/img/home.png" th:src="@{/img/home.png}" alt=""></a></li>
+                <li class="place_text_li">공지사항</li>
+                <li class="place_text_li"><a id="no_place_a" href="">공지사항 수정</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="section">
+        <header id="section_header">
+            <div id="section_header_div1">
+                <span id="section_header_mange_span1"><img id="section_header_mange_img"
+                        src="../../static/img/mange_logo.png" th:src="@{/img/mange_logo.png}" alt=""></span>
+                <span id="section_header_mange_span2">공지사항 수정</span>
+            </div>
+        </header>
+
+        <article id="section_article" th:if="${noticeBoard.writer} == ${#authentication.principal.name}">
+            <form id="section_article_form" >
+                <table id="section_article_table" th:object="${noticeBoard}">
+                    <tr id="section_article_table_wrap">
+                        <td id="section_article_table_title_wrap"><input id="section_article_table_title" name="title" type="text" placeholder="제목을 입력해주세요." th:field="*{title}"></td>
+                        <td id="section_article_table_title_warning">제목을 입력하세요.</td>
+                    </tr>
+                    <tr>
+                        <td id="section_article_table_main_wrap"><textarea id="section_article_table_main" name="content" class="summernote"  th:field="*{content}"></textarea></td>
+                    </tr>
+                </table>
+            </form>
+            <div id="section_back_plus_wrap">
+                <div id="back_wrap">
+                    <a id="back" th:href="@{/notice/board/list}">취소</a>
+                </div>
+                <div id="save_wrap">
+                    <input type="hidden" id="notice_board_id" th:value="${noticeBoard.id}">
+                    <button id="update" value="수정하기">수정하기</button>
+                </div>
+            </div>
+        </article>
+        <div style="text-align:center" th:unless="${noticeBoard.writer} == ${#authentication.principal.name}"> 해당 게시글을 수정할 권한이 없습니다.</div>
+    </section>
+    <footer id="footer">
+        <div id="footer_top">
+            <ul id="footer_top_ul">
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP2/tab2">개인정보처리방침</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://was1.hallym.ac.kr:8081/HLMS/main/LoginPage.do">통합정보시스템</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub02/cP1/sCP1">학사일정</a>
+                </li>
+                <li class="footer_top_li">
+                    <a href="https://www.hallym.ac.kr/sub07/cP1">주요민원 연락처</a>
+                </li>
+            </ul>
+        </div>
+        <div id="footer_bottom">
+            <div id="footer_bottom_content_box">
+                <img src="../../static/img/img_foot_logo.png" th:src="@{/img/img_foot_logo.png}">
+                <div id="content_box_text">
+                    <p>한림대학교</p>
+                    <p>강원도 춘천시 한림대학길 1 한림대학교 공학관</p>
+                    <p>1, Hallymdaehak-gil, Chuncheon-si, Gangwon-do, Republic of Korea</p>
+                    <p>Front-End, Dohyun Kim / E-Mail : rlaehgusqp@naver.com</p>
+                    <p>Back-End, Juyoung Park / E-mail : okmlnsunok@gmail.com</p>
+                    <p>GitHub URL : <a class="github_url"
+                            href="https://github.com/CaerangManagement/Club_Management">https://github.com/CaerangManagement/Club_Management</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+<script src="../../static/js/noticeBoard.js" th:src="@{/js/noticeBoard.js}"></script>
+<script src="../../static/js/summernote.js" th:src="@{/js/summernote.js}"></script>
+<script src="../../static/js/menu_ano.js" th:src="@{/js/menu_ano.js}"></script>
+<script src="../../static/js/nullChkMod.js" th:src="@{/js/nullChkMod.js}"></script>
+<script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
+</html>
