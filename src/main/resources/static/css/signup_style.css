@@ -21,6 +21,9 @@ header{
     justify-content: center;
     position: relative;
 }
+#main_img{
+    width: 500px;
+}
 #main_header_text{
     margin-top: 26px;
     color: white;
@@ -246,22 +249,14 @@ header{
         left: 0%;
         bottom:0%;
     }
-    header{
-        margin-top: 0;
-        width: 100%;
-        justify-content: center;
-        position: relative;
-        padding: 25px 0px 20px 0px;
-        box-shadow: 0.5px 0.5px 10px black;
-        background-color: white;
-    }
+
     #main_img_wrap{
         display: flex;
         justify-content: center;
         width: 100%;
     }
     #main_img{
-        width: 240px;
+        width: 320px;
     }
     #main_header_text{
         display: none;
