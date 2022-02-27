@@ -40,7 +40,7 @@ public class BoardService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         Board entity = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
-        entity.update(params.getTitle(), params.getContent(), authentication.getName());
+        entity.update(params.getTitle(), params.getContent(), params.toEntity().getWriter());
         return id;
     }
 
