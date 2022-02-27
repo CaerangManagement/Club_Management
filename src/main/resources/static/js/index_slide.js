@@ -6,7 +6,7 @@ $(document).ready(function(){ $('.bxslider').bxSlider({
     pager: true,
     pause: 7000,
     autoHover: true,
-    maxSlides: 8,
+    maxSlides: 10,
     minSlides: 1,
     });
 });
