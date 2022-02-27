@@ -168,7 +168,7 @@
                                 <div id="comment_name" th:text=${#authentication.principal.name}>이름</div>
                                 <input type="hidden" id="reply_boardId" th:value="${board.id}">
                                 <textarea id="reply_content" rows="1" placeholder="댓글을 입력하세요." onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-                                <input value="등록" type="button" onclick="dataSend()">
+                                <input id="btn_reply_save" value="등록" type="button" onclick="dataSend()">
                             </div>
 
                         </div>

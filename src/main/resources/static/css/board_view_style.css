@@ -279,8 +279,6 @@ margin-left: 4px;
 }
 #btn_reply_save:hover{
     cursor: pointer;
-    background-color: rgb(252, 252, 252);
-    border-radius: 5px;
 }
 /*------------section reaction-------------*/
 @media (max-width: 1024px){
