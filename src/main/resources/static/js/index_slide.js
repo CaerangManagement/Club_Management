@@ -1,12 +1,12 @@
 
 //bxslider
-$(document).ready(function(){ $('.bxslider').bxSlider({
+$(window).load(function(){ $('.bxslider').bxSlider({
     auto: true,  // 자동 슬라이드 
     controls: true, // prev/next 버튼 노출 여부 
     pager: true,
     pause: 7000,
     autoHover: true,
-    maxSlides: 10,
+    maxSlides: 8,
     minSlides: 1,
     });
 });
