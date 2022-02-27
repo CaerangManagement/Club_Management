@@ -160,6 +160,8 @@ body{
     background-color: #037cc71f;
     color: #006f9f;
     border-radius: 5px;
+    font-size: 13px;
+    padding: 0px 0px 3px;
 }
 #update:hover{
     cursor: pointer;
@@ -280,6 +282,11 @@ body{
     }
     #back{
         padding: 6.5px 9px;
+    }
+    #update{
+        margin-top: -2px;
+        padding: 0px 0px 0px;
+
     }
     /*-------bxslider--------*/
     .bx-wrapper{
