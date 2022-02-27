@@ -72,6 +72,8 @@ branch, merge 등을 사용하면서 깃을 통한 협업을 알아가는데 많
 ![회원가입 및 로그인](https://user-images.githubusercontent.com/52206904/155304211-0bcc517a-52bf-4727-8b10-005fccda5470.gif)
 
 ### 소개글
+![소개글](https://user-images.githubusercontent.com/52206904/155862883-22c51f85-1097-48b9-bfbd-c737a95f3f6a.gif)
+
 
 ### 게시판 및 공지사항
 
