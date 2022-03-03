@@ -5,7 +5,7 @@
 
 ## Front-End 김도현
 <p>
-### :dog: Use Stack :dog:
+    :dog: ### Use Stack :dog:
 </p>
 <p>
     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
@@ -14,7 +14,7 @@
     <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=black">
 </p>
 <p>
-### :frog: Tools :frog:
+    :frog: ### Tools :frog:
 </p>
 <p>
     <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=black">
