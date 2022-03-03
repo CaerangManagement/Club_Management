@@ -30,7 +30,7 @@ public class BoardController {
      * 게시글 리스트 조회
      */
     @GetMapping("board/list")
-    public String board_list(Model model , @PageableDefault(size = 10 , sort="createdDate", direction = Sort.Direction.DESC) Pageable pageable,
+    public String board_list(Model model , @PageableDefault(size = 10 , sort="id", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
                              @RequestParam(value ="searchType", required = false, defaultValue = "1") String searchType){
 
