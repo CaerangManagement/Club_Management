@@ -4,22 +4,28 @@
 *  ### 웹 리뷰
 
 ## Front-End 김도현
+
+### :dog: Use Stack :dog:
 <p>
-:dog: Use Stack :dog:
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
+    <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
 </p>
+
+### :frog: Tools :frog:
 <p>
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=black">
-    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=black">
-    <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=black">
+    <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
 </p>
-<p>
-:frog: Tools :frog:
-</p>
-<p>
-    <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=black">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=black">
-</p>
+
+### 해당 프로젝트에서 내가 맡은 역할
+이 프로젝트에서 나는 Front-End를 맡아 개발하였다. 이 프로젝트의 디자인, 기능 등 전반적인 기획을 도맡아 했다.
+기능을 구현하기 위해 바닐라 자바스크립트로 개발하게되었는데 생 JS로 하려니까 굉장히 복잡하고 코드가 길어져 가독성이 떨어지는 문제가 있었다.
+그리고 프로젝트를 진행하며 가장 어려웠던 부분은 디자인이다. 그냥 백지상태에서 디자인을 하려니 원래 미적 감각이 부족한 나는 굉장히 고민을 많이 하게되었다.
+코딩하는 시간보다 고민하는 시간이 많았다고 해도 과언이 아니다. 
+
+### 협업을 하며 느낀 점
 첫 협업이라 깃 사용에 어려움이 있었다.
 버전관리의 중요성을 인지하지 못했었고 서로 같은 부분을 만졌을때 conflict 오류로 손수 merge했던 어려움 등이 있었다.
 이 문제들은 차츰차츰 Git에 적응이 되어가며 실수를 하지 않으면서 발생하지 않게 되었다.
