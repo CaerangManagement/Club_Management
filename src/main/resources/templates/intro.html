@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../static/css/header_reaction.css" th:href="@{/css/header_reaction.css}">
     <link rel="stylesheet" href="../static/css/intro_style.css" th:href="@{/css/intro_style.css}">
     <link rel="stylesheet" href="../static/css/disabled.css" th:href="@{/css/disabled.css}">
-    <link rel="stylesheet" href="../static/css/hidden.css">
+    <link rel="stylesheet" href="../static/css/hidden.css" th:href="@{/css/hidden.css}">
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -119,39 +119,39 @@
         </div>
         <div id="select_img_wrap">
             <div id="latte_img" class="select_img_content hidden">
-                <img class="select_img" src="../static/img/latte1.jpg" alt="">
-                <img class="select_img" src="../static/img/latte2.jpg" alt="">
-                <img class="select_img" src="../static/img/latte3.jpg" alt="">
-                <img class="select_img" src="../static/img/latte4.jpg" alt="">
-                <img class="select_img" src="../static/img/latte5.jpg" alt="">
+                <img class="select_img" src="../static/img/latte1.jpg" th:src="@{/img/latte1.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte2.jpg" th:src="@{/img/latte2.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte3.jpg" th:src="@{/img/latte3.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte4.jpg" th:src="@{/img/latte4.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte5.jpg" th:src="@{/img/latte5.jpg}" alt="">
             </div>
             <div id="raon_img" class="select_img_content hidden">
-                <img class="select_img" src="../static/img/raon1.jpg" alt="">
-                <img class="select_img" src="../static/img/raon2.jpg" alt="">
-                <img class="select_img" src="../static/img/raon3.jpg" alt="">
-                <img class="select_img" src="../static/img/raon4.jpg" alt="">
-                <img class="select_img" src="../static/img/raon5.jpg" alt="">
+                <img class="select_img" src="../static/img/raon1.jpg" th:src="@{/img/raon1.jpg}" alt="">
+                <img class="select_img" src="../static/img/raon2.jpg" th:src="@{/img/raon2.jpg}" alt="">
+                <img class="select_img" src="../static/img/raon3.jpg" th:src="@{/img/raon3.jpg}" alt="">
+                <img class="select_img" src="../static/img/raon4.jpg" th:src="@{/img/raon4.jpg}" alt="">
+                <img class="select_img" src="../static/img/raon5.jpg" th:src="@{/img/raon5.jpg}" alt="">
             </div>
             <div id="core_img" class="select_img_content hidden">
-                <img class="select_img" src="../static/img/latte1.jpg" alt="">
-                <img class="select_img" src="../static/img/latte2.jpg" alt="">
-                <img class="select_img" src="../static/img/latte3.jpg" alt="">
-                <img class="select_img" src="../static/img/latte4.jpg" alt="">
-                <img class="select_img" src="../static/img/latte5.jpg" alt="">
+                <img class="select_img" src="../static/img/latte1.jpg" th:src="@{/img/latte1.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte2.jpg" th:src="@{/img/latte2.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte3.jpg" th:src="@{/img/latte3.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte4.jpg" th:src="@{/img/latte4.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte5.jpg" th:src="@{/img/latte5.jpg}" alt="">
             </div>
             <div id="tag_img" class="select_img_content hidden">
-                <img class="select_img" src="../static/img/raon1.jpg" alt="">
-                <img class="select_img" src="../static/img/raon2.jpg" alt="">
-                <img class="select_img" src="../static/img/raon3.jpg" alt="">
-                <img class="select_img" src="../static/img/raon4.jpg" alt="">
-                <img class="select_img" src="../static/img/raon5.jpg" alt="">
+                <img class="select_img" src="../static/img/raon1.jpg" th:src="@{/img/raon1.jpg}" alt="">
+                <img class="select_img" src="../static/img/raon2.jpg" th:src="@{/img/raon2.jpg}" alt="">
+                <img class="select_img" src="../static/img/raon3.jpg" th:src="@{/img/raon3.jpg}" alt="">
+                <img class="select_img" src="../static/img/raon4.jpg" th:src="@{/img/raon4.jpg}" alt="">
+                <img class="select_img" src="../static/img/raon5.jpg" th:src="@{/img/raon5.jpg}" alt="">
             </div>
             <div id="tensor_img" class="select_img_content hidden">
-                <img class="select_img" src="../static/img/latte1.jpg" alt="">
-                <img class="select_img" src="../static/img/latte2.jpg" alt="">
-                <img class="select_img" src="../static/img/latte3.jpg" alt="">
-                <img class="select_img" src="../static/img/latte4.jpg" alt="">
-                <img class="select_img" src="../static/img/latte5.jpg" alt="">
+                <img class="select_img" src="../static/img/latte1.jpg" th:src="@{/img/latte1.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte2.jpg" th:src="@{/img/latte2.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte3.jpg" th:src="@{/img/latte3.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte4.jpg" th:src="@{/img/latte4.jpg}" alt="">
+                <img class="select_img" src="../static/img/latte5.jpg" th:src="@{/img/latte5.jpg}" alt="">
             </div>
         </div>
     </div>
@@ -253,5 +253,5 @@
 <script src="../static/js/noticeBoard.js" th:src="@{/js/noticeBoard.js}"></script>
 <script src="https://kit.fontawesome.com/55d5c28d52.js" crossorigin="anonymous"></script>
 <script src="../static/js/menu.js" th:src="@{/js/menu.js}"></script>
-<script src="../static/js/intro.js"></script>
+<script src="../static/js/intro.js" th:src="@{/js/intro.js}"></script>
 </html>
