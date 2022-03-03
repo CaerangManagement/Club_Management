@@ -19,6 +19,8 @@ const tensorImg = document.getElementById('tensor_img');
 const selectWrap = document.getElementById('select_wrap');
 const sect = document.getElementById('sect');
 
+const selectContent = document.getElementById('select_content');
+
 function latteOn(){
     if(raonOnOff||coreOnOff||tagOnOff||tensorOnOff == true){
         latteImg.classList.remove('hidden');
@@ -26,7 +28,7 @@ function latteOn(){
         coreImg.classList.add('hidden');
         tagImg.classList.add('hidden');
         tensorImg.classList.add('hidden');
-        
+        selectContent.style.backgroundColor='#EBEBEB';
         selectWrap.style.height='90%';
         selectWrap.style.backgroundColor='rgb(245, 245, 245)';
         sect.style.height='180%';
@@ -35,7 +37,6 @@ function latteOn(){
         coreBtn.style.opacity='0.7';
         tagBtn.style.opacity='0.7';
         tensorBtn.style.opacity='0.7';
-
         latteOnOff = true;
         raonOnOff = false;
         coreOnOff = false;
@@ -44,7 +45,7 @@ function latteOn(){
     }else{
         if(latteOnOff==true){
             latteImg.classList.add('hidden');
-
+            selectContent.style.backgroundColor='none';
             selectWrap.style.height='8%';
             selectWrap.style.backgroundColor='white';
             sect.style.height='100%';
@@ -54,9 +55,11 @@ function latteOn(){
             tagBtn.style.opacity='1';
             tensorBtn.style.opacity='1';
             latteOnOff = false;
+            selectContent.style.backgroundColor='transparent';
+
         }else{
             latteImg.classList.remove('hidden');
-
+        selectContent.style.backgroundColor='#EBEBEB';
             selectWrap.style.height='90%';
             selectWrap.style.backgroundColor='rgb(245, 245, 245)';
             sect.style.height='180%';
@@ -78,7 +81,7 @@ function raonOn(){
         coreImg.classList.add('hidden');
         tagImg.classList.add('hidden');
         tensorImg.classList.add('hidden');
-        
+        selectContent.style.backgroundColor='#EBEBEB';
         selectWrap.style.height='90%';
         selectWrap.style.backgroundColor='rgb(245, 245, 245)';
         sect.style.height='180%';
@@ -97,7 +100,7 @@ function raonOn(){
     }else{
         if(raonOnOff==true){
             raonImg.classList.add('hidden');
-            
+            selectContent.style.backgroundColor='transparent';
             selectWrap.style.height='8%';
             selectWrap.style.backgroundColor='white';
             sect.style.height='100%';
@@ -109,7 +112,7 @@ function raonOn(){
             raonOnOff = false;
         }else{
             raonImg.classList.remove('hidden');
-
+        selectContent.style.backgroundColor='#EBEBEB';
             selectWrap.style.height='90%';
             selectWrap.style.backgroundColor='rgb(245, 245, 245)';
             latteBtn.style.opacity='0.7';
@@ -132,7 +135,7 @@ function coreOn(){
         coreImg.classList.remove('hidden');
         tagImg.classList.add('hidden');
         tensorImg.classList.add('hidden');
-        
+        selectContent.style.backgroundColor='#EBEBEB';
         selectWrap.style.height='90%';
         selectWrap.style.backgroundColor='rgb(245, 245, 245)';
         latteBtn.style.opacity='0.7';
@@ -151,7 +154,7 @@ function coreOn(){
     }else{
         if(coreOnOff==true){
             coreImg.classList.add('hidden');
-
+            selectContent.style.backgroundColor='transparent';
             selectWrap.style.height='8%';
             selectWrap.style.backgroundColor='white';
             sect.style.height='100%';
@@ -163,7 +166,7 @@ function coreOn(){
             coreOnOff = false;
         }else{
             coreImg.classList.remove('hidden');
-
+        selectContent.style.backgroundColor='#EBEBEB';
             selectWrap.style.height='90%';
             selectWrap.style.backgroundColor='rgb(245, 245, 245)';
             latteBtn.style.opacity='0.7';
@@ -186,7 +189,7 @@ function tagOn(){
         coreImg.classList.add('hidden');
         tagImg.classList.remove('hidden');
         tensorImg.classList.add('hidden');
-        
+        selectContent.style.backgroundColor='#EBEBEB';
         selectWrap.style.height='90%';
         selectWrap.style.backgroundColor='rgb(245, 245, 245)';
         latteBtn.style.opacity='0.7';
@@ -205,7 +208,7 @@ function tagOn(){
     }else{
         if(tagOnOff==true){
             tagImg.classList.add('hidden');
-
+            selectContent.style.backgroundColor='transparent';
             selectWrap.style.height='8%';
             selectWrap.style.backgroundColor='white';
             sect.style.height='100%';
@@ -217,7 +220,7 @@ function tagOn(){
             tagOnOff = false;
         }else{
             tagImg.classList.remove('hidden');
-
+        selectContent.style.backgroundColor='#EBEBEB';
             selectWrap.style.height='90%';
             selectWrap.style.backgroundColor='rgb(245, 245, 245)';
             latteBtn.style.opacity='0.7';
@@ -240,7 +243,7 @@ function tensorOn(){
         coreImg.classList.add('hidden');
         tagImg.classList.add('hidden');
         tensorImg.classList.remove('hidden');
-        
+        selectContent.style.backgroundColor='#EBEBEB';
         selectWrap.style.height='90%';
         selectWrap.style.backgroundColor='rgb(245, 245, 245)';
         latteBtn.style.opacity='0.7';
@@ -259,7 +262,7 @@ function tensorOn(){
     }else{
         if(tensorOnOff==true){
             tensorImg.classList.add('hidden');
-
+            selectContent.style.backgroundColor='transparent';
             selectWrap.style.height='8%';
             selectWrap.style.backgroundColor='white';
             sect.style.height='100%';
@@ -271,7 +274,7 @@ function tensorOn(){
             tensorOnOff = false;
         }else{
             tensorImg.classList.remove('hidden');
-
+        selectContent.style.backgroundColor='#EBEBEB';
             selectWrap.style.height='90%';
             selectWrap.style.backgroundColor='rgb(245, 245, 245)';
             latteBtn.style.opacity='0.7';
