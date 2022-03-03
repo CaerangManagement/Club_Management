@@ -5,9 +5,20 @@
 
 ## Front-End 김도현
 <p>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=black">
-
+:dog: Use Stack :dog:
+</p>
+<p>
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=black">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=black">
+    <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=black">
+</p>
+<p>
+:frog: Tools :frog:
+</p>
+<p>
+    <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=black">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=black">
 </p>
 첫 협업이라 깃 사용에 어려움이 있었다.
 버전관리의 중요성을 인지하지 못했었고 서로 같은 부분을 만졌을때 conflict 오류로 손수 merge했던 어려움 등이 있었다.
