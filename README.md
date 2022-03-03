@@ -4,6 +4,10 @@
 *  ### 웹 리뷰
 
 ## Front-End 김도현
+<p>
+<img src="https://img.shields.io/badge/이름-색상코드?style=flat-square&logo=로고명&logoColor=로고색"/>
+<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white"/>
+</p>
 첫 협업이라 깃 사용에 어려움이 있었다.
 버전관리의 중요성을 인지하지 못했었고 서로 같은 부분을 만졌을때 conflict 오류로 손수 merge했던 어려움 등이 있었다.
 이 문제들은 차츰차츰 Git에 적응이 되어가며 실수를 하지 않으면서 발생하지 않게 되었다.
